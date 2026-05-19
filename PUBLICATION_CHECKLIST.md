@@ -58,7 +58,7 @@ Expected before public-link insertion:
 - `verify-landing-copy.mjs` reports the landing launch-kit copy controls and target prompt text with zero failures.
 - `verify-transcript-pack.mjs` reports 8 checked cases and zero failures.
 - `verify-first-reply-acceptance.mjs` reports 8 checked first replies and zero failures.
-- `verify-console-behavior.mjs` reports 8 checked behavior cases and zero failures.
+- `verify-console-behavior.mjs` reports 9 checked behavior cases and zero failures.
 - `verify-public-bundle.mjs` reports zero failures.
 - `verify-clean-public-stage.mjs` stages into a temporary separate folder, verifies the staged payload, removes the temporary target, and reports zero failures.
 - `final-review-smoke.mjs --expect-blocked` reports `status: "pass"` before the final public link is inserted.
