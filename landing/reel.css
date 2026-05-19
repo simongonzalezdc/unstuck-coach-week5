@@ -1,11 +1,11 @@
 .reel-page {
   background:
-    linear-gradient(90deg, rgba(6, 9, 16, 0.022) 0 1px, transparent 1px 128px),
-    linear-gradient(180deg, rgba(6, 9, 16, 0.02) 0 1px, transparent 1px 128px),
-    radial-gradient(circle at 84% 8%, rgba(0, 215, 232, 0.08), transparent 25rem),
-    radial-gradient(circle at 8% 78%, rgba(255, 20, 127, 0.05), transparent 23rem),
-    linear-gradient(125deg, rgba(214, 163, 56, 0.08), transparent 34%),
-    linear-gradient(235deg, rgba(44, 123, 115, 0.08), transparent 38%),
+    linear-gradient(90deg, rgba(6, 9, 16, 0.018) 0 1px, transparent 1px 142px),
+    linear-gradient(180deg, rgba(6, 9, 16, 0.016) 0 1px, transparent 1px 142px),
+    radial-gradient(circle at 84% 8%, rgba(111, 199, 197, 0.12), transparent 25rem),
+    radial-gradient(circle at 8% 78%, rgba(214, 95, 53, 0.075), transparent 23rem),
+    linear-gradient(125deg, rgba(217, 167, 47, 0.085), transparent 34%),
+    linear-gradient(235deg, rgba(47, 142, 134, 0.08), transparent 38%),
     var(--paper);
 }
 
@@ -24,7 +24,7 @@
   min-height: calc(100dvh - 5.8rem);
   display: grid;
   grid-template-columns: minmax(0, 0.86fr) minmax(31rem, 1.14fr);
-  gap: 4.2rem;
+  gap: 4.6rem;
   align-items: center;
   padding: 5.7rem max(1.5rem, calc((100vw - 1180px) / 2));
   scroll-snap-align: start;
@@ -40,10 +40,11 @@
   border: 1px solid rgba(6, 9, 16, 0.1);
   border-radius: var(--radius);
   background:
-    linear-gradient(90deg, rgba(255, 250, 242, 0.95), rgba(255, 248, 236, 0.68) 58%, rgba(255, 248, 236, 0.18)),
-    repeating-linear-gradient(135deg, rgba(6, 9, 16, 0.038) 0 1px, transparent 1px 48px),
-    repeating-linear-gradient(90deg, rgba(217, 208, 196, 0.28) 0 1px, transparent 1px 132px),
-    repeating-linear-gradient(0deg, rgba(217, 208, 196, 0.24) 0 1px, transparent 1px 132px);
+    linear-gradient(90deg, rgba(255, 250, 242, 0.96), rgba(255, 248, 236, 0.68) 58%, rgba(255, 248, 236, 0.2)),
+    linear-gradient(120deg, rgba(47, 142, 134, 0.075), transparent 36%, rgba(217, 167, 47, 0.075)),
+    repeating-linear-gradient(135deg, rgba(6, 9, 16, 0.028) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(90deg, rgba(217, 208, 196, 0.24) 0 1px, transparent 1px 142px),
+    repeating-linear-gradient(0deg, rgba(217, 208, 196, 0.2) 0 1px, transparent 1px 142px);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
     inset 0 0 0 0.42rem rgba(255, 245, 220, 0.22);
@@ -56,9 +57,11 @@
   top: 9.2rem;
   bottom: 5.2rem;
   z-index: 0;
-  width: 0.25rem;
+  width: 0.22rem;
   border-radius: 999px;
-  background: linear-gradient(180deg, var(--steel), var(--cyan), var(--lime), var(--gold), var(--orange), var(--magenta));
+  background:
+    linear-gradient(180deg, var(--taste-ink), var(--taste-teal), var(--taste-cyan), var(--taste-saffron), var(--taste-clay), var(--taste-berry)),
+    repeating-linear-gradient(180deg, transparent 0 20px, rgba(255, 248, 236, 0.74) 20px 22px, transparent 22px 42px);
   box-shadow:
     0 0 0 1px rgba(6, 9, 16, 0.72),
     0 18px 34px rgba(255, 75, 31, 0.1);
@@ -66,7 +69,7 @@
 
 .reel-slide:nth-child(odd) {
   background:
-    linear-gradient(135deg, rgba(126, 203, 208, 0.06), rgba(255, 248, 236, 0.7) 42%, rgba(214, 163, 56, 0.065)),
+    linear-gradient(135deg, rgba(111, 199, 197, 0.065), rgba(255, 248, 236, 0.7) 42%, rgba(217, 167, 47, 0.07)),
     var(--paper);
 }
 
@@ -88,7 +91,7 @@
   margin: 0;
   max-width: 11.5ch;
   font-family: "PP Editorial New", "Canela", "Fraunces", Georgia, serif;
-  font-size: 4.25rem;
+  font-size: 4.45rem;
   font-weight: 560;
   line-height: 0.985;
   padding-bottom: 0.1em;
@@ -111,7 +114,7 @@
   border-radius: var(--radius);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.76),
-    0 28px 70px rgba(6, 9, 16, 0.16);
+    0 32px 80px rgba(6, 9, 16, 0.17);
   overflow: hidden;
 }
 
@@ -134,13 +137,15 @@
   padding: 2.2rem;
   color: var(--cream-line);
   background:
-    radial-gradient(circle at 50% 44%, rgba(255, 245, 220, 0.12), transparent 17rem),
-    repeating-linear-gradient(135deg, transparent 0 34px, rgba(255, 245, 220, 0.055) 34px 35px, transparent 35px 74px),
+    radial-gradient(circle at 50% 44%, rgba(255, 245, 220, 0.11), transparent 17rem),
+    radial-gradient(circle at 82% 86%, rgba(159, 54, 95, 0.15), transparent 16rem),
+    repeating-linear-gradient(135deg, transparent 0 38px, rgba(255, 245, 220, 0.052) 38px 39px, transparent 39px 82px),
     linear-gradient(145deg, rgba(6, 9, 16, 0.98), rgba(6, 67, 74, 0.96));
   outline: 1px solid rgba(255, 245, 220, 0.56);
   outline-offset: -0.78rem;
   border-color: var(--ink);
   border-top: 7px solid var(--magenta);
+  border-top: 7px solid var(--taste-berry);
   transform: rotate(1.2deg);
 }
 
@@ -181,9 +186,9 @@
   border: 2px solid var(--ink);
   border-radius: var(--radius);
   background:
-    linear-gradient(90deg, var(--steel) 0 22%, var(--sage) 22% 37%, var(--cyan) 37% 50%, var(--lime) 50% 60%, var(--gold) 60% 70%, var(--orange) 70% 84%, var(--magenta-muted) 84% 100%);
-  clip-path: polygon(0 26%, 9% 0, 18% 26%, 27% 0, 36% 26%, 45% 0, 54% 26%, 63% 0, 72% 26%, 81% 0, 100% 26%, 100% 100%, 0 100%);
-  opacity: 0.54;
+    linear-gradient(90deg, var(--taste-ink) 0 22%, var(--taste-teal) 22% 38%, var(--taste-cyan) 38% 51%, var(--taste-lichen) 51% 61%, var(--taste-saffron) 61% 72%, var(--taste-clay) 72% 86%, var(--taste-berry) 86% 100%);
+  clip-path: polygon(0 22%, 8% 0, 16% 22%, 24% 0, 32% 22%, 40% 0, 48% 22%, 56% 0, 64% 22%, 72% 0, 80% 22%, 88% 0, 100% 22%, 100% 100%, 0 100%);
+  opacity: 0.46;
   transform: rotate(-13deg);
 }
 
@@ -192,7 +197,7 @@
   gap: 0.72rem;
   background:
     linear-gradient(90deg, var(--steel), var(--ink) 46%, #07101c),
-    repeating-linear-gradient(90deg, transparent 0 38px, rgba(255, 245, 220, 0.1) 38px 39px, transparent 39px 76px);
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(255, 245, 220, 0.09) 46px 47px, transparent 47px 92px);
   padding: 0.72rem;
 }
 
@@ -217,25 +222,25 @@
   border: 1px solid rgba(255, 245, 220, 0.34);
   border-radius: 5px;
   background:
-    repeating-linear-gradient(90deg, rgba(6, 9, 16, 0.018) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(90deg, rgba(6, 9, 16, 0.014) 0 1px, transparent 1px 32px),
     linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(251, 241, 223, 0.84));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
 }
 
 .slide-grid article:nth-child(1) {
-  border-top: 5px solid var(--cyan);
+  border-top: 5px solid var(--taste-cyan);
 }
 
 .slide-grid article:nth-child(2) {
-  border-top: 5px solid var(--lime);
+  border-top: 5px solid var(--taste-lichen);
 }
 
 .slide-grid article:nth-child(3) {
-  border-top: 5px solid var(--gold);
+  border-top: 5px solid var(--taste-saffron);
 }
 
 .slide-grid article:nth-child(4) {
-  border-top: 5px solid var(--start);
+  border-top: 5px solid var(--taste-clay);
 }
 
 .slide-grid strong {
@@ -254,7 +259,7 @@
 .final-slide {
   color: var(--cream-line);
   background:
-    linear-gradient(145deg, rgba(8, 7, 5, 0.96), rgba(23, 63, 62, 0.92) 58%, rgba(125, 49, 37, 0.4)),
+    linear-gradient(145deg, rgba(8, 7, 5, 0.96), rgba(23, 63, 62, 0.92) 58%, rgba(159, 54, 95, 0.34)),
     var(--ink);
 }
 

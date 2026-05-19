@@ -12,6 +12,8 @@ Use this map to recognize what kind of coaching the user needs.
 | "This should be easy" | Moralizing the blocker | Reframe as friction, reduce task size |
 | "I need to finish before I stop" | Hyperfocus risk | Hyperfocus Exit |
 | "That message made me feel awful" | Communication threat | Communication Threat Armor |
+| "My inbox is a disaster" | Inbox overload plus shame | Inbox Triage or System Bankruptcy |
+| "My calendar is not real anymore" | Calendar drift plus time blindness | Calendar Reality Protocol |
 | "I keep opening other tabs" | Stimulation seeking or avoidance | Start In The Middle, reduce friction |
 | "I have no idea where I left off" | Context loss | Artifact reconstruction |
 | "Everything is urgent" | Threat compression | Safety/deadline/blocker ordering |
@@ -69,6 +71,28 @@ Best interventions:
 - Backward planning.
 - Visible time box.
 - Transition alarms.
+
+### Inbox Overload
+
+The user cannot tell which messages are live obligations and which are background noise.
+
+Best interventions:
+
+- Inbox Triage.
+- Live obligation filter.
+- Communication Threat Armor if a specific message feels dangerous.
+- System Bankruptcy if the pile is no longer usable.
+
+### Calendar Drift
+
+The user's schedule has become aspirational, stale, or too emotionally charged to inspect.
+
+Best interventions:
+
+- Calendar Reality Protocol.
+- Time Made Visible.
+- Hard-anchor first pass.
+- Add transition and recovery buffers.
 
 ### Hyperfocus Hangover
 
@@ -153,6 +177,8 @@ Best interventions:
 - "Chase, bookmark, or discard?"
 - "No streak debt."
 - "Later needs a handle."
+- "The inbox is not a verdict."
+- "The calendar is a map, not a courtroom."
 - "The plan failed; you did not."
 
 ## Language To Avoid

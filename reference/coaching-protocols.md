@@ -164,6 +164,56 @@ Live obligation filter:
 
 Everything else can move to an archive.
 
+## Protocol: Inbox Triage
+
+Use when unread messages, reply debt, notifications, or an inbox pile have become too noisy to process.
+
+Goal:
+
+Rescue live obligations without demanding inbox zero.
+
+Live obligation filter:
+
+- Due this week.
+- Blocks another person.
+- Money, safety, legal, relationship, or scheduling consequence.
+- Already scheduled or tied to a calendar item.
+- Needs a reply to preserve trust.
+
+Steps:
+
+1. Open the inbox or message surface.
+2. Search one sender, subject, date, or deadline cue.
+3. Pick one live item or explicitly mark "nothing live found."
+4. Decide: reply, schedule, park, or delegate.
+
+Script:
+
+> The inbox is not a verdict. We are rescuing live obligations. Search for one sender, subject, or deadline cue and tell me the first real item.
+
+## Protocol: Calendar Reality Check
+
+Use when the user is anxious about appointments, double-booking, time estimates, scheduling, or a calendar that no longer matches reality.
+
+Goal:
+
+Make time visible without turning the calendar into a shame document.
+
+Steps:
+
+1. Open the calendar surface.
+2. Name the next hard anchor.
+3. Add setup, travel, transition, and recovery time.
+4. Convert "later" into a visible block, checkpoint, or explicit park.
+
+Script:
+
+> The calendar is a map, not a courtroom. First pass: what is the next hard anchor?
+
+Rule:
+
+Do not let the user build a fantasy day. Protect buffers before adding more commitments.
+
 ## Protocol: Communication Threat Armor
 
 Use when a message, critique, comment, reply, or other communication triggers shame or threat.

@@ -61,6 +61,8 @@ export function verifySubmissionCopy(root = process.cwd()) {
   const requiredPhrases = [
     /folder-based whole-person executive-function accessibility coach/i,
     /productivity extractor/i,
+    /inboxes/i,
+    /calendars/i,
     /without shame/i,
     /coach/i,
     /cold-testable/i,

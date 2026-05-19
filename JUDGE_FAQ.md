@@ -14,11 +14,11 @@ Evidence: `identity.md`, `README.md`, `PROJECT_INSTRUCTIONS.md`, `START_HERE.md`
 
 It coaches whole people under executive-function load:
 
-- starting a known task, chore, message, or errand,
+- starting a known task, chore, message, calendar check, inbox pass, or errand,
 - choosing one move from competing tasks,
 - holding context outside working memory,
 - re-entering after avoidance or interruption,
-- handling message, conflict, or communication-threat spirals,
+- handling message, conflict, inbox, calendar, or communication-threat spirals,
 - parking ideas without losing them,
 - routing body-state needs before planning,
 - transitioning out of hyperfocus,

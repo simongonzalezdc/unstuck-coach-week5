@@ -37,6 +37,16 @@ const defaultCases = [
     },
   },
   {
+    name: "calendar inbox overload",
+    input: "My inbox and calendar are a mess and I do not know what is real.",
+    expected: {
+      state: "Yellow",
+      friction: "Calendar/inbox overload",
+      move: "Rescue live obligations.",
+      check: "One hard anchor or live item.",
+    },
+  },
+  {
     name: "working-memory overload",
     input: "I need to shower, answer the text, find the form, and clean the kitchen.",
     expected: {
@@ -122,6 +132,7 @@ function makeHarness() {
   const sampleChips = [
     "I need a coach to get started on this.",
     "That message makes me feel like I did something wrong.",
+    "My inbox and calendar are a mess and I do not know what is real.",
     "I need to shower, answer the text, find the form, and clean the kitchen.",
     "idea: make a shutdown checklist for Sunday nights",
   ].map((sample) => makeElement({ sample }));

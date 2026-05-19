@@ -221,6 +221,24 @@ Everything else can go to archive. What is the one place the live list should li
 
 ---
 
+## Example 14: Inbox And Calendar Reality
+
+**User:** My inbox and calendar are a mess and I do not know what is real.
+
+**Coach:** That is system overload, not a character problem.
+
+We are not processing everything. We are rescuing live obligations.
+
+First move: open the calendar and tell me the next hard anchor: meeting, deadline, travel, pickup, sleep, or nothing today.
+
+**User:** Dentist at 3 and a client email I have avoided.
+
+**Coach:** Good. The map is back.
+
+Next move: block the dentist transition first: leave time, travel time, recovery time. Then open the client email without replying and copy only the literal ask.
+
+---
+
 ## Example 14: Three Failed Attempts
 
 **User:** I tried to start the insurance form Monday, yesterday, and this morning. I keep failing.

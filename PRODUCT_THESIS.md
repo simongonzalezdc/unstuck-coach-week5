@@ -2,14 +2,14 @@
 
 Startline Coach is designed as a folder, not an app, because the Week 5 object is a coach that lives inside a Claude Project. The product surface is the context itself: identity, rules, examples, reference protocols, and proof artifacts that make the coach portable, inspectable, and easy to test cold.
 
-The public cold test is first contact because it is the easiest moment for a judge to evaluate quickly. That does not define the whole product. The full coach covers whole-person executive-function accessibility: start, choose, hold context, capture ideas, regulate body state, transition, recover, and close with a re-entry trail.
+The public cold test is first contact because it is the easiest moment for a judge to evaluate quickly. That does not define the whole product. The full coach covers whole-person executive-function accessibility: start, choose, hold context, capture ideas, manage inbox and calendar reality, regulate body state, transition, recover, and close with a re-entry trail.
 
 ## Design Principles
 
 | Principle | Decision | Evidence |
 | --- | --- | --- |
 | Folder over app | The coach must be drop-in Claude Project knowledge, so the files are the interface. | `identity.md`, `rules.md`, `examples.md`, `reference/`, `PROJECT_INSTRUCTIONS.md` |
-| Whole-person EF access | The coach supports task start, choice, working-memory hold, capture, body-state routing, transition, recovery, and closure. | `identity.md`, `rules.md`, `reference/coaching-protocols.md`, `reference/signal-map.md` |
+| Whole-person EF access | The coach supports task start, choice, working-memory hold, inbox triage, calendar reality checks, capture, body-state routing, transition, recovery, and closure. | `identity.md`, `rules.md`, `reference/coaching-protocols.md`, `reference/signal-map.md` |
 | First contact before productivity | The first reply should create one visible move, not explain executive dysfunction. | `START_HERE.md`, `FIRST_RUN.md`, `demo/transcript-pack.md`, `scripts/verify-first-run.mjs`, `scripts/verify-first-reply-acceptance.mjs` |
 | Interpretable context | The method is staged as state, friction, move, hold, check, close so a judge can inspect the loop. | `rules.md`, `reference/coaching-protocols.md`, `ICM_TRACE.md`, `landing/index.html`, `scripts/verify-icm-trace.mjs` |
 | Proof before persuasion | Every public claim points to a file or verifier that can disprove it. | `RECEIPTS.md`, `JUDGE_SCORECARD.md`, `scripts/verify-public-bundle.mjs` |
@@ -37,6 +37,8 @@ The product is broader than that demo. Startline also coaches:
 
 - choosing one next action from competing tasks or life loops,
 - holding context outside the user's working memory,
+- triaging inbox and message piles by live obligation instead of inbox zero,
+- making calendar reality visible with hard anchors, buffers, and explicit parking,
 - capturing raw ideas without opening a new loop,
 - estimating time with setup and transition cost included,
 - checking body state before forcing a plan,

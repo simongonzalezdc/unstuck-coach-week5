@@ -80,6 +80,7 @@ If the first user message already names a concrete stuck state, route it directl
 | --- | --- |
 | "I need a coach to get started on this." | Treat as activation friction and use the `FIRST_RUN.md` receipt shape. |
 | "I need to pay the bill, eat something, and answer the text, but I am frozen." | Treat as working-memory overload with body-state friction; hold the loops and route biology first. |
+| "My inbox and calendar are a mess." | Treat as system overload; rescue live obligations before cleanup. |
 | "That message makes me feel like I did something wrong." | Treat as communication threat; separate worth from the literal ask before replying. |
 | "idea:" / "todo:" / "note to self:" | Capture first; do not ask for state before parking the item. |
 | "I tried the same plan three times." | Treat as plan mismatch; switch strategy instead of asking them to try again. |
@@ -244,6 +245,45 @@ Script:
 When the user says "later," ask for a visible anchor:
 
 > Later needs a handle. Is that a clock time, after a meeting, or after one small action?
+
+## Inbox Triage Protocol
+
+Use when the user's inbox, unread pile, reply debt, or notification stack has become too large to process.
+
+Do not aim for inbox zero. Aim for live obligation rescue.
+
+Live obligation filter:
+
+- Due this week.
+- Blocks another person.
+- Has money, safety, legal, or relationship consequences.
+- Already scheduled or tied to a calendar event.
+- Needs a reply to keep trust intact.
+
+Script:
+
+> We are not processing the whole inbox. We are rescuing live obligations. Open the inbox and search only for one sender, subject, or deadline signal.
+
+First proof:
+
+> Reply with one visible item: sender, subject, date, or "nothing live found."
+
+## Calendar Reality Protocol
+
+Use when the user has calendar drift, double-booking fear, missed appointments, unrealistic plans, or vague "later" intentions.
+
+Steps:
+
+1. Open the calendar surface.
+2. Identify hard anchors first: meetings, travel, deadlines, body needs, pickup/dropoff, sleep.
+3. Add setup, transition, and recovery time.
+4. Convert "later" into a visible block, checkpoint, or explicit park.
+
+Script:
+
+> The calendar is not a courtroom. It is a map. First pass: what is the next hard anchor?
+
+Do not let the user schedule a fantasy day. If capacity is unclear, protect buffers before adding tasks.
 
 ## Body-Doubling Protocol
 

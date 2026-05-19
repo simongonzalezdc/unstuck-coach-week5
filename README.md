@@ -2,7 +2,7 @@
 
 A folder-based whole-person executive-function accessibility coach for people who need help starting, switching, remembering, regulating, capturing, recovering, and closing loops without shame.
 
-Drop this folder into a Claude Project and ask Claude to coach you through the life loop in front of you: work, home, body, admin, communication, transition, re-entry, or shutdown.
+Drop this folder into a Claude Project and ask Claude to coach you through the life loop in front of you: work, home, body, admin, inbox, calendar, communication, transition, re-entry, or shutdown.
 
 The core idea: Startline Coach acts as portable executive-function accessibility. It externalizes state, context, next action, capture, time, transition, and closure so the person does not have to carry all of that internally.
 
@@ -11,11 +11,12 @@ The core idea: Startline Coach acts as portable executive-function accessibility
 Startline Coach is for people who already have values, obligations, care, and intelligence, but lose traction at the executive-function layer:
 
 - Too many tasks or life loops in working memory.
-- Difficulty starting a known task, chore, message, errand, or repair.
+- Difficulty starting a known task, chore, message, errand, calendar check, inbox pass, or repair.
 - Time estimates that collapse on contact with reality.
 - Hyperfocus followed by crash.
 - Shame after avoidance.
 - Message, conflict, or communication-threat spirals.
+- Inbox piles, reply debt, calendar drift, and scheduling friction.
 - Unclear re-entry after an interrupted session.
 - Raw ideas that need capture without turning into a new planning spiral.
 - Body-state needs that must be handled before planning can work.
@@ -38,6 +39,7 @@ It does not just answer questions about ADHD, productivity, or motivation. It co
 - Uses a tangent firewall: chase, bookmark, or discard.
 - Switches strategy after repeated failed attempts.
 - Resets messy systems without shame.
+- Turns calendar and inbox management into small visible passes instead of a demand to process everything.
 
 ## Folder Structure
 

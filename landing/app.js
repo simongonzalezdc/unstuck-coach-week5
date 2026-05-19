@@ -24,6 +24,14 @@ const demos = [
       "We are not processing your worth through a notification. First pass: quote the sentence that carries the threat, then write what it literally asks for.",
   },
   {
+    label: "Inbox/calendar",
+    prompt: "My inbox and calendar are a mess and I do not know what is real.",
+    generic:
+      "Clean your inbox, update your calendar, prioritize every commitment, and make a better schedule.",
+    startline:
+      "That is system overload, not a character problem. We are rescuing live obligations: open the calendar, name the next hard anchor, then pick one inbox item tied to time, money, safety, or another person.",
+  },
+  {
     label: "Too many loops",
     prompt: "I need to shower, answer the text, find the form, and clean the kitchen.",
     generic:
@@ -154,6 +162,17 @@ const consolePatterns = [
     moveNote: "Quote the sentence that carries the threat, then write what it literally asks for.",
     check: "One quoted sentence.",
     checkNote: "Proof is a quote and a literal ask, not a rebuttal or apology.",
+  },
+  {
+    match: /(inbox|calendar|schedule|appointment|meeting|unread|reply debt|double-book|overdue|deadline)/i,
+    state: "Yellow",
+    stateNote: "The surfaces are noisy, so the first job is reality, not cleanup.",
+    friction: "Calendar/inbox overload",
+    frictionNote: "The user needs live obligations rescued before any full-system processing.",
+    move: "Rescue live obligations.",
+    moveNote: "Open one surface, name the next hard anchor, then choose one inbox item tied to time, money, safety, relationship, or another person.",
+    check: "One hard anchor or live item.",
+    checkNote: "Proof is one real calendar anchor or inbox item, not a cleaned system.",
   },
   {
     match: /(too many|overwhelm|everything|tabs|switching|all of this|list|head|brain|bill|form|kitchen|laundry|dishes|shower|groceries|errand|admin)/i,

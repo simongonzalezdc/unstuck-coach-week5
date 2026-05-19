@@ -22,6 +22,14 @@
   --magenta: #ff147f;
   --magenta-muted: #c8004d;
   --sky-muted: #00f0d4;
+  --taste-teal: #2f8e86;
+  --taste-cyan: #6fc7c5;
+  --taste-lichen: #a7af48;
+  --taste-saffron: #d9a72f;
+  --taste-clay: #d65f35;
+  --taste-berry: #9f365f;
+  --taste-ink: #07101c;
+  --taste-veil: rgba(255, 248, 236, 0.68);
   --shadow-ambient: 0 30px 84px rgba(36, 33, 31, 0.14);
   --shadow-soft: 0 18px 52px rgba(36, 33, 31, 0.11);
   --shadow-tight: 0 8px 24px rgba(36, 33, 31, 0.09);
@@ -47,12 +55,12 @@ body {
   min-width: 320px;
   margin: 0;
   background:
-    linear-gradient(90deg, rgba(6, 9, 16, 0.022) 0 1px, transparent 1px 128px),
-    linear-gradient(180deg, rgba(6, 9, 16, 0.02) 0 1px, transparent 1px 128px),
-    radial-gradient(circle at 88% 8%, rgba(0, 215, 232, 0.08), transparent 26rem),
-    radial-gradient(circle at 8% 78%, rgba(255, 20, 127, 0.055), transparent 24rem),
-    linear-gradient(132deg, rgba(255, 192, 24, 0.07) 0%, transparent 38%),
-    linear-gradient(180deg, var(--surface) 0%, var(--paper) 48%, #f1dfc5 100%);
+    linear-gradient(90deg, rgba(6, 9, 16, 0.018) 0 1px, transparent 1px 142px),
+    linear-gradient(180deg, rgba(6, 9, 16, 0.016) 0 1px, transparent 1px 142px),
+    radial-gradient(circle at 82% 8%, rgba(111, 199, 197, 0.13), transparent 25rem),
+    radial-gradient(circle at 12% 82%, rgba(214, 95, 53, 0.08), transparent 26rem),
+    linear-gradient(132deg, rgba(217, 167, 47, 0.08) 0%, transparent 34%),
+    linear-gradient(180deg, var(--surface) 0%, var(--paper) 52%, #f0dfc4 100%);
   color: var(--ink);
   font-size: 16px;
   line-height: 1.5;
@@ -76,12 +84,14 @@ body::after {
   position: fixed;
   inset: 0 auto 0 0;
   z-index: 3;
-  width: 0.54rem;
+  width: 0.46rem;
   pointer-events: none;
   background:
-    linear-gradient(180deg, var(--steel), var(--cyan) 23%, var(--lime) 40%, var(--gold) 58%, var(--orange) 74%, var(--magenta)),
-    repeating-linear-gradient(180deg, transparent 0 24px, rgba(255, 245, 220, 0.86) 24px 26px, transparent 26px 54px);
-  box-shadow: 1px 0 0 rgba(6, 9, 16, 0.74);
+    linear-gradient(180deg, var(--taste-ink), var(--taste-teal) 24%, var(--taste-lichen) 42%, var(--taste-saffron) 61%, var(--taste-clay) 78%, var(--taste-berry)),
+    repeating-linear-gradient(180deg, transparent 0 34px, rgba(255, 245, 220, 0.72) 34px 37px, transparent 37px 72px);
+  box-shadow:
+    1px 0 0 rgba(6, 9, 16, 0.58),
+    10px 0 34px rgba(6, 9, 16, 0.06);
 }
 
 a {
@@ -117,13 +127,14 @@ button {
   gap: 1rem;
   min-height: 3.48rem;
   padding: 0.34rem 0.42rem 0.34rem 0.62rem;
-  border: 1px solid rgba(6, 9, 16, 0.2);
+  border: 1px solid rgba(6, 9, 16, 0.18);
   border-radius: 999px;
-  background: rgba(255, 253, 246, 0.84);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 246, 0.92), rgba(255, 248, 236, 0.82));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.84),
     inset 0 -1px 0 rgba(6, 9, 16, 0.05),
-    0 18px 48px rgba(36, 33, 31, 0.11);
+    0 18px 48px rgba(36, 33, 31, 0.09);
   backdrop-filter: blur(20px) saturate(1.18);
 }
 
@@ -154,7 +165,7 @@ button {
   border: 2px solid rgba(6, 9, 16, 0.9);
   border-radius: 50%;
   background:
-    conic-gradient(from 210deg, var(--cyan), var(--lime), var(--gold), var(--orange), var(--magenta), var(--sage), var(--cyan));
+    conic-gradient(from 210deg, var(--taste-cyan), var(--taste-lichen), var(--taste-saffron), var(--taste-clay), var(--taste-berry), var(--taste-teal), var(--taste-cyan));
   box-shadow:
     inset 0 0 0 5px rgba(255, 253, 246, 0.82),
     0 9px 18px rgba(71, 51, 30, 0.13);
@@ -247,10 +258,10 @@ button {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(31rem, 1.1fr);
   align-items: center;
-  gap: 4.65rem;
+  gap: 4.9rem;
   width: var(--wrap);
   margin: 0 auto;
-  padding: 8.65rem 0 5.6rem;
+  padding: 9rem 0 5.8rem;
   isolation: isolate;
 }
 
@@ -260,10 +271,11 @@ button {
   inset: 6.7rem -1.85rem 2.05rem;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(255, 250, 242, 0.97), rgba(255, 248, 236, 0.72) 56%, rgba(255, 248, 236, 0.18)),
-    repeating-linear-gradient(135deg, rgba(6, 9, 16, 0.038) 0 1px, transparent 1px 48px),
-    repeating-linear-gradient(90deg, rgba(217, 208, 196, 0.32) 0 1px, transparent 1px 132px),
-    repeating-linear-gradient(0deg, rgba(217, 208, 196, 0.25) 0 1px, transparent 1px 132px);
+    linear-gradient(90deg, rgba(255, 250, 242, 0.98), rgba(255, 248, 236, 0.7) 58%, rgba(255, 248, 236, 0.24)),
+    linear-gradient(120deg, rgba(47, 142, 134, 0.08), transparent 31%, rgba(217, 167, 47, 0.08)),
+    repeating-linear-gradient(135deg, rgba(6, 9, 16, 0.026) 0 1px, transparent 1px 56px),
+    repeating-linear-gradient(90deg, rgba(217, 208, 196, 0.24) 0 1px, transparent 1px 142px),
+    repeating-linear-gradient(0deg, rgba(217, 208, 196, 0.2) 0 1px, transparent 1px 142px);
   border: 1px solid rgba(6, 9, 16, 0.1);
   border-radius: var(--radius);
   box-shadow:
@@ -286,9 +298,11 @@ button {
   top: 0.2rem;
   bottom: 0.35rem;
   left: 0;
-  width: 0.25rem;
+  width: 0.22rem;
   border-radius: 999px;
-  background: linear-gradient(180deg, var(--steel), var(--cyan), var(--lime), var(--gold), var(--orange), var(--magenta));
+  background:
+    linear-gradient(180deg, var(--taste-ink), var(--taste-teal), var(--taste-cyan), var(--taste-saffron), var(--taste-clay), var(--taste-berry)),
+    repeating-linear-gradient(180deg, transparent 0 20px, rgba(255, 248, 236, 0.74) 20px 22px, transparent 22px 42px);
   box-shadow:
     0 0 0 1px rgba(6, 9, 16, 0.72),
     0 18px 34px rgba(255, 75, 31, 0.12);
@@ -303,8 +317,9 @@ button {
   border-radius: var(--radius);
   background:
     linear-gradient(145deg, rgba(6, 9, 16, 0.98), rgba(6, 67, 74, 0.96)),
-    radial-gradient(circle at 20% 18%, rgba(0, 215, 232, 0.18), transparent 17rem),
-    linear-gradient(126deg, transparent 0%, rgba(0, 215, 232, 0.1) 42%, transparent 72%);
+    radial-gradient(circle at 20% 18%, rgba(111, 199, 197, 0.22), transparent 17rem),
+    radial-gradient(circle at 84% 84%, rgba(159, 54, 95, 0.16), transparent 18rem),
+    linear-gradient(126deg, transparent 0%, rgba(217, 167, 47, 0.1) 42%, transparent 72%);
   outline: 1px solid rgba(255, 245, 220, 0.56);
   outline-offset: -0.78rem;
   box-shadow:
@@ -312,7 +327,7 @@ button {
     inset 0 0 0 0.5rem rgba(255, 245, 220, 0.08),
     inset 0 0 0 0.9rem rgba(6, 9, 16, 0.32),
     0 2px 0 rgba(255, 245, 220, 0.48),
-    0 32px 82px rgba(6, 9, 16, 0.28);
+    0 36px 92px rgba(6, 9, 16, 0.3);
   overflow: hidden;
   animation: scene-rise 980ms var(--ease-out) 120ms both;
 }
@@ -332,11 +347,11 @@ button {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 44%, rgba(255, 245, 220, 0.12), transparent 17rem),
-    repeating-linear-gradient(135deg, transparent 0 34px, rgba(255, 245, 220, 0.055) 34px 35px, transparent 35px 74px),
-    repeating-linear-gradient(45deg, transparent 0 56px, rgba(0, 215, 232, 0.055) 56px 57px, transparent 57px 112px),
-    linear-gradient(90deg, rgba(6, 9, 16, 0.48), transparent 40%, rgba(255, 20, 127, 0.042));
-  opacity: 0.82;
+    radial-gradient(circle at 50% 44%, rgba(255, 245, 220, 0.11), transparent 17rem),
+    repeating-linear-gradient(135deg, transparent 0 38px, rgba(255, 245, 220, 0.05) 38px 39px, transparent 39px 82px),
+    repeating-linear-gradient(45deg, transparent 0 68px, rgba(111, 199, 197, 0.04) 68px 69px, transparent 69px 136px),
+    linear-gradient(90deg, rgba(6, 9, 16, 0.52), transparent 42%, rgba(159, 54, 95, 0.055));
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -349,7 +364,7 @@ button {
     inset 0 0 0 2px rgba(255, 245, 220, 0.86),
     inset 0 0 0 7px rgba(6, 9, 16, 0.32),
     0 18px 48px rgba(6, 9, 16, 0.22);
-  opacity: 0.88;
+  opacity: 0.78;
 }
 
 .mola-bridge::before,
@@ -367,9 +382,9 @@ button {
   width: 40rem;
   height: 6.35rem;
   background:
-    linear-gradient(90deg, var(--steel) 0 22%, var(--sage) 22% 37%, var(--cyan) 37% 50%, var(--lime) 50% 60%, var(--gold) 60% 70%, var(--orange) 70% 84%, var(--magenta-muted) 84% 100%);
+    linear-gradient(90deg, var(--taste-ink) 0 22%, var(--taste-teal) 22% 38%, var(--taste-cyan) 38% 51%, var(--taste-lichen) 51% 61%, var(--taste-saffron) 61% 72%, var(--taste-clay) 72% 86%, var(--taste-berry) 86% 100%);
   transform: rotate(-13deg);
-  clip-path: polygon(0 26%, 9% 0, 18% 26%, 27% 0, 36% 26%, 45% 0, 54% 26%, 63% 0, 72% 26%, 81% 0, 100% 26%, 100% 100%, 0 100%);
+  clip-path: polygon(0 22%, 8% 0, 16% 22%, 24% 0, 32% 22%, 40% 0, 48% 22%, 56% 0, 64% 22%, 72% 0, 80% 22%, 88% 0, 100% 22%, 100% 100%, 0 100%);
 }
 
 .bridge-two {
@@ -378,7 +393,7 @@ button {
   width: 29rem;
   height: 4.45rem;
   background:
-    linear-gradient(90deg, var(--magenta-muted) 0 19%, var(--start) 19% 38%, var(--gold) 38% 56%, var(--sky-muted) 56% 76%, var(--sage) 76% 100%);
+    linear-gradient(90deg, var(--taste-berry) 0 18%, var(--taste-clay) 18% 38%, var(--taste-saffron) 38% 58%, var(--taste-cyan) 58% 78%, var(--taste-teal) 78% 100%);
   transform: rotate(-13deg);
   clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
 }
@@ -390,7 +405,7 @@ button {
   right: 9%;
   bottom: 32%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--cyan), var(--lime), var(--gold), var(--start), transparent);
+  background: linear-gradient(90deg, transparent, var(--taste-cyan), var(--taste-lichen), var(--taste-saffron), var(--taste-clay), transparent);
   transform-origin: left center;
   transform: rotate(-13deg);
   animation: runway 5.8s var(--ease-out) infinite;
@@ -402,8 +417,8 @@ button {
   border: 1px solid rgba(6, 9, 16, 0.72);
   border-radius: var(--radius);
   background:
-    repeating-linear-gradient(90deg, rgba(6, 9, 16, 0.018) 0 1px, transparent 1px 26px),
-    linear-gradient(180deg, rgba(255, 250, 242, 0.975), rgba(248, 243, 235, 0.92));
+    repeating-linear-gradient(90deg, rgba(6, 9, 16, 0.014) 0 1px, transparent 1px 32px),
+    linear-gradient(180deg, rgba(255, 250, 242, 0.985), rgba(248, 243, 235, 0.93));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.82),
     0 18px 40px rgba(6, 9, 16, 0.21);
@@ -438,7 +453,7 @@ button {
   top: 8.8%;
   width: 15.5rem;
   transform: rotate(0.45deg);
-  border-top: 3px solid var(--cyan);
+  border-top: 3px solid var(--taste-cyan);
   animation: float-one 7.5s var(--ease-out) infinite;
 }
 
@@ -465,16 +480,16 @@ button {
 }
 
 .task-row.active span {
-  background: var(--start);
-  box-shadow: 0 0 0 7px rgba(201, 75, 43, 0.13);
+  background: var(--taste-clay);
+  box-shadow: 0 0 0 7px rgba(214, 95, 53, 0.13);
 }
 
 .task-row:nth-of-type(3) span {
-  background: var(--gold);
+  background: var(--taste-saffron);
 }
 
 .task-row:nth-of-type(4) span {
-  background: var(--sage);
+  background: var(--taste-teal);
 }
 
 .coach-transcript {
@@ -482,7 +497,7 @@ button {
   bottom: 7.2%;
   width: 20.6rem;
   transform: rotate(-0.45deg);
-  border-top: 3px solid var(--lime);
+  border-top: 3px solid var(--taste-lichen);
   animation: float-two 8.5s var(--ease-out) infinite;
 }
 
@@ -506,7 +521,7 @@ button {
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 50%;
-  background: var(--lime);
+  background: var(--taste-lichen);
   animation: pulse 2.2s var(--ease-out) infinite;
 }
 
@@ -517,15 +532,15 @@ button {
   color: var(--ink);
   background:
     linear-gradient(180deg, rgba(255, 250, 242, 0.98), rgba(255, 245, 220, 0.94)),
-    linear-gradient(120deg, rgba(255, 20, 127, 0.1), transparent 48%, rgba(0, 215, 232, 0.1));
+    linear-gradient(120deg, rgba(159, 54, 95, 0.11), transparent 48%, rgba(111, 199, 197, 0.1));
   border-color: var(--ink);
-  border-top: 3px solid var(--magenta);
+  border-top: 3px solid var(--taste-berry);
   transform: rotate(-1.15deg);
   animation: float-three 9.5s var(--ease-out) infinite;
 }
 
 .life-ledger .panel-kicker {
-  color: var(--magenta-muted);
+  color: var(--taste-berry);
 }
 
 .ledger-note {
@@ -560,8 +575,8 @@ button {
   height: 0.42rem;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: var(--magenta);
-  box-shadow: 0 0 0 5px rgba(255, 20, 127, 0.1);
+  background: var(--taste-berry);
+  box-shadow: 0 0 0 5px rgba(159, 54, 95, 0.1);
 }
 
 .state-meter {
@@ -569,7 +584,7 @@ button {
   bottom: 8.1%;
   width: 9.6rem;
   transform: rotate(0.65deg);
-  border-top: 3px solid var(--gold);
+  border-top: 3px solid var(--taste-saffron);
   animation: float-four 6.8s var(--ease-out) infinite;
 }
 
@@ -585,7 +600,7 @@ button {
   display: block;
   width: 58%;
   height: 100%;
-  background: linear-gradient(90deg, var(--sage), var(--lime), var(--gold), var(--start));
+  background: linear-gradient(90deg, var(--taste-teal), var(--taste-lichen), var(--taste-saffron), var(--taste-clay));
   animation: meter 5.4s var(--ease-out) infinite;
 }
 
@@ -618,7 +633,7 @@ h1 {
   margin: 0;
   max-width: 12.2ch;
   font-family: var(--editorial);
-  font-size: 4.62rem;
+  font-size: 4.82rem;
   font-weight: 560;
   line-height: 0.985;
   padding-bottom: 0.12em;
@@ -649,7 +664,7 @@ h1 {
   font-size: 0.76rem;
   font-weight: 820;
   box-shadow:
-    inset 0 -2px 0 rgba(255, 192, 24, 0.16),
+    inset 0 -2px 0 rgba(217, 167, 47, 0.16),
     0 6px 16px rgba(36, 33, 31, 0.05);
 }
 
@@ -808,17 +823,29 @@ h1 {
   border-radius: var(--radius);
   background:
     linear-gradient(90deg, var(--steel), var(--ink) 46%, #07101c),
-    repeating-linear-gradient(90deg, transparent 0 38px, rgba(255, 245, 220, 0.1) 38px 39px, transparent 39px 76px);
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(255, 245, 220, 0.09) 46px 47px, transparent 47px 92px);
   box-shadow: 0 20px 50px rgba(36, 33, 31, 0.18);
 }
 
 .proof-strip div {
   min-height: 6rem;
   padding: 1rem;
-  border: 1px solid rgba(255, 245, 220, 0.34);
+  border: 1px solid rgba(255, 245, 220, 0.42);
   border-radius: 5px;
   background:
-    linear-gradient(180deg, rgba(255, 250, 242, 0.93), rgba(255, 245, 220, 0.82));
+    linear-gradient(180deg, rgba(255, 250, 242, 0.97), rgba(255, 245, 220, 0.86));
+}
+
+.proof-strip div:nth-child(1) {
+  box-shadow: inset 0 5px 0 var(--taste-cyan);
+}
+
+.proof-strip div:nth-child(2) {
+  box-shadow: inset 0 5px 0 var(--taste-saffron);
+}
+
+.proof-strip div:nth-child(3) {
+  box-shadow: inset 0 5px 0 var(--taste-berry);
 }
 
 .proof-strip strong {
@@ -856,10 +883,10 @@ h1 {
 .submission-copy h2 {
   margin: 0;
   max-width: 15ch;
-  font-family: "Avenir Next", "Plus Jakarta Sans", "Geist", "Satoshi", system-ui, sans-serif;
+  font-family: var(--editorial);
   font-size: 3.05rem;
-  font-weight: 880;
-  line-height: 1;
+  font-weight: 560;
+  line-height: 1.02;
   padding-bottom: 0.1em;
 }
 
@@ -1027,8 +1054,8 @@ h1 {
   width: 1.2rem;
   height: 1.2rem;
   background:
-    linear-gradient(135deg, transparent 0 44%, rgba(6, 9, 16, 0.2) 44% 52%, transparent 52%),
-    linear-gradient(45deg, var(--cyan) 0 28%, var(--lime) 28% 48%, var(--gold) 48% 66%, var(--orange) 66% 82%, var(--magenta) 82% 100%);
+    linear-gradient(135deg, transparent 0 44%, rgba(6, 9, 16, 0.18) 44% 52%, transparent 52%),
+    linear-gradient(45deg, var(--taste-cyan) 0 28%, var(--taste-lichen) 28% 48%, var(--taste-saffron) 48% 66%, var(--taste-clay) 66% 82%, var(--taste-berry) 82% 100%);
   clip-path: polygon(0 0, 100% 0, 100% 100%);
   opacity: 0.72;
   pointer-events: none;
@@ -1060,7 +1087,7 @@ h1 {
 .setup-board article:nth-child(1),
 .console-output article:nth-child(1),
 .proofgate-board article:nth-child(1) {
-  border-top: 5px solid var(--cyan);
+  border-top: 5px solid var(--taste-cyan);
 }
 
 .coldrun-steps li:nth-child(2),
@@ -1071,7 +1098,7 @@ h1 {
 .setup-board article:nth-child(2),
 .console-output article:nth-child(2),
 .proofgate-board article:nth-child(2) {
-  border-top: 5px solid var(--lime);
+  border-top: 5px solid var(--taste-lichen);
 }
 
 .coldrun-steps li:nth-child(3),
@@ -1082,7 +1109,7 @@ h1 {
 .setup-board article:nth-child(3),
 .console-output article:nth-child(3),
 .proofgate-board article:nth-child(3) {
-  border-top: 5px solid var(--gold);
+  border-top: 5px solid var(--taste-saffron);
 }
 
 .brief-board article:nth-child(4),
@@ -1091,7 +1118,7 @@ h1 {
 .setup-board article:nth-child(4),
 .console-output article:nth-child(4),
 .proofgate-board article:nth-child(4) {
-  border-top: 5px solid var(--start);
+  border-top: 5px solid var(--taste-clay);
 }
 
 .brief-board article:nth-child(5),
@@ -1099,6 +1126,7 @@ h1 {
 .setup-board article:nth-child(5),
 .proofgate-board article:nth-child(5) {
   border-top: 5px solid var(--magenta);
+  border-top: 5px solid var(--taste-berry);
 }
 
 .coldrun-steps span,
