@@ -44,7 +44,8 @@ const proofChecks = [
 ];
 
 function runNode(script, options = {}) {
-  const result = spawnSync(process.execPath, [script], {
+  const commandArgs = Array.isArray(script) ? script : [script];
+  const result = spawnSync(process.execPath, commandArgs, {
     encoding: "utf8",
   });
 
@@ -54,7 +55,7 @@ function runNode(script, options = {}) {
   }
 
   if (!options.allowFailure && result.status !== 0) {
-    throw new Error(`${script} failed with exit ${result.status ?? 1}.`);
+    throw new Error(`${commandArgs.join(" ")} failed with exit ${result.status ?? 1}.`);
   }
 
   return result;
@@ -92,6 +93,17 @@ export function finalReviewSmoke() {
   if (expectReady) {
     if (publication.status !== 0 || publicationSummary.status !== "ready") {
       failures.push("Expected publication gate to be ready after final public link insertion.");
+    } else {
+      const githubPublicUrl = runNode(
+        ["scripts/verify-github-public-url.mjs", "--url", publicationSummary.githubLink],
+        { allowFailure: true, echo: verbose },
+      );
+      const githubPublicUrlSummary = parseJson(githubPublicUrl.stdout, "GitHub public URL gate");
+      ran.push("scripts/verify-github-public-url.mjs");
+
+      if (githubPublicUrl.status !== 0 || githubPublicUrlSummary.status !== "pass") {
+        failures.push("Expected final GitHub URL to be publicly visible before publication.");
+      }
     }
   }
 

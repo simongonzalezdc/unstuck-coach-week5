@@ -14,6 +14,7 @@ function usage() {
     "  node scripts/prepare-publication-link.mjs --url https://github.com/OWNER/REPO --write",
     "",
     "Default is dry-run. Use --write only after final approval and final public repo creation.",
+    "After inserting the final link, run verify-github-public-url.mjs to prove the URL is publicly visible.",
   ].join("\n");
 }
 

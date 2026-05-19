@@ -11,6 +11,7 @@ Use this only after the folder owner has reviewed the folder and approved the la
 - The public repository is not the Week 3 submission repo.
 - The final public GitHub URL is ready to paste into `SUBMISSION.md`.
 - The final public GitHub URL is rejected if it points at the old Week 3 repository.
+- The final public GitHub URL is visible through unauthenticated GitHub API access.
 
 ## Final Local Checks
 
@@ -107,6 +108,7 @@ Then run:
 
 ```bash
 node scripts/verify-publication-ready.mjs
+node scripts/verify-github-public-url.mjs
 node scripts/final-review-smoke.mjs --expect-ready --skip-build
 ```
 
@@ -115,6 +117,7 @@ The final green state is:
 - `status` is `ready`.
 - The GitHub link is the real public Week 5 repository.
 - The GitHub link is rejected if it points at the old Week 3 repository.
+- The GitHub link is visible through unauthenticated GitHub API access, proving the private review repo is not being submitted by accident.
 - The Skool comment draft remains 2-3 sentences.
 - Product thesis, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, first-run receipt, first-reply scorecard, start-here path, landing copy controls, transcript pack, first-reply acceptance, and console behavior cases still pass.
 - Submission surfaces still match the approved Skool draft.

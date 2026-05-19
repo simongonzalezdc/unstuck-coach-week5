@@ -55,6 +55,7 @@ export const publicBundleFiles = [
   "scripts/verify-console-behavior.mjs",
   "scripts/verify-public-bundle.mjs",
   "scripts/verify-publication-ready.mjs",
+  "scripts/verify-github-public-url.mjs",
   "scripts/final-review-smoke.mjs",
   "scripts/verify-clean-public-stage.mjs",
   "scripts/build-public-bundle.mjs",

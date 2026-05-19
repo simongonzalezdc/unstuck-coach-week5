@@ -146,6 +146,8 @@ const receiptsRequiredText = [
   "first-reply acceptance test",
   "shortest answers to the Week 5 judging questions",
   "articles, menus, moralizing, or vague continuations",
+  "unauthenticated proof that the final GitHub URL is public",
+  "scripts/verify-github-public-url.mjs",
 ];
 
 const judgeFaqRequiredText = [
@@ -166,6 +168,7 @@ const publicationChecklistRequiredText = [
   "Premium/VIP eligibility is confirmed.",
   "A clean Week 5 public repository exists.",
   "The final public GitHub URL is rejected if it points at the old Week 3 repository.",
+  "The final public GitHub URL is visible through unauthenticated GitHub API access.",
   "node scripts/verify-icm-trace.mjs",
   "node scripts/verify-clean-public-stage.mjs",
   "node scripts/verify-submission-surfaces.mjs",
@@ -177,6 +180,7 @@ const publicationChecklistRequiredText = [
   "node scripts/final-review-smoke.mjs --expect-blocked",
   "node scripts/final-review-smoke.mjs --expect-ready --skip-build",
   "node scripts/verify-publication-ready.mjs",
+  "node scripts/verify-github-public-url.mjs",
   "node scripts/verify-first-reply-scorecard.mjs",
   "node scripts/verify-start-here.mjs",
   "node scripts/verify-landing-copy.mjs",
@@ -228,9 +232,19 @@ const finalReviewSmokeRequiredText = [
   "verify-judge-scorecard.mjs",
   "verify-competition-rules-trace.mjs",
   "verify-publication-ready.mjs",
+  "verify-github-public-url.mjs",
   "verify-icm-trace.mjs",
   "verify-clean-public-stage.mjs",
   "Expected publication gate to remain blocked before final public link insertion.",
+  "Expected final GitHub URL to be publicly visible before publication.",
+];
+
+const githubPublicUrlRequiredText = [
+  "unauthenticated GitHub API access",
+  "private review repo cannot pass as public",
+  "hasPublicGitHubUrl",
+  "isDisallowedSubmissionRepo",
+  "GitHub repository was not visible through unauthenticated API access",
 ];
 
 const cleanPublicStageRequiredText = [
@@ -316,6 +330,8 @@ const readmeRequiredText = [
   "If Startline gives a productivity article, it failed.",
   "JUDGE_FAQ.md` gives the shortest answers to likely Week 5 judging objections",
   "PITCH_REEL.md` compresses the presentation layer into a verified 75-second judge reel.",
+  "scripts/verify-github-public-url.mjs` proves the final GitHub link is publicly visible through unauthenticated GitHub API access",
+  "node scripts/verify-github-public-url.mjs",
 ];
 
 const icmTraceRequiredText = [
@@ -788,6 +804,15 @@ if (exists("scripts/final-review-smoke.mjs")) {
   for (const requiredText of finalReviewSmokeRequiredText) {
     if (!finalReviewSmoke.includes(requiredText)) {
       failures.push(`scripts/final-review-smoke.mjs is missing required text: ${requiredText}`);
+    }
+  }
+}
+
+if (exists("scripts/verify-github-public-url.mjs")) {
+  const githubPublicUrl = read("scripts/verify-github-public-url.mjs");
+  for (const requiredText of githubPublicUrlRequiredText) {
+    if (!githubPublicUrl.includes(requiredText)) {
+      failures.push(`scripts/verify-github-public-url.mjs is missing required text: ${requiredText}`);
     }
   }
 }

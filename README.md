@@ -92,6 +92,7 @@ startline-coach/
 │   ├── verify-console-behavior.mjs
 │   ├── verify-public-bundle.mjs
 │   ├── verify-publication-ready.mjs
+│   ├── verify-github-public-url.mjs
 │   ├── final-review-smoke.mjs
 │   ├── verify-clean-public-stage.mjs
 │   ├── build-public-bundle.mjs
@@ -218,6 +219,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `scripts/verify-console-behavior.mjs` checks the runnable console's protocol classifications.
 - `scripts/verify-public-bundle.mjs` checks required files, landing proof/launch-kit text, local landing refs, public-safe text, submission copy, transcript completeness, and console behavior.
 - `scripts/verify-publication-ready.mjs` is the final posting gate after the public GitHub link is inserted; it rejects the old Week 3 repo and reruns the proof-layer checks.
+- `scripts/verify-github-public-url.mjs` proves the final GitHub link is publicly visible through unauthenticated GitHub API access, so the private review repo cannot pass as public.
 - `scripts/final-review-smoke.mjs` runs the proof checks in one concise command, rebuilds the public payload unless skipped, and verifies whether the publication gate is expected to be blocked or ready.
 - `scripts/verify-clean-public-stage.mjs` stages the payload into a temporary separate folder, verifies it there, and removes the temporary target.
 - `scripts/build-public-bundle.mjs` exports the clean public repo payload after the source bundle verifies.
@@ -279,9 +281,10 @@ Then run:
 
 ```bash
 node scripts/verify-publication-ready.mjs
+node scripts/verify-github-public-url.mjs
 ```
 
-It should report `status: "ready"`. Until the final public GitHub link replaces the review placeholder, this gate is expected to report `status: "blocked"`. It should also stay blocked if the link points at the old Week 3 repository.
+Both checks should report `status: "ready"`. Until the final public GitHub link replaces the review placeholder, this gate is expected to report `status: "blocked"`. It should also stay blocked if the link points at the old Week 3 repository or at any private repository that unauthenticated GitHub API access cannot see.
 
 For one-command final review before the link exists, run:
 
