@@ -1,0 +1,129 @@
+# Publication Checklist
+
+Use this only after the folder owner has reviewed the folder and approved the landing page.
+
+## Do Not Publish Until
+
+- The folder owner has read the folder.
+- The folder owner has approved the landing page design.
+- Premium/VIP eligibility is confirmed.
+- A clean Week 5 public repository exists.
+- The public repository is not the Week 3 submission repo.
+- The final public GitHub URL is ready to paste into `SUBMISSION.md`.
+- The final public GitHub URL is rejected if it points at the old Week 3 repository.
+
+## Final Local Checks
+
+Run these from the working folder before copying the public payload:
+
+```bash
+node scripts/verify-submission-copy.mjs
+node scripts/verify-submission-surfaces.mjs
+node scripts/verify-pitch-reel.mjs
+node scripts/verify-reel-page.mjs
+node scripts/verify-judge-faq.mjs
+node scripts/verify-judge-scorecard.mjs
+node scripts/verify-competition-rules-trace.mjs
+node scripts/verify-product-thesis.mjs
+node scripts/verify-icm-trace.mjs
+node scripts/verify-first-run.mjs
+node scripts/verify-first-reply-scorecard.mjs
+node scripts/verify-start-here.mjs
+node scripts/verify-landing-copy.mjs
+node scripts/verify-transcript-pack.mjs
+node scripts/verify-first-reply-acceptance.mjs
+node scripts/verify-console-behavior.mjs
+node scripts/verify-public-bundle.mjs
+node scripts/build-public-bundle.mjs
+node scripts/verify-clean-public-stage.mjs
+node scripts/stage-public-repo.mjs --target ../startline-coach-week5-public
+node scripts/final-review-smoke.mjs --expect-blocked
+```
+
+Expected before public-link insertion:
+
+- `verify-submission-copy.mjs` reports 2-3 Skool comment sentences.
+- `verify-submission-surfaces.mjs` reports the Skool draft, SUBMISSION landing version, and landing-page submission copy are synchronized.
+- `verify-pitch-reel.mjs` reports six timed shots, a short voiceover, and zero public-unsafe private/local references.
+- `verify-reel-page.mjs` reports six record-ready reel scenes, resolved local refs, and zero public-unsafe private/local references.
+- `verify-judge-faq.mjs` reports eight FAQ questions, evidence references, and zero public-unsafe private/local references.
+- `verify-judge-scorecard.mjs` reports nine criteria rows, a sequential fast scoring path, and zero public-unsafe private/local references.
+- `verify-competition-rules-trace.mjs` reports 12 brief requirement rows, 4 judging question rows, above-the-brief proof bullets, 5 blockers, and zero public-unsafe private/local references.
+- `verify-product-thesis.mjs` reports the folder-first product rationale, whole-person scope, proof logic, and boundaries with zero failures.
+- `verify-icm-trace.mjs` reports the public ICM fit map, evidence references, and zero failures.
+- `verify-first-run.mjs` reports the cold-start receipt checks and zero failures.
+- `verify-first-reply-scorecard.mjs` reports the first-reply pass/fail criteria and evidence links with zero failures.
+- `verify-start-here.mjs` reports the 60-second path, first prompt, acceptance test, and proof links with zero failures.
+- `verify-landing-copy.mjs` reports the landing launch-kit copy controls and target prompt text with zero failures.
+- `verify-transcript-pack.mjs` reports 8 checked cases and zero failures.
+- `verify-first-reply-acceptance.mjs` reports 8 checked first replies and zero failures.
+- `verify-console-behavior.mjs` reports 8 checked behavior cases and zero failures.
+- `verify-public-bundle.mjs` reports zero failures.
+- `verify-clean-public-stage.mjs` stages into a temporary separate folder, verifies the staged payload, removes the temporary target, and reports zero failures.
+- `final-review-smoke.mjs --expect-blocked` reports `status: "pass"` before the final public link is inserted.
+- Warnings about the missing final GitHub link are expected while the folder is still private.
+
+## Public Repo Payload
+
+The generated payload is:
+
+```text
+output/public-bundle/startline-coach/
+```
+
+Copy that folder into the clean Week 5 public repository after approval.
+
+Or stage it with the guarded helper:
+
+```bash
+node scripts/stage-public-repo.mjs --target ../startline-coach-week5-public --write
+```
+
+If the target already contains non-git files, the helper stops unless `--force` is passed after review.
+
+From inside the copied public repository, run:
+
+```bash
+node scripts/verify-public-bundle.mjs
+```
+
+It should still report zero failures.
+
+## Insert The Final Link
+
+Dry-run first:
+
+```bash
+node scripts/prepare-publication-link.mjs --url https://github.com/OWNER/REPO
+```
+
+Write only after the dry-run looks right:
+
+```bash
+node scripts/prepare-publication-link.mjs --url https://github.com/OWNER/REPO --write
+```
+
+Then run:
+
+```bash
+node scripts/verify-publication-ready.mjs
+node scripts/final-review-smoke.mjs --expect-ready --skip-build
+```
+
+The final green state is:
+
+- `status` is `ready`.
+- The GitHub link is the real public Week 5 repository.
+- The GitHub link is rejected if it points at the old Week 3 repository.
+- The Skool comment draft remains 2-3 sentences.
+- Product thesis, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, first-run receipt, first-reply scorecard, start-here path, landing copy controls, transcript pack, first-reply acceptance, and console behavior cases still pass.
+- Submission surfaces still match the approved Skool draft.
+- The clean-stage preflight has passed from the source folder.
+- `final-review-smoke.mjs --expect-ready --skip-build` reports `status: "pass"`.
+- No local review notes, generated output, or local provenance paths are in the public bundle.
+
+## Skool Posting Shape
+
+Post the final public GitHub link plus the 2-3 sentence draft from `SUBMISSION.md`.
+
+Do not include local research notes, local browser artifacts, unpublished review-pack files, or unpublished repo history.

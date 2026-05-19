@@ -1,0 +1,98 @@
+# Source Notes
+
+This file explains the design lineage without requiring non-public systems or external tools.
+
+## Competition Fit
+
+The competition asks for a folder-based AI coach for a specific domain. The folder should be portable into a Claude Project and should feel like a coach, not a knowledge base.
+
+Startline Coach is intentionally narrow:
+
+> Whole-person executive-function accessibility coaching for people with ADHD, ADHD-like, or neurodivergent executive-function friction.
+
+The folder follows the required shape:
+
+- `identity.md`: who the coach is.
+- `rules.md`: how the coach coaches.
+- `examples.md`: what good interactions look like.
+- `reference/`: reusable protocols and boundaries.
+- `README.md`: how to use the folder.
+
+## Design Lineage
+
+This public folder was distilled from prior internal work on:
+
+- A proactive executive-function coach.
+- Body-doubling and task-initiation support.
+- Somatic-first regulation prompts.
+- ADHD-friendly accessibility workflows.
+- Return-after-avoidance and no-shame re-entry.
+- Mode-based assistant behavior, where the assistant's stance matters more than generic answers.
+- Neurodivergent second-brain design, especially low-friction capture and object permanence.
+- ADHD accessibility ergonomics, including working memory, task initiation, time blindness, body-state routing, and communication threat.
+- Affective design for users who may experience body signals before clear emotion labels.
+
+Non-public paths, phone numbers, personal names, and internal integrations were intentionally removed.
+
+## Research-To-Behavior Translation
+
+The research is not included as a bibliography dump. It is translated into coach behavior:
+
+| Research thread | Behavior in the coach |
+| --- | --- |
+| Working memory as limited external RAM | The coach holds the list and returns one next action |
+| Task initiation as activation energy | First-Contact Runway and first-contact scripts |
+| Time blindness | Time Made Visible, buffers, start times, backward planning |
+| Inhibitory control and novelty pull | Tangent Firewall: chase, bookmark, or discard |
+| Emotional regulation and shame spirals | Communication Threat Armor, Return Without Shame, Forgiveness Reset |
+| Hyperfocus crash | Biological reset, breadcrumb, stop on purpose |
+| Alexithymia/interoception | Somatic Translator and body-first prompts |
+| Neurodivergent second brain | Natural Capture, artifacts over memory, system bankruptcy |
+| Repeated failed strategies | Three-Attempt Escape Hatch |
+
+## Key Design Choices
+
+### Coach, Not Knowledge Base
+
+The coach should not answer "How do I stop procrastinating?" with a list of productivity tips. It should narrow the live friction and create a next move.
+
+### State Before Strategy
+
+If the user is dysregulated, planning usually fails. The coach checks whether the user is green, yellow, or red before asking for cognitive work.
+
+### One Move Beats Ten Tips
+
+The coach defaults to one reflection, one action, and one check-in question. This preserves working memory.
+
+### Artifacts Beat Memory
+
+After avoidance or interruption, the coach reconstructs from visible artifacts: notes, forms, receipts, messages, calendar anchors, browser tabs, physical objects, and last breadcrumbs instead of asking the user to remember everything.
+
+### Shame Is A Load-Bearing Constraint
+
+The coach treats shame as friction to remove, not motivation to exploit.
+
+### Capture Before Organization
+
+The coach treats raw capture as a first-class success. It confirms quickly, parks the item, and avoids turning every note into a planning session.
+
+### Forgiveness Beats Streak Debt
+
+Missed routines and messy systems are expected. The coach offers reset and bankruptcy protocols instead of shame-cleaning.
+
+### Time Needs A Handle
+
+"Later" is not a plan. The coach turns time into visible anchors: clock time, countdowns, meeting boundaries, or checkpoints.
+
+## Portability Notes
+
+The coach does not require:
+
+- A database.
+- Calendar access.
+- Private messages.
+- Local scripts.
+- A particular editor.
+- A particular repository.
+
+Those can be added later, but the competition deliverable is the coaching folder itself.

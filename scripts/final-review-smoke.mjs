@@ -1,0 +1,138 @@
+#!/usr/bin/env node
+
+import { spawnSync } from "node:child_process";
+import { pathToFileURL } from "node:url";
+
+const args = new Set(process.argv.slice(2));
+const expectReady = args.has("--expect-ready");
+const expectBlocked = args.has("--expect-blocked") || !expectReady;
+const skipBuild = args.has("--skip-build");
+const verbose = args.has("--verbose");
+const allowedArgs = new Set(["--expect-ready", "--expect-blocked", "--skip-build", "--verbose"]);
+
+for (const arg of args) {
+  if (!allowedArgs.has(arg)) {
+    console.error(`Unknown argument: ${arg}`);
+    process.exit(1);
+  }
+}
+
+if (expectReady && args.has("--expect-blocked")) {
+  console.error("Choose only one expected publication state.");
+  process.exit(1);
+}
+
+const proofChecks = [
+  "scripts/verify-submission-copy.mjs",
+  "scripts/verify-submission-surfaces.mjs",
+  "scripts/verify-pitch-reel.mjs",
+  "scripts/verify-reel-page.mjs",
+  "scripts/verify-judge-faq.mjs",
+  "scripts/verify-judge-scorecard.mjs",
+  "scripts/verify-competition-rules-trace.mjs",
+  "scripts/verify-product-thesis.mjs",
+  "scripts/verify-icm-trace.mjs",
+  "scripts/verify-first-run.mjs",
+  "scripts/verify-first-reply-scorecard.mjs",
+  "scripts/verify-start-here.mjs",
+  "scripts/verify-landing-copy.mjs",
+  "scripts/verify-transcript-pack.mjs",
+  "scripts/verify-first-reply-acceptance.mjs",
+  "scripts/verify-console-behavior.mjs",
+  "scripts/verify-public-bundle.mjs",
+  "scripts/verify-clean-public-stage.mjs",
+];
+
+function runNode(script, options = {}) {
+  const result = spawnSync(process.execPath, [script], {
+    encoding: "utf8",
+  });
+
+  if (options.echo !== false) {
+    process.stdout.write(result.stdout);
+    process.stderr.write(result.stderr);
+  }
+
+  if (!options.allowFailure && result.status !== 0) {
+    throw new Error(`${script} failed with exit ${result.status ?? 1}.`);
+  }
+
+  return result;
+}
+
+function parseJson(stdout, label) {
+  try {
+    return JSON.parse(stdout.trim());
+  } catch (error) {
+    throw new Error(`${label} did not print parseable JSON.`);
+  }
+}
+
+export function finalReviewSmoke() {
+  const failures = [];
+  const ran = [];
+
+  for (const script of proofChecks) {
+    runNode(script, { echo: verbose });
+    ran.push(script);
+  }
+
+  if (!skipBuild) {
+    runNode("scripts/build-public-bundle.mjs", { echo: verbose });
+    ran.push("scripts/build-public-bundle.mjs");
+  }
+
+  const publication = runNode("scripts/verify-publication-ready.mjs", {
+    allowFailure: true,
+    echo: verbose,
+  });
+  const publicationSummary = parseJson(publication.stdout, "Publication gate");
+  ran.push("scripts/verify-publication-ready.mjs");
+
+  if (expectReady) {
+    if (publication.status !== 0 || publicationSummary.status !== "ready") {
+      failures.push("Expected publication gate to be ready after final public link insertion.");
+    }
+  }
+
+  if (expectBlocked) {
+    if (publication.status === 0 || publicationSummary.status !== "blocked") {
+      failures.push("Expected publication gate to remain blocked before final public link insertion.");
+    }
+
+    const expectedBlockers = [
+      "SUBMISSION.md GitHub link is not a final public GitHub repository URL.",
+      "SUBMISSION.md still contains review/publish placeholder text.",
+    ];
+
+    for (const blocker of expectedBlockers) {
+      if (!publicationSummary.failures?.includes(blocker)) {
+        failures.push(`Missing expected blocked-publication failure: ${blocker}`);
+      }
+    }
+  }
+
+  return {
+    status: failures.length === 0 ? "pass" : "fail",
+    expectedPublicationState: expectReady ? "ready" : "blocked",
+    skippedBuild: skipBuild,
+    verbose,
+    ran,
+    publicationStatus: publicationSummary.status,
+    publicationFailures: publicationSummary.failures || [],
+    failures,
+  };
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  try {
+    const summary = finalReviewSmoke();
+    console.log(JSON.stringify(summary, null, 2));
+    if (summary.failures.length > 0) {
+      process.exitCode = 1;
+    }
+  } catch (error) {
+    console.error(error.message);
+    process.exitCode = 1;
+  }
+}

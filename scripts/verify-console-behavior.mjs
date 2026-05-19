@@ -1,0 +1,211 @@
+#!/usr/bin/env node
+
+import fs from "node:fs";
+import path from "node:path";
+import { pathToFileURL } from "node:url";
+import vm from "node:vm";
+
+const defaultCases = [
+  {
+    name: "activation friction",
+    input: "I need a coach to get started on this.",
+    expected: {
+      state: "Yellow",
+      friction: "Activation friction",
+      move: "Put one surface in front of you.",
+      check: "One visible surface.",
+    },
+  },
+  {
+    name: "whole-life freeze",
+    input: "I need to pay the bill, eat something, and answer the text, but I am frozen.",
+    expected: {
+      state: "Yellow",
+      friction: "Working-memory overload",
+      move: "Externalize the loops.",
+      check: "One relief mark.",
+    },
+  },
+  {
+    name: "message threat",
+    input: "That message makes me feel like I did something wrong.",
+    expected: {
+      state: "Red-yellow",
+      friction: "Communication threat",
+      move: "Separate ask from meaning.",
+      check: "One quoted sentence.",
+    },
+  },
+  {
+    name: "working-memory overload",
+    input: "I need to shower, answer the text, find the form, and clean the kitchen.",
+    expected: {
+      state: "Yellow",
+      friction: "Working-memory overload",
+      move: "Externalize the loops.",
+      check: "One relief mark.",
+    },
+  },
+  {
+    name: "idea capture",
+    input: "idea: make a shutdown checklist for Sunday nights",
+    expected: {
+      state: "Green-yellow",
+      friction: "Capture versus execution",
+      move: "Park with a return time.",
+      check: "One parked idea.",
+    },
+  },
+  {
+    name: "repeated failed plan",
+    input: "I tried the same plan three times and failed every time.",
+    expected: {
+      state: "Yellow-red",
+      friction: "Plan mismatch",
+      move: "Name the closest blocker.",
+      check: "One blocker named.",
+    },
+  },
+  {
+    name: "body-first recovery",
+    input: "I am fried after hyperfocus and forgot to eat.",
+    expected: {
+      state: "Red",
+      friction: "Recovery before re-entry",
+      move: "Close the loop.",
+      check: "A re-entry breadcrumb.",
+    },
+  },
+  {
+    name: "calibration fallback",
+    input: "Something feels off.",
+    expected: {
+      state: "Unknown-yellow",
+      friction: "Needs calibration",
+      move: "Ask one state question.",
+      check: "One honest signal.",
+    },
+  },
+];
+
+function makeElement(dataset = {}) {
+  return {
+    dataset,
+    textContent: "",
+    value: "",
+    classList: {
+      toggle() {},
+    },
+    setAttribute() {},
+    addEventListener() {},
+  };
+}
+
+function makeHarness() {
+  const elements = new Map([
+    ["#demo-prompt", makeElement()],
+    ["#demo-generic", makeElement()],
+    ["#demo-startline", makeElement()],
+    ["#coach-console", makeElement()],
+    ["#coach-input", makeElement()],
+    ["#console-state", makeElement()],
+    ["#console-state-note", makeElement()],
+    ["#console-friction", makeElement()],
+    ["#console-friction-note", makeElement()],
+    ["#console-move", makeElement()],
+    ["#console-move-note", makeElement()],
+    ["#console-check", makeElement()],
+    ["#console-check-note", makeElement()],
+  ]);
+
+  const promptTabs = [0, 1, 2, 3, 4].map((index) => makeElement({ demo: String(index) }));
+  const sampleChips = [
+    "I need a coach to get started on this.",
+    "That message makes me feel like I did something wrong.",
+    "I need to shower, answer the text, find the form, and clean the kitchen.",
+    "idea: make a shutdown checklist for Sunday nights",
+  ].map((sample) => makeElement({ sample }));
+  const copyControls = [];
+
+  const document = {
+    querySelector(selector) {
+      const element = elements.get(selector);
+      if (!element) {
+        throw new Error(`Unhandled selector in console verifier: ${selector}`);
+      }
+      return element;
+    },
+    querySelectorAll(selector) {
+      if (selector === ".prompt-tab") return promptTabs;
+      if (selector === ".sample-chip") return sampleChips;
+      if (selector === ".copy-control") return copyControls;
+      throw new Error(`Unhandled selector list in console verifier: ${selector}`);
+    },
+  };
+
+  const window = {
+    clearInterval() {},
+    setInterval() {
+      return 1;
+    },
+  };
+
+  return { document, elements, window };
+}
+
+export function verifyConsoleBehavior(root = process.cwd()) {
+  const appPath = path.join(root, "landing", "app.js");
+  const source = fs.readFileSync(appPath, "utf8");
+  const harness = makeHarness();
+  const context = vm.createContext({
+    document: harness.document,
+    window: harness.window,
+    Number,
+  });
+
+  vm.runInContext(source, context, {
+    filename: appPath,
+    timeout: 1000,
+  });
+
+  const failures = [];
+  const cases = defaultCases.map((testCase) => {
+    const result = context.coachMoment(testCase.input);
+    const actual = {
+      state: result.state,
+      friction: result.friction,
+      move: result.move,
+      check: result.check,
+    };
+    for (const [key, expectedValue] of Object.entries(testCase.expected)) {
+      if (actual[key] !== expectedValue) {
+        failures.push(
+          `${testCase.name}: expected ${key}=${JSON.stringify(expectedValue)}, got ${JSON.stringify(actual[key])}`,
+        );
+      }
+    }
+    context.renderConsole(result);
+    if (harness.elements.get("#console-friction").textContent !== actual.friction) {
+      failures.push(`${testCase.name}: renderConsole did not write friction`);
+    }
+    return {
+      name: testCase.name,
+      input: testCase.input,
+      actual,
+    };
+  });
+
+  return {
+    checkedCases: cases.length,
+    cases,
+    failures,
+  };
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const summary = verifyConsoleBehavior();
+  console.log(JSON.stringify(summary, null, 2));
+  if (summary.failures.length > 0) {
+    process.exitCode = 1;
+  }
+}
