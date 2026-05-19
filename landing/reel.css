@@ -1,7 +1,11 @@
 .reel-page {
   background:
-    linear-gradient(125deg, rgba(214, 163, 56, 0.12), transparent 34%),
-    linear-gradient(235deg, rgba(44, 123, 115, 0.12), transparent 38%),
+    linear-gradient(90deg, rgba(6, 9, 16, 0.022) 0 1px, transparent 1px 128px),
+    linear-gradient(180deg, rgba(6, 9, 16, 0.02) 0 1px, transparent 1px 128px),
+    radial-gradient(circle at 84% 8%, rgba(0, 215, 232, 0.08), transparent 25rem),
+    radial-gradient(circle at 8% 78%, rgba(255, 20, 127, 0.05), transparent 23rem),
+    linear-gradient(125deg, rgba(214, 163, 56, 0.08), transparent 34%),
+    linear-gradient(235deg, rgba(44, 123, 115, 0.08), transparent 38%),
     var(--paper);
 }
 
@@ -19,12 +23,13 @@
   position: relative;
   min-height: calc(100dvh - 5.8rem);
   display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
-  gap: 3.6rem;
+  grid-template-columns: minmax(0, 0.86fr) minmax(31rem, 1.14fr);
+  gap: 4.2rem;
   align-items: center;
-  padding: 5.8rem max(1.5rem, calc((100vw - 1180px) / 2));
+  padding: 5.7rem max(1.5rem, calc((100vw - 1180px) / 2));
   scroll-snap-align: start;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .reel-slide::before {
@@ -32,16 +37,36 @@
   position: absolute;
   inset: 2rem max(1rem, calc((100vw - 1220px) / 2));
   z-index: -1;
-  border: 1px solid rgba(168, 148, 120, 0.24);
+  border: 1px solid rgba(6, 9, 16, 0.1);
   border-radius: var(--radius);
   background:
-    repeating-linear-gradient(90deg, rgba(168, 148, 120, 0.08) 0 1px, transparent 1px 104px),
-    repeating-linear-gradient(0deg, rgba(168, 148, 120, 0.07) 0 1px, transparent 1px 104px);
+    linear-gradient(90deg, rgba(255, 250, 242, 0.95), rgba(255, 248, 236, 0.68) 58%, rgba(255, 248, 236, 0.18)),
+    repeating-linear-gradient(135deg, rgba(6, 9, 16, 0.038) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, rgba(217, 208, 196, 0.28) 0 1px, transparent 1px 132px),
+    repeating-linear-gradient(0deg, rgba(217, 208, 196, 0.24) 0 1px, transparent 1px 132px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 0 0.42rem rgba(255, 245, 220, 0.22);
+}
+
+.reel-slide::after {
+  content: "";
+  position: absolute;
+  left: max(1.8rem, calc((100vw - 1218px) / 2));
+  top: 9.2rem;
+  bottom: 5.2rem;
+  z-index: 0;
+  width: 0.25rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--steel), var(--cyan), var(--lime), var(--gold), var(--orange), var(--magenta));
+  box-shadow:
+    0 0 0 1px rgba(6, 9, 16, 0.72),
+    0 18px 34px rgba(255, 75, 31, 0.1);
 }
 
 .reel-slide:nth-child(odd) {
   background:
-    linear-gradient(135deg, rgba(126, 203, 208, 0.09), rgba(255, 248, 236, 0.72) 42%, rgba(214, 163, 56, 0.1)),
+    linear-gradient(135deg, rgba(126, 203, 208, 0.06), rgba(255, 248, 236, 0.7) 42%, rgba(214, 163, 56, 0.065)),
     var(--paper);
 }
 
@@ -52,7 +77,10 @@
 }
 
 .slide-copy {
+  position: relative;
+  z-index: 1;
   max-width: 34rem;
+  padding-left: 1rem;
 }
 
 .slide-copy h1,
@@ -60,28 +88,30 @@
   margin: 0;
   max-width: 11.5ch;
   font-family: "PP Editorial New", "Canela", "Fraunces", Georgia, serif;
-  font-size: 4.45rem;
+  font-size: 4.25rem;
   font-weight: 560;
-  line-height: 0.96;
+  line-height: 0.985;
   padding-bottom: 0.1em;
+  text-wrap: balance;
 }
 
 .slide-copy p:not(.eyebrow) {
   max-width: 34rem;
   color: var(--ink-soft);
-  font-size: 1.14rem;
-  line-height: 1.72;
+  font-size: 1.08rem;
+  line-height: 1.7;
 }
 
 .slide-art,
 .slide-grid,
 .terminal-card {
   position: relative;
-  border: 1px solid rgba(168, 148, 120, 0.38);
+  z-index: 1;
+  border: 2px solid var(--ink);
   border-radius: var(--radius);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.76),
-    var(--shadow-ambient);
+    0 28px 70px rgba(6, 9, 16, 0.16);
   overflow: hidden;
 }
 
@@ -101,11 +131,15 @@
   display: grid;
   align-content: center;
   gap: 1rem;
-  padding: 2rem;
+  padding: 2.2rem;
   color: var(--cream-line);
   background:
-    linear-gradient(145deg, rgba(23, 63, 62, 0.98), rgba(8, 7, 5, 0.94));
-  border-color: rgba(23, 63, 62, 0.52);
+    radial-gradient(circle at 50% 44%, rgba(255, 245, 220, 0.12), transparent 17rem),
+    repeating-linear-gradient(135deg, transparent 0 34px, rgba(255, 245, 220, 0.055) 34px 35px, transparent 35px 74px),
+    linear-gradient(145deg, rgba(6, 9, 16, 0.98), rgba(6, 67, 74, 0.96));
+  outline: 1px solid rgba(255, 245, 220, 0.56);
+  outline-offset: -0.78rem;
+  border-color: var(--ink);
   border-top: 7px solid var(--magenta);
   transform: rotate(1.2deg);
 }
@@ -140,17 +174,25 @@
 .threshold-art::after {
   content: "";
   position: absolute;
-  left: 2rem;
-  right: 2rem;
-  bottom: 2rem;
-  height: 1px;
-  background: linear-gradient(90deg, var(--cyan), var(--lime), var(--gold), var(--start), var(--magenta));
+  left: -12%;
+  right: -7%;
+  bottom: 22%;
+  height: 4.6rem;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(90deg, var(--steel) 0 22%, var(--sage) 22% 37%, var(--cyan) 37% 50%, var(--lime) 50% 60%, var(--gold) 60% 70%, var(--orange) 70% 84%, var(--magenta-muted) 84% 100%);
+  clip-path: polygon(0 26%, 9% 0, 18% 26%, 27% 0, 36% 26%, 45% 0, 54% 26%, 63% 0, 72% 26%, 81% 0, 100% 26%, 100% 100%, 0 100%);
+  opacity: 0.54;
+  transform: rotate(-13deg);
 }
 
 .slide-grid {
   display: grid;
   gap: 0.72rem;
-  background: rgba(255, 253, 246, 0.5);
+  background:
+    linear-gradient(90deg, var(--steel), var(--ink) 46%, #07101c),
+    repeating-linear-gradient(90deg, transparent 0 38px, rgba(255, 245, 220, 0.1) 38px 39px, transparent 39px 76px);
   padding: 0.72rem;
 }
 
@@ -172,10 +214,11 @@
   align-content: space-between;
   gap: 1rem;
   padding: 1.22rem;
-  border: 1px solid rgba(168, 148, 120, 0.32);
+  border: 1px solid rgba(255, 245, 220, 0.34);
   border-radius: 5px;
   background:
-    linear-gradient(180deg, rgba(255, 253, 246, 0.96), rgba(251, 241, 223, 0.82));
+    repeating-linear-gradient(90deg, rgba(6, 9, 16, 0.018) 0 1px, transparent 1px 26px),
+    linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(251, 241, 223, 0.84));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.76);
 }
 
@@ -276,6 +319,12 @@
     padding: 4.8rem 1.5rem;
   }
 
+  .reel-slide::after {
+    left: 1.5rem;
+    top: 7.4rem;
+    bottom: 3.9rem;
+  }
+
   .slide-copy h1,
   .slide-copy h2 {
     font-size: 3.35rem;
@@ -295,6 +344,21 @@
     padding: 4.2rem 1rem;
   }
 
+  .reel-slide::before {
+    inset: 1.2rem 0.5rem;
+  }
+
+  .reel-slide::after {
+    left: 1rem;
+    top: 6.8rem;
+    bottom: 3.2rem;
+    width: 0.2rem;
+  }
+
+  .slide-copy {
+    padding-left: 0.78rem;
+  }
+
   .slide-copy h1,
   .slide-copy h2 {
     font-size: 2.55rem;
@@ -307,5 +371,9 @@
   .slide-art,
   .slide-grid article {
     min-height: 12rem;
+  }
+
+  .slide-grid {
+    padding: 0.5rem;
   }
 }
