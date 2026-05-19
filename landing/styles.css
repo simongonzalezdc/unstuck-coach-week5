@@ -456,31 +456,58 @@ button {
   animation: pulse 2.2s var(--ease-out) infinite;
 }
 
-.code-surface {
+.life-ledger {
   left: 7%;
   top: 38%;
   width: 18rem;
-  color: var(--cream-line);
+  color: var(--ink);
   background:
-    linear-gradient(145deg, rgba(23, 63, 62, 0.98), rgba(8, 7, 5, 0.93));
-  border-color: rgba(23, 63, 62, 0.46);
+    linear-gradient(180deg, rgba(255, 253, 246, 0.96), rgba(255, 248, 236, 0.9)),
+    linear-gradient(120deg, rgba(255, 20, 127, 0.09), transparent 48%, rgba(0, 215, 232, 0.08));
+  border-color: rgba(168, 148, 120, 0.4);
   border-top: 5px solid var(--magenta);
   transform: rotate(-2.4deg);
   animation: float-three 9.5s var(--ease-out) infinite;
 }
 
-.code-surface .panel-kicker {
-  color: rgba(255, 245, 220, 0.68);
+.life-ledger .panel-kicker {
+  color: var(--magenta-muted);
 }
 
-.code-surface pre {
-  margin: 0.7rem 0 0;
-  white-space: pre-wrap;
+.ledger-note {
+  margin: 0.68rem 0 0.7rem;
+  color: var(--steel);
+  font-size: 0.95rem;
+  font-weight: 820;
 }
 
-.code-surface code {
-  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-  font-size: 0.82rem;
+.ledger-list {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ledger-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.52rem;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  font-weight: 760;
+}
+
+.ledger-list li::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--magenta);
+  box-shadow: 0 0 0 5px rgba(255, 20, 127, 0.1);
 }
 
 .state-meter {
@@ -547,6 +574,23 @@ h1 {
   color: var(--ink-soft);
   font-size: 1.22rem;
   line-height: 1.68;
+}
+
+.hero-life-rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+  margin-top: 1.15rem;
+}
+
+.hero-life-rail span {
+  padding: 0.45rem 0.62rem;
+  border: 1px solid rgba(168, 148, 120, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 253, 246, 0.72);
+  color: var(--muted-strong);
+  font-size: 0.76rem;
+  font-weight: 820;
 }
 
 .mobile-proof-panel {
@@ -1563,7 +1607,7 @@ h1 {
   .file-node:nth-child(4),
   .task-stack,
   .coach-transcript,
-  .code-surface,
+  .life-ledger,
   .state-meter {
     transform: none;
   }
@@ -1663,7 +1707,7 @@ h1 {
     width: min(20rem, calc(100% - 2rem));
   }
 
-  .code-surface {
+  .life-ledger {
     left: 1rem;
     top: 6rem;
     width: min(19rem, calc(100% - 2rem));

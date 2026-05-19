@@ -495,8 +495,12 @@ const visualCssRequiredText = [
 
 const landingRequiredText = [
   "External executive function for the whole human.",
-  "Life surface",
+  "Life loop",
   "body: hungry / yellow",
+  "Food before planning",
+  "Text without meaning-making",
+  "Food, messages, bills, transitions, and re-entry all count as access work.",
+  "Food/body",
   "Eat before planning",
   "Leave breadcrumb",
   "This is activation friction, not a planning problem.",
@@ -519,7 +523,7 @@ const landingRequiredText = [
   "node scripts/verify-pitch-reel.mjs",
   "75-second pitch reel ready.",
   "Final link missing. Review placeholder still present.",
-  "60 public files, 8 console cases, 8 transcripts, 8 first-reply checks.",
+  "61 public files, 8 console cases, 8 transcripts, 8 first-reply checks.",
   "First run receipt",
   "Judge path",
   "Claude Project launch kit",
