@@ -41,6 +41,44 @@ const demos = [
   },
 ];
 
+function optionalSelector(selector) {
+  try {
+    return document.querySelector(selector);
+  } catch {
+    return null;
+  }
+}
+
+function optionalSelectorAll(selector) {
+  try {
+    return Array.from(document.querySelectorAll(selector));
+  } catch {
+    return [];
+  }
+}
+
+const navToggle = optionalSelector(".nav-toggle");
+const navLinks = optionalSelectorAll(".nav-links a");
+
+navLinks.forEach((link, index) => {
+  link.style.setProperty("--link-index", index);
+});
+
+if (navToggle) {
+  navToggle.addEventListener("click", () => {
+    const nextState = !document.body.classList.contains("nav-open");
+    document.body.classList.toggle("nav-open", nextState);
+    navToggle.setAttribute("aria-expanded", String(nextState));
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      document.body.classList.remove("nav-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
 const promptEl = document.querySelector("#demo-prompt");
 const genericEl = document.querySelector("#demo-generic");
 const startlineEl = document.querySelector("#demo-startline");
@@ -244,3 +282,30 @@ copyControls.forEach((control) => {
     }, 1400);
   });
 });
+
+const revealTargets = optionalSelectorAll(
+  ".section-heading, .coldrun-steps li, .brief-board article, .scorecard-board article, .reel-board article, .thesis-points article, .handoff-figure, .setup-board article, .response-pane, .coach-console, .console-output article, .file-node, .behavior-grid article, .receipts-grid a, .proofgate-board article, .judge-steps li, .submission-copy",
+);
+
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
+  );
+
+  revealTargets.forEach((target, index) => {
+    target.classList.add("reveal-item");
+    target.style.transitionDelay = `${Math.min(index % 6, 5) * 55}ms`;
+    revealObserver.observe(target);
+  });
+} else {
+  revealTargets.forEach((target) => {
+    target.classList.add("is-visible");
+  });
+}
