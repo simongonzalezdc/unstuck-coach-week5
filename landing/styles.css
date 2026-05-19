@@ -47,11 +47,11 @@ body {
   min-width: 320px;
   margin: 0;
   background:
-    linear-gradient(90deg, rgba(6, 9, 16, 0.03) 0 1px, transparent 1px 112px),
-    linear-gradient(180deg, rgba(6, 9, 16, 0.027) 0 1px, transparent 1px 112px),
-    radial-gradient(circle at 88% 8%, rgba(0, 215, 232, 0.13), transparent 25rem),
-    radial-gradient(circle at 9% 80%, rgba(255, 20, 127, 0.08), transparent 22rem),
-    linear-gradient(132deg, rgba(255, 192, 24, 0.1) 0%, transparent 36%),
+    linear-gradient(90deg, rgba(6, 9, 16, 0.022) 0 1px, transparent 1px 128px),
+    linear-gradient(180deg, rgba(6, 9, 16, 0.02) 0 1px, transparent 1px 128px),
+    radial-gradient(circle at 88% 8%, rgba(0, 215, 232, 0.08), transparent 26rem),
+    radial-gradient(circle at 8% 78%, rgba(255, 20, 127, 0.055), transparent 24rem),
+    linear-gradient(132deg, rgba(255, 192, 24, 0.07) 0%, transparent 38%),
     linear-gradient(180deg, var(--surface) 0%, var(--paper) 48%, #f1dfc5 100%);
   color: var(--ink);
   font-size: 16px;
@@ -243,27 +243,27 @@ button {
 
 .hero {
   position: relative;
-  min-height: 92dvh;
+  min-height: 90dvh;
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(31rem, 1.14fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(31rem, 1.1fr);
   align-items: center;
-  gap: 5.1rem;
+  gap: 4.65rem;
   width: var(--wrap);
   margin: 0 auto;
-  padding: 8.55rem 0 5.1rem;
+  padding: 8.65rem 0 5.6rem;
   isolation: isolate;
 }
 
 .hero::before {
   content: "";
   position: absolute;
-  inset: 6.6rem -2.25rem 1.65rem;
+  inset: 6.7rem -1.85rem 2.05rem;
   z-index: -2;
   background:
-    linear-gradient(90deg, rgba(255, 250, 242, 0.96), rgba(255, 248, 236, 0.75) 54%, rgba(255, 248, 236, 0.24)),
-    repeating-linear-gradient(135deg, rgba(6, 9, 16, 0.048) 0 1px, transparent 1px 42px),
-    repeating-linear-gradient(90deg, rgba(217, 208, 196, 0.42) 0 1px, transparent 1px 120px),
-    repeating-linear-gradient(0deg, rgba(217, 208, 196, 0.34) 0 1px, transparent 1px 120px);
+    linear-gradient(90deg, rgba(255, 250, 242, 0.97), rgba(255, 248, 236, 0.72) 56%, rgba(255, 248, 236, 0.18)),
+    repeating-linear-gradient(135deg, rgba(6, 9, 16, 0.038) 0 1px, transparent 1px 48px),
+    repeating-linear-gradient(90deg, rgba(217, 208, 196, 0.32) 0 1px, transparent 1px 132px),
+    repeating-linear-gradient(0deg, rgba(217, 208, 196, 0.25) 0 1px, transparent 1px 132px);
   border: 1px solid rgba(6, 9, 16, 0.1);
   border-radius: var(--radius);
   box-shadow:
@@ -298,17 +298,21 @@ button {
   order: 2;
   position: relative;
   min-width: 0;
-  min-height: 41.5rem;
+  min-height: 40.4rem;
   border: 2px solid var(--ink);
   border-radius: var(--radius);
   background:
     linear-gradient(145deg, rgba(6, 9, 16, 0.98), rgba(6, 67, 74, 0.96)),
     radial-gradient(circle at 20% 18%, rgba(0, 215, 232, 0.18), transparent 17rem),
     linear-gradient(126deg, transparent 0%, rgba(0, 215, 232, 0.1) 42%, transparent 72%);
+  outline: 1px solid rgba(255, 245, 220, 0.56);
+  outline-offset: -0.78rem;
   box-shadow:
-    inset 0 0 0 7px rgba(255, 245, 220, 0.1),
-    inset 0 0 0 12px rgba(6, 9, 16, 0.3),
-    var(--shadow-ink);
+    inset 0 1px 0 rgba(255, 245, 220, 0.18),
+    inset 0 0 0 0.5rem rgba(255, 245, 220, 0.08),
+    inset 0 0 0 0.9rem rgba(6, 9, 16, 0.32),
+    0 2px 0 rgba(255, 245, 220, 0.48),
+    0 32px 82px rgba(6, 9, 16, 0.28);
   overflow: hidden;
   animation: scene-rise 980ms var(--ease-out) 120ms both;
 }
@@ -328,10 +332,11 @@ button {
   position: absolute;
   inset: 0;
   background:
-    repeating-linear-gradient(135deg, transparent 0 31px, rgba(255, 245, 220, 0.07) 31px 32px, transparent 32px 68px),
-    repeating-linear-gradient(45deg, transparent 0 48px, rgba(0, 215, 232, 0.08) 48px 49px, transparent 49px 98px),
-    linear-gradient(90deg, rgba(6, 9, 16, 0.38), transparent 38%, rgba(255, 20, 127, 0.055));
-  opacity: 0.86;
+    radial-gradient(circle at 50% 44%, rgba(255, 245, 220, 0.12), transparent 17rem),
+    repeating-linear-gradient(135deg, transparent 0 34px, rgba(255, 245, 220, 0.055) 34px 35px, transparent 35px 74px),
+    repeating-linear-gradient(45deg, transparent 0 56px, rgba(0, 215, 232, 0.055) 56px 57px, transparent 57px 112px),
+    linear-gradient(90deg, rgba(6, 9, 16, 0.48), transparent 40%, rgba(255, 20, 127, 0.042));
+  opacity: 0.82;
   pointer-events: none;
 }
 
@@ -344,7 +349,7 @@ button {
     inset 0 0 0 2px rgba(255, 245, 220, 0.86),
     inset 0 0 0 7px rgba(6, 9, 16, 0.32),
     0 18px 48px rgba(6, 9, 16, 0.22);
-  opacity: 0.96;
+  opacity: 0.88;
 }
 
 .mola-bridge::before,
@@ -357,10 +362,10 @@ button {
 }
 
 .bridge-one {
-  right: -9%;
-  top: 21%;
-  width: 38rem;
-  height: 7.6rem;
+  right: -12%;
+  top: 23.5%;
+  width: 40rem;
+  height: 6.35rem;
   background:
     linear-gradient(90deg, var(--steel) 0 22%, var(--sage) 22% 37%, var(--cyan) 37% 50%, var(--lime) 50% 60%, var(--gold) 60% 70%, var(--orange) 70% 84%, var(--magenta-muted) 84% 100%);
   transform: rotate(-13deg);
@@ -368,10 +373,10 @@ button {
 }
 
 .bridge-two {
-  left: -7%;
-  bottom: 18%;
-  width: 25rem;
-  height: 5.2rem;
+  left: -10%;
+  bottom: 19.5%;
+  width: 29rem;
+  height: 4.45rem;
   background:
     linear-gradient(90deg, var(--magenta-muted) 0 19%, var(--start) 19% 38%, var(--gold) 38% 56%, var(--sky-muted) 56% 76%, var(--sage) 76% 100%);
   transform: rotate(-13deg);
@@ -381,10 +386,10 @@ button {
 .runway-line {
   position: absolute;
   z-index: 2;
-  left: 11%;
-  right: 7%;
-  bottom: 33%;
-  height: 3px;
+  left: 12%;
+  right: 9%;
+  bottom: 32%;
+  height: 2px;
   background: linear-gradient(90deg, transparent, var(--cyan), var(--lime), var(--gold), var(--start), transparent);
   transform-origin: left center;
   transform: rotate(-13deg);
@@ -394,14 +399,15 @@ button {
 .scene-panel {
   position: absolute;
   z-index: 3;
-  border: 1px solid rgba(6, 9, 16, 0.86);
+  border: 1px solid rgba(6, 9, 16, 0.72);
   border-radius: var(--radius);
   background:
-    linear-gradient(180deg, rgba(255, 250, 242, 0.97), rgba(248, 243, 235, 0.9));
+    repeating-linear-gradient(90deg, rgba(6, 9, 16, 0.018) 0 1px, transparent 1px 26px),
+    linear-gradient(180deg, rgba(255, 250, 242, 0.975), rgba(248, 243, 235, 0.92));
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.82),
-    0 22px 48px rgba(6, 9, 16, 0.24);
-  padding: 1.02rem;
+    0 18px 40px rgba(6, 9, 16, 0.21);
+  padding: 0.95rem;
   overflow: hidden;
 }
 
@@ -428,11 +434,11 @@ button {
 }
 
 .task-stack {
-  right: 4.8%;
-  top: 8.5%;
-  width: 16.2rem;
-  transform: rotate(0.8deg);
-  border-top: 4px solid var(--cyan);
+  right: 4.7%;
+  top: 8.8%;
+  width: 15.5rem;
+  transform: rotate(0.45deg);
+  border-top: 3px solid var(--cyan);
   animation: float-one 7.5s var(--ease-out) infinite;
 }
 
@@ -472,11 +478,11 @@ button {
 }
 
 .coach-transcript {
-  right: 5.2%;
-  bottom: 7%;
-  width: 21.4rem;
-  transform: rotate(-0.8deg);
-  border-top: 4px solid var(--lime);
+  right: 5.4%;
+  bottom: 7.2%;
+  width: 20.6rem;
+  transform: rotate(-0.45deg);
+  border-top: 3px solid var(--lime);
   animation: float-two 8.5s var(--ease-out) infinite;
 }
 
@@ -505,16 +511,16 @@ button {
 }
 
 .life-ledger {
-  left: 5.1%;
-  top: 28%;
-  width: 18.9rem;
+  left: 5.3%;
+  top: 24.5%;
+  width: 20.6rem;
   color: var(--ink);
   background:
     linear-gradient(180deg, rgba(255, 250, 242, 0.98), rgba(255, 245, 220, 0.94)),
     linear-gradient(120deg, rgba(255, 20, 127, 0.1), transparent 48%, rgba(0, 215, 232, 0.1));
   border-color: var(--ink);
-  border-top: 4px solid var(--magenta);
-  transform: rotate(-1.8deg);
+  border-top: 3px solid var(--magenta);
+  transform: rotate(-1.15deg);
   animation: float-three 9.5s var(--ease-out) infinite;
 }
 
@@ -559,11 +565,11 @@ button {
 }
 
 .state-meter {
-  left: 7%;
-  bottom: 8.5%;
-  width: 10.4rem;
-  transform: rotate(1deg);
-  border-top: 4px solid var(--gold);
+  left: 8.4%;
+  bottom: 8.1%;
+  width: 9.6rem;
+  transform: rotate(0.65deg);
+  border-top: 3px solid var(--gold);
   animation: float-four 6.8s var(--ease-out) infinite;
 }
 
@@ -610,18 +616,18 @@ p {
 
 h1 {
   margin: 0;
-  max-width: 12.6ch;
+  max-width: 12.2ch;
   font-family: var(--editorial);
-  font-size: 4.86rem;
+  font-size: 4.62rem;
   font-weight: 560;
-  line-height: 0.96;
+  line-height: 0.985;
   padding-bottom: 0.12em;
   text-wrap: balance;
 }
 
 .hero-deck {
-  max-width: 40.5rem;
-  margin: 1.38rem 0 0;
+  max-width: 38.5rem;
+  margin: 1.32rem 0 0;
   color: var(--ink-soft);
   font-size: 1.08rem;
   line-height: 1.72;
@@ -796,7 +802,7 @@ h1 {
   display: grid;
   grid-template-columns: 0.92fr 1.35fr 1fr;
   gap: 0.55rem;
-  margin: -3.4rem auto 0;
+  margin: -2.65rem auto 0;
   padding: 0.48rem;
   border: 2px solid var(--ink);
   border-radius: var(--radius);
@@ -1498,12 +1504,12 @@ h1 {
 @keyframes scene-rise {
   from {
     opacity: 0;
-    transform: translateY(2.2rem) rotate(0.6deg);
+    transform: translateY(2.2rem) rotate(0.18deg);
     filter: blur(9px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(-0.28deg);
     filter: blur(0);
   }
 }
@@ -1523,40 +1529,40 @@ h1 {
 @keyframes float-one {
   0%,
   100% {
-    transform: translateY(0) rotate(1.2deg);
+    transform: translateY(0) rotate(0.45deg);
   }
   50% {
-    transform: translateY(-0.7rem) rotate(0.5deg);
+    transform: translateY(-0.52rem) rotate(0.12deg);
   }
 }
 
 @keyframes float-two {
   0%,
   100% {
-    transform: translateY(0) rotate(-1.1deg);
+    transform: translateY(0) rotate(-0.45deg);
   }
   50% {
-    transform: translateY(0.65rem) rotate(-0.5deg);
+    transform: translateY(0.46rem) rotate(-0.12deg);
   }
 }
 
 @keyframes float-three {
   0%,
   100% {
-    transform: translateY(0) rotate(-2.4deg);
+    transform: translateY(0) rotate(-1.15deg);
   }
   50% {
-    transform: translateY(-0.75rem) rotate(-1.5deg);
+    transform: translateY(-0.54rem) rotate(-0.75deg);
   }
 }
 
 @keyframes float-four {
   0%,
   100% {
-    transform: translateY(0) rotate(1.6deg);
+    transform: translateY(0) rotate(0.65deg);
   }
   50% {
-    transform: translateY(0.55rem) rotate(0.8deg);
+    transform: translateY(0.38rem) rotate(0.28deg);
   }
 }
 
@@ -1644,6 +1650,8 @@ h1 {
 
   .hero {
     padding-top: 7.5rem;
+    padding-bottom: 3.6rem;
+    gap: 2rem;
   }
 
   h1 {
@@ -1682,7 +1690,7 @@ h1 {
   }
 
   .proof-strip {
-    margin-top: -1.5rem;
+    margin-top: -4.1rem;
   }
 
   .comparison-grid {
@@ -1704,6 +1712,30 @@ h1 {
   .life-ledger {
     top: 16.5%;
   }
+
+  .workbench-scene {
+    min-height: 21.2rem;
+  }
+
+  .scene-panel {
+    padding: 0.75rem;
+  }
+
+  .task-stack {
+    width: 14.2rem;
+  }
+
+  .life-ledger {
+    width: 19rem;
+  }
+
+  .coach-transcript {
+    width: 19.2rem;
+  }
+
+  .state-meter {
+    display: none;
+  }
 }
 
 @media (max-width: 620px) {
@@ -1713,6 +1745,10 @@ h1 {
 
   body {
     font-size: 15px;
+  }
+
+  body::after {
+    width: 0.38rem;
   }
 
   .site-nav,
@@ -1740,7 +1776,7 @@ h1 {
 
   .hero {
     width: calc(100% - 2rem);
-    padding: 6.4rem 0 4rem;
+    padding: 6rem 0 2.6rem;
   }
 
   .hero-copy {
@@ -1753,13 +1789,23 @@ h1 {
   }
 
   h1 {
-    font-size: 3rem;
-    max-width: 10.5ch;
+    font-size: 2.72rem;
+    max-width: 10.8ch;
   }
 
   .hero-deck {
-    font-size: 1.04rem;
-    line-height: 1.62;
+    margin-top: 1.05rem;
+    font-size: 0.99rem;
+    line-height: 1.54;
+  }
+
+  .hero-life-rail {
+    gap: 0.38rem;
+    margin-top: 0.88rem;
+  }
+
+  .hero-life-rail span {
+    padding: 0.38rem 0.54rem;
   }
 
   .hero .eyebrow {
@@ -1773,13 +1819,17 @@ h1 {
     display: grid;
   }
 
+  .hero-actions {
+    margin-top: 1.35rem;
+  }
+
   .action {
     width: 100%;
     justify-content: space-between;
   }
 
   .workbench-scene {
-    min-height: 34rem;
+    display: none;
   }
 
   .mola-bridge {
@@ -1819,8 +1869,8 @@ h1 {
 
   .mobile-proof-panel {
     display: block;
-    margin-top: 1.2rem;
-    padding: 1rem;
+    margin-top: 0.95rem;
+    padding: 0.84rem;
     border: 1px solid rgba(168, 148, 120, 0.34);
     border-radius: var(--radius);
     background:
@@ -1829,15 +1879,15 @@ h1 {
   }
 
   .mobile-proof-panel p {
-    margin: 0.6rem 0 0.85rem;
+    margin: 0.48rem 0 0.64rem;
     color: var(--ink);
     font-weight: 760;
   }
 
   .mobile-proof-grid {
     display: grid;
-    grid-template-columns: 4.2rem 1fr;
-    gap: 0.45rem 0.7rem;
+    grid-template-columns: 3.8rem 1fr;
+    gap: 0.34rem 0.58rem;
     align-items: baseline;
   }
 
@@ -1855,7 +1905,7 @@ h1 {
   }
 
   .proof-strip {
-    margin-top: -1rem;
+    margin-top: -5.15rem;
   }
 
   .section,
