@@ -376,11 +376,49 @@ const visualCssGuardrails = [
   },
 ];
 
+const visualTextGuardrails = [
+  {
+    file: "landing/styles.css",
+    pattern: /font-family\s*:[^;]*(?:Inter|Roboto|Arial|Open Sans|Helvetica)/i,
+    message: "uses generic/banned font-family fallback in landing CSS",
+  },
+  {
+    file: "landing/reel.css",
+    pattern: /font-family\s*:[^;]*(?:Inter|Roboto|Arial|Open Sans|Helvetica)/i,
+    message: "uses generic/banned font-family fallback in reel CSS",
+  },
+  {
+    file: "landing/assets/startline-handoff-card.svg",
+    pattern: /font-family="[^"]*(?:Inter|Roboto|Arial|Open Sans|Helvetica)/i,
+    message: "uses generic/banned font-family fallback in handoff SVG",
+  },
+];
+
 const visualCssRequiredText = [
   {
     file: "landing/styles.css",
     text: "--paper: #fff8ec",
     message: "missing warm-paper color token",
+  },
+  {
+    file: "landing/styles.css",
+    text: "--ink: #060910",
+    message: "missing PuenteWorks black-structure token",
+  },
+  {
+    file: "landing/styles.css",
+    text: "--steel: #06434a",
+    message: "missing deep bridge/teal structure token",
+  },
+  {
+    file: "landing/styles.css",
+    text: "--gold: #ffc018",
+    message: "missing solar-yellow bridge signal token",
+  },
+  {
+    file: "landing/styles.css",
+    text: "--orange: #ff8b00",
+    message: "missing production-orange bridge signal token",
   },
   {
     file: "landing/styles.css",
@@ -409,6 +447,11 @@ const visualCssRequiredText = [
   },
   {
     file: "landing/styles.css",
+    text: 'font-family: "Avenir Next", "Plus Jakarta Sans", "Geist", "Satoshi", system-ui, sans-serif',
+    message: "missing strong humanist/geometric page type stack",
+  },
+  {
+    file: "landing/styles.css",
     text: "--ease-out: cubic-bezier(0.32, 0.72, 0, 1)",
     message: "missing high-end custom motion curve",
   },
@@ -416,6 +459,11 @@ const visualCssRequiredText = [
     file: "landing/styles.css",
     text: "body::before",
     message: "missing fixed paper/noise texture layer",
+  },
+  {
+    file: "landing/styles.css",
+    text: "body::after",
+    message: "missing left-edge signal inlay",
   },
   {
     file: "landing/styles.css",
@@ -446,6 +494,21 @@ const visualCssRequiredText = [
     file: "landing/styles.css",
     text: ".bridge-two",
     message: "missing secondary bridge motif",
+  },
+  {
+    file: "landing/styles.css",
+    text: "border: 2px solid var(--ink)",
+    message: "missing black structural borders",
+  },
+  {
+    file: "landing/styles.css",
+    text: "linear-gradient(145deg, rgba(6, 9, 16, 0.98), rgba(6, 67, 74, 0.96))",
+    message: "missing dark structural hero field",
+  },
+  {
+    file: "landing/styles.css",
+    text: "linear-gradient(90deg, var(--steel), var(--ink) 46%, #07101c)",
+    message: "missing dark bridge-deck proof strip",
   },
   {
     file: "landing/styles.css",
@@ -491,6 +554,11 @@ const visualCssRequiredText = [
     file: "landing/index.html",
     text: 'class="nav-toggle"',
     message: "missing mobile nav toggle markup",
+  },
+  {
+    file: "landing/assets/startline-handoff-card.svg",
+    text: 'font-family="Avenir Next, sans-serif"',
+    message: "missing cleaned handoff-card SVG type stack",
   },
 ];
 
@@ -871,6 +939,12 @@ for (const stale of staleWholePersonDriftText) {
 }
 
 for (const guardrail of visualCssGuardrails) {
+  if (exists(guardrail.file) && guardrail.pattern.test(read(guardrail.file))) {
+    failures.push(`${guardrail.file} ${guardrail.message}.`);
+  }
+}
+
+for (const guardrail of visualTextGuardrails) {
   if (exists(guardrail.file) && guardrail.pattern.test(read(guardrail.file))) {
     failures.push(`${guardrail.file} ${guardrail.message}.`);
   }
