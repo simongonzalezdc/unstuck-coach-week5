@@ -1932,6 +1932,19 @@ h1 {
     font-size: 0.92rem;
   }
 
+  .prompt-rail {
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+
+  .prompt-tab {
+    flex: 1 1 calc(50% - 0.5rem);
+    justify-content: center;
+    min-height: 2.8rem;
+    text-align: center;
+    white-space: normal;
+  }
+
   .proof-strip {
     margin-top: -5.15rem;
   }
