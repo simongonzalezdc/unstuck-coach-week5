@@ -92,9 +92,10 @@ Evidence: `landing/index.html`, `landing/reel.html`, `PITCH_REEL.md`, `RECEIPTS.
 Public submission is intentionally blocked until:
 
 - the folder owner approves the landing/reel design,
-- Premium/VIP eligibility is confirmed,
 - a clean Week 5 public repository exists,
 - the final public GitHub URL is inserted,
 - the final Skool comment is approved.
+
+Eligibility is documented as confirmed; the remaining blockers are publication and approval gates.
 
 Evidence: `PUBLICATION_CHECKLIST.md`, `SUBMISSION.md`, `scripts/verify-publication-ready.mjs`.

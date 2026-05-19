@@ -67,6 +67,7 @@ export function verifyCompetitionRulesTrace(root = process.cwd()) {
     "landing/reel.html",
     "scripts/verify-competition-rules-trace.mjs",
     "scripts/verify-publication-ready.mjs",
+    "Eligibility is documented as confirmed before posting.",
     "Intentionally blocked until final approval and clean public Week 5 repo URL insertion.",
   ];
 
@@ -88,8 +89,8 @@ export function verifyCompetitionRulesTrace(root = process.cwd()) {
     failures.push(`Expected at least 13 above-the-brief proof bullets, found ${aboveBriefProofBullets}.`);
   }
 
-  if (blockerBullets !== 5) {
-    failures.push(`Expected 5 current blocker bullets, found ${blockerBullets}.`);
+  if (blockerBullets !== 4) {
+    failures.push(`Expected 4 current blocker bullets, found ${blockerBullets}.`);
   }
 
   const forbiddenText = [

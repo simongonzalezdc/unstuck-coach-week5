@@ -165,7 +165,7 @@ const judgeFaqRequiredText = [
 
 const publicationChecklistRequiredText = [
   "Do Not Publish Until",
-  "Premium/VIP eligibility is confirmed.",
+  "Premium/VIP eligibility is documented as confirmed.",
   "A clean Week 5 public repository exists.",
   "The final public GitHub URL is rejected if it points at the old Week 3 repository.",
   "The final public GitHub URL is visible through unauthenticated GitHub API access.",
@@ -201,6 +201,7 @@ const rulesTraceRequiredText = [
   "scripts/verify-judge-faq.mjs",
   "Include 2-3 sentences describing who the coach is and who it coaches",
   "Current Blockers",
+  "Eligibility is documented as confirmed before posting.",
   "scripts/verify-publication-ready.mjs",
 ];
 

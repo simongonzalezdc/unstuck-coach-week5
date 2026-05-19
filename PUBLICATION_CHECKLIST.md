@@ -6,7 +6,7 @@ Use this only after the folder owner has reviewed the folder and approved the la
 
 - The folder owner has read the folder.
 - The folder owner has approved the landing page design.
-- Premium/VIP eligibility is confirmed.
+- Premium/VIP eligibility is documented as confirmed.
 - A clean Week 5 public repository exists.
 - The public repository is not the Week 3 submission repo.
 - The final public GitHub URL is ready to paste into `SUBMISSION.md`.
@@ -49,7 +49,7 @@ Expected before public-link insertion:
 - `verify-reel-page.mjs` reports six record-ready reel scenes, resolved local refs, and zero public-unsafe private/local references.
 - `verify-judge-faq.mjs` reports eight FAQ questions, evidence references, and zero public-unsafe private/local references.
 - `verify-judge-scorecard.mjs` reports nine criteria rows, a sequential fast scoring path, and zero public-unsafe private/local references.
-- `verify-competition-rules-trace.mjs` reports 12 brief requirement rows, 4 judging question rows, above-the-brief proof bullets, 5 blockers, and zero public-unsafe private/local references.
+- `verify-competition-rules-trace.mjs` reports 12 brief requirement rows, 4 judging question rows, above-the-brief proof bullets, 4 blockers, and zero public-unsafe private/local references.
 - `verify-product-thesis.mjs` reports the folder-first product rationale, whole-person scope, proof logic, and boundaries with zero failures.
 - `verify-icm-trace.mjs` reports the public ICM fit map, evidence references, and zero failures.
 - `verify-first-run.mjs` reports the cold-start receipt checks and zero failures.

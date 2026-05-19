@@ -19,7 +19,7 @@ Publication status is controlled by `PUBLICATION_CHECKLIST.md` and `scripts/veri
 | Include `README.md` | `README.md` | Gives setup, judge path, prompt list, proof artifacts, and verification commands. |
 | Submit a public GitHub repo link | `SUBMISSION.md`, `PUBLICATION_CHECKLIST.md`, `scripts/prepare-publication-link.mjs`, `scripts/verify-publication-ready.mjs` | Intentionally blocked until final approval and clean public Week 5 repo URL insertion. |
 | Include 2-3 sentences describing who the coach is and who it coaches | `SUBMISSION.md`, `scripts/verify-submission-copy.mjs` | Verifier checks the Skool comment draft sentence count and length. |
-| Respect Premium/VIP eligibility | `PUBLICATION_CHECKLIST.md` | Human confirmation is required before posting. |
+| Respect Premium/VIP eligibility | `PUBLICATION_CHECKLIST.md` | Eligibility is documented as confirmed before posting. |
 
 ## Judging Questions
 
@@ -53,7 +53,6 @@ Publication status is controlled by `PUBLICATION_CHECKLIST.md` and `scripts/veri
 These are deliberate blockers, not hidden gaps:
 
 - The folder owner must approve or veto the landing page design.
-- Premium/VIP eligibility must be confirmed.
 - A clean public Week 5 repository must exist.
 - The final public GitHub URL must replace the placeholder in `SUBMISSION.md`.
 - `scripts/verify-publication-ready.mjs` must report `status: "ready"` after the final URL is inserted.

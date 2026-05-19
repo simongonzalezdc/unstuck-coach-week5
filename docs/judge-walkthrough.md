@@ -187,7 +187,7 @@ Run its verifier:
 node scripts/verify-competition-rules-trace.mjs
 ```
 
-It should report 12 brief requirement rows, 4 judging question rows, above-the-brief proof bullets, 5 blockers, and zero public-unsafe private/local references.
+It should report 12 brief requirement rows, 4 judging question rows, above-the-brief proof bullets, 4 blockers, and zero public-unsafe private/local references.
 
 Open `HANDOFF_CARD.md`.
 
@@ -215,7 +215,7 @@ It should be paste-ready for Claude Project instructions and should preserve the
 
 Open `PUBLICATION_CHECKLIST.md`.
 
-It should keep final publishing separate from review: design approval, Premium/VIP eligibility, clean Week 5 public repo, final link insertion, and the green publication gate.
+It should keep final publishing separate from review: design approval, documented Premium/VIP eligibility, clean Week 5 public repo, final link insertion, and the green publication gate.
 
 Open `WALKTHROUGH.md`.
 
