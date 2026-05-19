@@ -46,7 +46,9 @@ export function verifyJudgeScorecard(root = process.cwd()) {
     "landing/reel.html",
     "scripts/verify-judge-faq.mjs",
     "scripts/verify-judge-scorecard.mjs",
+    "scripts/verify-eval-coverage.mjs",
     "node scripts/final-review-smoke.mjs --expect-blocked",
+    "live-obligation rescue before cleanup",
     "If the coach gives a productivity article, score the coach-behavior criterion 0",
   ];
 

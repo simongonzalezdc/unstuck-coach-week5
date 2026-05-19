@@ -55,6 +55,7 @@ Extra proof files:
 - `scripts/verify-landing-copy.mjs`
 - `scripts/verify-transcript-pack.mjs`
 - `scripts/verify-console-behavior.mjs`
+- `scripts/verify-eval-coverage.mjs`
 - `scripts/verify-public-bundle.mjs`
 - `scripts/verify-publication-ready.mjs`
 - `scripts/build-public-bundle.mjs`
@@ -314,9 +315,10 @@ For the console-only behavior proof, run:
 
 ```bash
 node scripts/verify-console-behavior.mjs
+node scripts/verify-eval-coverage.mjs
 ```
 
-It should classify activation friction, a getting-started coach request, communication threat, working-memory overload, idea capture, repeated failed plans, body-first recovery, and calibration fallback.
+It should classify activation friction, a getting-started coach request, communication threat, working-memory overload, idea capture, repeated failed plans, body-first recovery, and calibration fallback. It should also report 13 red-face tests and at least 12 research-to-behavior rows.
 
 For the transcript-pack proof, run:
 
@@ -395,11 +397,11 @@ Look for the difference between generic assistant behavior and coach behavior:
 
 Open `demo/transcript-pack.md`.
 
-It should give a judge cold-test examples for getting started, whole-life freeze, message threat, overload, raw capture, repeated failed plans, body-first recovery, and calibration.
+It should give a judge cold-test examples for getting started, whole-life freeze, message threat, overload, raw capture, repeated failed plans, body-first recovery, inbox/calendar reality, and calibration.
 
 Open `evals/red-face-tests.md`.
 
-The red-face tests check whether the coach still works under shame, overload, capture, tangents, time blindness, repeated failure, hyperfocus crash, and clinical boundary pressure.
+The red-face tests check whether the coach still works under shame, overload, inbox/calendar reality, capture, tangents, time blindness, repeated failure, hyperfocus crash, and clinical boundary pressure.
 
 Open `evals/research-to-behavior-checklist.md`.
 
@@ -407,6 +409,7 @@ This file shows how the research turned into behavior:
 
 - working memory -> hold the list
 - time blindness -> visible anchors
+- inbox/calendar noise -> live-obligation rescue
 - interoception -> body-first prompts
 - system rot -> bankruptcy/reset
 - novelty pull -> tangent firewall

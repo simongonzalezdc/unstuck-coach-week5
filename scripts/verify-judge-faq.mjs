@@ -39,6 +39,7 @@ export function verifyJudgeFaq(root = process.cwd()) {
     "scripts/verify-first-reply-acceptance.mjs",
     "scripts/final-review-smoke.mjs",
     "landing/reel.html",
+    "scripts/verify-eval-coverage.mjs",
     "scripts/verify-publication-ready.mjs",
   ];
 

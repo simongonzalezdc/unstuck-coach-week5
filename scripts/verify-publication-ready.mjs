@@ -13,6 +13,7 @@ import { verifyIcmTrace } from "./verify-icm-trace.mjs";
 import { verifyJudgeFaq } from "./verify-judge-faq.mjs";
 import { verifyJudgeScorecard } from "./verify-judge-scorecard.mjs";
 import { verifyLandingCopy } from "./verify-landing-copy.mjs";
+import { verifyEvalCoverage } from "./verify-eval-coverage.mjs";
 import { verifyPitchReel } from "./verify-pitch-reel.mjs";
 import { verifyReelPage } from "./verify-reel-page.mjs";
 import { verifyProductThesis } from "./verify-product-thesis.mjs";
@@ -113,6 +114,9 @@ export function verifyPublicationReady() {
   const firstReplyAcceptance = verifyFirstReplyAcceptance(root);
   addVerifierFailures(failures, "First-reply acceptance", firstReplyAcceptance);
 
+  const evalCoverage = verifyEvalCoverage(root);
+  addVerifierFailures(failures, "Eval coverage", evalCoverage);
+
   const submissionCopy = verifySubmissionCopy(root);
   addVerifierFailures(failures, "Submission copy", submissionCopy);
 
@@ -153,6 +157,8 @@ export function verifyPublicationReady() {
     landingCopyButtons: landingCopy.checkedButtons,
     transcriptPackCases: transcriptPack.checkedCases,
     firstReplyAcceptanceCases: firstReplyAcceptance.checkedCases,
+    redFaceTests: evalCoverage.redFaceTests,
+    researchToBehaviorRows: evalCoverage.researchRows,
     skoolCommentSentences: submissionCopy.sentenceCount,
     skoolCommentCharacters: submissionCopy.characterCount,
     submissionSurfaceCharacters: submissionSurfaces.landingSectionCharacters,

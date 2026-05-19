@@ -92,6 +92,7 @@ startline-coach/
 │   ├── verify-transcript-pack.mjs
 │   ├── verify-first-reply-acceptance.mjs
 │   ├── verify-console-behavior.mjs
+│   ├── verify-eval-coverage.mjs
 │   ├── verify-public-bundle.mjs
 │   ├── verify-publication-ready.mjs
 │   ├── verify-github-public-url.mjs
@@ -205,8 +206,8 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `RECEIPTS.md` maps each public claim to the exact file that proves it.
 - `demo/before-after.md` shows how Startline Coach differs from generic productivity advice.
 - `demo/transcript-pack.md` gives cold-test transcript examples for the moments a judge is likely to try.
-- `evals/red-face-tests.md` stress-tests shame, overload, time blindness, capture, tangents, hyperfocus, and safety boundaries.
-- `evals/research-to-behavior-checklist.md` maps the research foundation to actual coach behavior.
+- `evals/red-face-tests.md` stress-tests shame, overload, inbox/calendar reality, time blindness, capture, tangents, hyperfocus, and safety boundaries.
+- `evals/research-to-behavior-checklist.md` maps the research foundation to actual coach behavior, including live-obligation rescue before cleanup.
 - `scripts/prepare-publication-link.mjs` dry-runs or writes the final public GitHub URL into `SUBMISSION.md`.
 - `scripts/verify-submission-copy.mjs` checks that the Skool comment draft stays within the required 2-3 sentence shape.
 - `scripts/verify-submission-surfaces.mjs` checks that the Skool draft, SUBMISSION landing version, and landing-page submission copy stay synchronized.
@@ -224,6 +225,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `scripts/verify-transcript-pack.mjs` checks that the cold-test transcript pack stays complete.
 - `scripts/verify-first-reply-acceptance.mjs` checks that cold-test first replies name friction, give one move, ask for proof, and avoid generic advice patterns.
 - `scripts/verify-console-behavior.mjs` checks the runnable console's protocol classifications.
+- `scripts/verify-eval-coverage.mjs` checks red-face coverage and the research-to-behavior map.
 - `scripts/verify-public-bundle.mjs` checks required files, landing proof/launch-kit text, local landing refs, public-safe text, submission copy, transcript completeness, and console behavior.
 - `scripts/verify-publication-ready.mjs` is the final posting gate after the public GitHub link is inserted; it rejects the old Week 3 repo and reruns the proof-layer checks.
 - `scripts/verify-github-public-url.mjs` proves the final GitHub link is publicly visible through unauthenticated GitHub API access, so the private review repo cannot pass as public.

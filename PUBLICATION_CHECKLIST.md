@@ -34,6 +34,7 @@ node scripts/verify-landing-copy.mjs
 node scripts/verify-transcript-pack.mjs
 node scripts/verify-first-reply-acceptance.mjs
 node scripts/verify-console-behavior.mjs
+node scripts/verify-eval-coverage.mjs
 node scripts/verify-public-bundle.mjs
 node scripts/build-public-bundle.mjs
 node scripts/verify-clean-public-stage.mjs
@@ -59,6 +60,7 @@ Expected before public-link insertion:
 - `verify-transcript-pack.mjs` reports 9 checked cases and zero failures.
 - `verify-first-reply-acceptance.mjs` reports 9 checked first replies and zero failures.
 - `verify-console-behavior.mjs` reports 9 checked behavior cases and zero failures.
+- `verify-eval-coverage.mjs` reports 13 red-face tests, at least 12 research-to-behavior rows, and zero failures.
 - `verify-public-bundle.mjs` reports zero failures.
 - `verify-clean-public-stage.mjs` stages into a temporary separate folder, verifies the staged payload, removes the temporary target, and reports zero failures.
 - `final-review-smoke.mjs --expect-blocked` reports `status: "pass"` before the final public link is inserted.

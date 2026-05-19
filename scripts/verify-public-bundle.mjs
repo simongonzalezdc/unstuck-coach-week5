@@ -12,6 +12,7 @@ import { verifyIcmTrace } from "./verify-icm-trace.mjs";
 import { verifyJudgeFaq } from "./verify-judge-faq.mjs";
 import { verifyJudgeScorecard } from "./verify-judge-scorecard.mjs";
 import { verifyLandingCopy } from "./verify-landing-copy.mjs";
+import { verifyEvalCoverage } from "./verify-eval-coverage.mjs";
 import { verifyPitchReel } from "./verify-pitch-reel.mjs";
 import { verifyReelPage } from "./verify-reel-page.mjs";
 import { verifyProductThesis } from "./verify-product-thesis.mjs";
@@ -188,6 +189,7 @@ const publicationChecklistRequiredText = [
   "node scripts/verify-landing-copy.mjs",
   "node scripts/verify-first-reply-acceptance.mjs",
   "node scripts/verify-console-behavior.mjs",
+  "node scripts/verify-eval-coverage.mjs",
 ];
 
 const rulesTraceRequiredText = [
@@ -220,6 +222,15 @@ const transcriptPackRequiredText = [
   "scripts/verify-first-reply-acceptance.mjs",
 ];
 
+const evalCoverageRequiredText = [
+  "Test 9: Calendar And Inbox Reality",
+  "Opens the calendar first for the next hard anchor.",
+  "Chooses one inbox item tied to time, money, safety, relationship, or another person.",
+  "Inbox and calendar noise hides live obligations",
+  "live-obligation rescue",
+  "scripts/verify-eval-coverage.mjs",
+];
+
 const stagingHelperRequiredText = [
   "--target",
   "--write",
@@ -240,6 +251,7 @@ const finalReviewSmokeRequiredText = [
   "verify-publication-ready.mjs",
   "verify-github-public-url.mjs",
   "verify-icm-trace.mjs",
+  "verify-eval-coverage.mjs",
   "verify-clean-public-stage.mjs",
   "Expected publication gate to remain blocked before final public link insertion.",
   "Expected final GitHub URL to be publicly visible before publication.",
@@ -336,6 +348,7 @@ const readmeRequiredText = [
   "If Startline gives a productivity article, it failed.",
   "JUDGE_FAQ.md` gives the shortest answers to likely Week 5 judging objections",
   "PITCH_REEL.md` compresses the presentation layer into a verified 75-second judge reel.",
+  "scripts/verify-eval-coverage.mjs` checks red-face coverage and the research-to-behavior map.",
   "scripts/verify-github-public-url.mjs` proves the final GitHub link is publicly visible through unauthenticated GitHub API access",
   "node scripts/verify-github-public-url.mjs",
 ];
@@ -578,7 +591,7 @@ const landingRequiredText = [
   "Calendar/inbox",
   "Triage one inbox item",
   "My inbox and calendar are a mess and I do not know what is real.",
-  "61 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
+  "62 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
   "Food/body",
   "Eat before planning",
   "Leave breadcrumb",
@@ -599,10 +612,11 @@ const landingRequiredText = [
   "Clean repo preflight",
   "node scripts/verify-submission-surfaces.mjs",
   "Submission surfaces synced.",
+  "eval coverage",
   "node scripts/verify-pitch-reel.mjs",
   "75-second pitch reel ready.",
   "Final link missing. Review placeholder still present.",
-  "61 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
+  "62 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
   "First run receipt",
   "Judge path",
   "Claude Project launch kit",
@@ -875,6 +889,15 @@ if (exists("demo/transcript-pack.md")) {
   }
 }
 
+if (exists("evals/red-face-tests.md") && exists("evals/research-to-behavior-checklist.md")) {
+  const evalCoverageText = `${read("evals/red-face-tests.md")}\n${read("evals/research-to-behavior-checklist.md")}`;
+  for (const requiredText of evalCoverageRequiredText) {
+    if (!evalCoverageText.includes(requiredText)) {
+      failures.push(`eval coverage files are missing required text: ${requiredText}`);
+    }
+  }
+}
+
 if (exists("scripts/stage-public-repo.mjs")) {
   const stagingHelper = read("scripts/stage-public-repo.mjs");
   for (const requiredText of stagingHelperRequiredText) {
@@ -1019,6 +1042,11 @@ for (const failure of firstReplyAcceptance.failures) {
   failures.push(`First-reply acceptance check failed: ${failure}`);
 }
 
+const evalCoverage = verifyEvalCoverage(root);
+for (const failure of evalCoverage.failures) {
+  failures.push(`Eval coverage check failed: ${failure}`);
+}
+
 const submissionCopy = verifySubmissionCopy(root);
 for (const failure of submissionCopy.failures) {
   failures.push(`Submission copy check failed: ${failure}`);
@@ -1071,6 +1099,8 @@ const summary = {
   landingCopyButtons: landingCopy.checkedButtons,
   transcriptPackCases: transcriptPack.checkedCases,
   firstReplyAcceptanceCases: firstReplyAcceptance.checkedCases,
+  redFaceTests: evalCoverage.redFaceTests,
+  researchToBehaviorRows: evalCoverage.researchRows,
   skoolCommentSentences: submissionCopy.sentenceCount,
   skoolCommentCharacters: submissionCopy.characterCount,
   submissionSurfaceCharacters: submissionSurfaces.landingSectionCharacters,

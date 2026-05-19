@@ -39,6 +39,7 @@ const proofChecks = [
   "scripts/verify-transcript-pack.mjs",
   "scripts/verify-first-reply-acceptance.mjs",
   "scripts/verify-console-behavior.mjs",
+  "scripts/verify-eval-coverage.mjs",
   "scripts/verify-public-bundle.mjs",
   "scripts/verify-clean-public-stage.mjs",
 ];

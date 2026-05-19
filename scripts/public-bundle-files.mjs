@@ -53,6 +53,7 @@ export const publicBundleFiles = [
   "scripts/verify-transcript-pack.mjs",
   "scripts/verify-first-reply-acceptance.mjs",
   "scripts/verify-console-behavior.mjs",
+  "scripts/verify-eval-coverage.mjs",
   "scripts/verify-public-bundle.mjs",
   "scripts/verify-publication-ready.mjs",
   "scripts/verify-github-public-url.mjs",
