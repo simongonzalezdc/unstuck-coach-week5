@@ -4,7 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
-const maxSkoolCommentChars = 900;
+const maxSkoolCommentChars = 780;
 
 function read(root, file) {
   return fs.readFileSync(path.join(root, file), "utf8");
