@@ -58,6 +58,9 @@ async function captureViewport({ browser, file, name, viewport, selector, requir
 
   const screenshotPath = path.join(outputDir, `${name}.png`);
   if (elementOnly && selector) {
+    await page.addStyleTag({
+      content: ".site-nav, .reel-nav { display: none !important; }",
+    });
     await page.locator(selector).screenshot({ path: screenshotPath });
   } else {
     await page.screenshot({ path: screenshotPath, fullPage: false });
@@ -99,14 +102,16 @@ async function main() {
       file: "landing/index.html",
       name: "startline-review-admin-desktop",
       viewport: { width: 1440, height: 1000 },
-      selector: "#admin-ops",
+      selector: ".admin-rhythm-board",
+      elementOnly: true,
       requiredText: ["Original operations support, rebuilt as safe coaching.", "No autonomous reading"],
     },
     {
       file: "landing/index.html",
       name: "startline-review-admin-mobile",
       viewport: { width: 390, height: 900 },
-      selector: "#admin-ops",
+      selector: ".admin-rhythm-board",
+      elementOnly: true,
       requiredText: ["Original operations support, rebuilt as safe coaching.", "No autonomous reading"],
     },
     {
