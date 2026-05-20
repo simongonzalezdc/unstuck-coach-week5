@@ -26,7 +26,7 @@ Publication status is controlled by `PUBLICATION_CHECKLIST.md` and `scripts/veri
 | Judging question | Evidence | Strong-signal check |
 | --- | --- | --- |
 | Does it actually coach? | `FIRST_RUN.md`, `demo/before-after.md`, `rules.md`, `examples.md`, `landing/index.html` | Try "I need a coach to get started on this." The response should create one visible next move and ask for tiny proof. |
-| Is the domain specific enough? | `identity.md`, `WRITEUP.md`, `JUDGE_SCORECARD.md` | The user is not "everyone"; it is a person with executive-function access friction at concrete life-loop thresholds. |
+| Is the domain specific enough? | `identity.md`, `WRITEUP.md`, `JUDGE_BRIEF.md`, `JUDGE_SCORECARD.md` | The user is not "everyone"; it is a person with executive-function access friction at concrete life-loop thresholds. |
 | Is the methodology clean and useful? | `ICM_TRACE.md`, `PROJECT_INSTRUCTIONS.md`, `rules.md`, `reference/`, `RECEIPTS.md` | The loop is inspectable: state, friction, move, hold, check, close, with a public ICM trace and verifier. |
 | Does the README make it easy for someone else to use? | `README.md`, `docs/judge-walkthrough.md`, `HANDOFF_CARD.md` | A stranger gets setup, prompts, proof files, and pass/fail criteria without a call. |
 
@@ -35,6 +35,7 @@ Publication status is controlled by `PUBLICATION_CHECKLIST.md` and `scripts/veri
 - `landing/index.html`: visual judge path and runnable deterministic console.
 - `ICM_TRACE.md`: explicit ICM fit map from workflow architecture to folder evidence.
 - `FIRST_RUN.md`: exact cold-start receipt for the first judge prompt.
+- `JUDGE_BRIEF.md`: one-page above-the-brief case, fast judge test, failure modes, ICM fit, evidence map, and blocked publication state.
 - `JUDGE_SCORECARD.md`: 18-point scoring rubric.
 - `JUDGE_FAQ.md`: short answers to predictable judge objections.
 - `RECEIPTS.md`: claim-to-file proof map.
@@ -43,6 +44,7 @@ Publication status is controlled by `PUBLICATION_CHECKLIST.md` and `scripts/veri
 - `scripts/verify-competition-rules-trace.mjs`: executable check for this Week 5 rules trace.
 - `scripts/verify-first-run.mjs`: executable check for the first-run receipt.
 - `scripts/verify-judge-scorecard.mjs`: executable check for the judge scorecard criteria and fast path.
+- `scripts/verify-judge-brief.mjs`: executable check for the one-page above-the-brief case.
 - `scripts/verify-judge-faq.mjs`: executable check for the judge FAQ.
 - `scripts/verify-icm-trace.mjs`: executable check for the ICM trace and evidence references.
 - `scripts/verify-public-bundle.mjs`: privacy, structure, landing-link, submission-copy, first-run, and console-behavior checks.
