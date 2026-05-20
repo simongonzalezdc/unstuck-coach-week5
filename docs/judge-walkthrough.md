@@ -39,6 +39,7 @@ Extra proof files:
 - `RECEIPTS.md`
 - `landing/index.html`
 - `landing/reel.html`
+- `demo/whole-person-tour.md`
 - `scripts/prepare-publication-link.mjs`
 - `scripts/verify-submission-copy.mjs`
 - `scripts/verify-submission-surfaces.mjs`
@@ -54,18 +55,22 @@ Extra proof files:
 - `scripts/verify-start-here.mjs`
 - `scripts/verify-landing-copy.mjs`
 - `scripts/verify-transcript-pack.mjs`
+- `scripts/verify-first-reply-acceptance.mjs`
+- `scripts/verify-whole-person-tour.mjs`
 - `scripts/verify-console-behavior.mjs`
 - `scripts/verify-eval-coverage.mjs`
 - `scripts/verify-admin-ops-playbooks.mjs`
 - `scripts/judge-quick-proof.mjs`
 - `scripts/verify-public-bundle.mjs`
 - `scripts/verify-publication-ready.mjs`
+- `scripts/verify-github-public-url.mjs`
 - `scripts/build-public-bundle.mjs`
 - `scripts/stage-public-repo.mjs`
 - `scripts/final-review-smoke.mjs`
 - `scripts/verify-clean-public-stage.mjs`
 - `demo/before-after.md`
 - `demo/transcript-pack.md`
+- `demo/whole-person-tour.md`
 - `evals/red-face-tests.md`
 - `evals/research-to-behavior-checklist.md`
 
@@ -240,6 +245,18 @@ Open `RECEIPTS.md`.
 
 It should map every public claim to a concrete artifact, so the entry feels inspectable instead of persuasive-only.
 
+Open `demo/whole-person-tour.md`.
+
+It should make the breadth testable in one place: food/body, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, and closure/recovery. Each stop should have a pasteable prompt, expected first move, proof check, and immediate-fail signal.
+
+Run its verifier:
+
+```bash
+node scripts/verify-whole-person-tour.mjs
+```
+
+It should report 6 tour stops, 6 prompt blocks, 6 proof checks, 6 immediate-fail checks, and zero failures.
+
 Run the verifier:
 
 ```bash
@@ -319,10 +336,11 @@ For the console-only behavior proof, run:
 node scripts/verify-console-behavior.mjs
 node scripts/verify-eval-coverage.mjs
 node scripts/verify-admin-ops-playbooks.mjs
+node scripts/verify-whole-person-tour.mjs
 node scripts/judge-quick-proof.mjs
 ```
 
-It should classify activation friction, a getting-started coach request, communication threat, working-memory overload, idea capture, repeated failed plans, body-first recovery, inbox/calendar reality, and calibration fallback. It should also report 13 red-face tests, at least 12 research-to-behavior rows, 5 admin operations playbooks, and a passing judge quick proof summary that does not require the final public GitHub URL.
+It should classify activation friction, a getting-started coach request, communication threat, working-memory overload, idea capture, repeated failed plans, body-first recovery, inbox/calendar reality, and calibration fallback. It should also report 13 red-face tests, at least 12 research-to-behavior rows, 5 admin operations playbooks, 6 whole-person tour stops, and a passing judge quick proof summary that does not require the final public GitHub URL.
 
 For the transcript-pack proof, run:
 

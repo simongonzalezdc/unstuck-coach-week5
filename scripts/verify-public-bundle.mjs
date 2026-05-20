@@ -137,10 +137,13 @@ const judgeWalkthroughRequiredText = [
   "scripts/verify-judge-scorecard.mjs",
   "scripts/final-review-smoke.mjs --expect-blocked",
   "scripts/judge-quick-proof.mjs",
+  "demo/whole-person-tour.md",
+  "scripts/verify-whole-person-tour.mjs",
   "FIRST_RUN.md",
   "First reply acceptance test",
   "Pass: names friction, gives one visible move, asks for tiny proof or one state signal.",
   "Fail: article, long menu, moralizing, or vague continuation.",
+  "6 whole-person tour stops",
 ];
 
 const receiptsRequiredText = [
@@ -424,6 +427,7 @@ const readmeRequiredText = [
   "scripts/verify-eval-coverage.mjs` checks red-face coverage and the research-to-behavior map.",
   "scripts/verify-admin-ops-playbooks.mjs` checks the calendar/inbox admin operations playbooks.",
   "scripts/judge-quick-proof.mjs` gives a publication-independent proof summary",
+  "whole-person tour coverage",
   "scripts/verify-github-public-url.mjs` proves the final GitHub link is publicly visible through unauthenticated GitHub API access",
   "node scripts/verify-github-public-url.mjs",
 ];
