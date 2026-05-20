@@ -22,6 +22,7 @@ import { verifyStartHere } from "./verify-start-here.mjs";
 import { verifySubmissionCopy } from "./verify-submission-copy.mjs";
 import { verifySubmissionSurfaces } from "./verify-submission-surfaces.mjs";
 import { verifyTranscriptPack } from "./verify-transcript-pack.mjs";
+import { verifyWholePersonTour } from "./verify-whole-person-tour.mjs";
 
 const root = process.cwd();
 
@@ -204,6 +205,7 @@ const publicationChecklistRequiredText = [
   "node scripts/verify-console-behavior.mjs",
   "node scripts/verify-eval-coverage.mjs",
   "node scripts/verify-admin-ops-playbooks.mjs",
+  "node scripts/verify-whole-person-tour.mjs",
   "node scripts/judge-quick-proof.mjs",
 ];
 
@@ -253,6 +255,18 @@ const transcriptPackRequiredText = [
   "scripts/verify-first-reply-acceptance.mjs",
 ];
 
+const wholePersonTourRequiredText = [
+  "Whole-Person Judge Tour",
+  "Food And Body",
+  "Calendar And Inbox",
+  "Messages And Shame",
+  "Home And Admin Loops",
+  "Capture And Re-Entry",
+  "Closure And Recovery",
+  "life surfaces, not productivity categories",
+  "portable executive function for the whole human",
+];
+
 const evalCoverageRequiredText = [
   "Test 9: Calendar And Inbox Reality",
   "Opens the calendar first for the next hard anchor.",
@@ -280,6 +294,7 @@ const judgeQuickProofRequiredText = [
   "passMeaning",
   "verifyAdminOpsPlaybooks",
   "verifyEvalCoverage",
+  "verifyWholePersonTour",
   "verifySubmissionCopy",
   "My inbox and calendar are a mess and I do not know what is real.",
 ];
@@ -306,6 +321,7 @@ const finalReviewSmokeRequiredText = [
   "verify-icm-trace.mjs",
   "verify-eval-coverage.mjs",
   "verify-admin-ops-playbooks.mjs",
+  "verify-whole-person-tour.mjs",
   "judge-quick-proof.mjs",
   "verify-clean-public-stage.mjs",
   "Expected publication gate to remain blocked before final public link insertion.",
@@ -402,6 +418,7 @@ const readmeRequiredText = [
   "The core idea: Startline Coach acts as portable executive-function accessibility.",
   "If Startline gives a productivity article, it failed.",
   "reference/signal-map.md` gives the whole-person operating surface map",
+  "demo/whole-person-tour.md` gives a six-stop cold tour across the full life surface.",
   "JUDGE_FAQ.md` gives the shortest answers to likely Week 5 judging objections",
   "PITCH_REEL.md` compresses the presentation layer into a verified 75-second judge reel.",
   "scripts/verify-eval-coverage.mjs` checks red-face coverage and the research-to-behavior map.",
@@ -649,7 +666,7 @@ const landingRequiredText = [
   "Calendar/inbox",
   "Triage one inbox item",
   "My inbox and calendar are a mess and I do not know what is real.",
-  "65 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
+  "67 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
   "Food/body",
   "Eat before planning",
   "Leave breadcrumb",
@@ -667,7 +684,9 @@ const landingRequiredText = [
   "Capture and re-entry",
   "The folder is the product. The page makes it judgeable.",
   "The whole-person operating surface is inspectable.",
+  "The whole-person tour is testable.",
   "../reference/signal-map.md",
+  "../demo/whole-person-tour.md",
   "Brief floor",
   "ICM fit",
   "Read ICM trace",
@@ -688,7 +707,7 @@ const landingRequiredText = [
   "node scripts/verify-pitch-reel.mjs",
   "75-second pitch reel ready.",
   "Final link missing. Review placeholder still present.",
-  "65 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
+  "67 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
   "First run receipt",
   "Judge path",
   "Claude Project launch kit",
@@ -971,6 +990,15 @@ if (exists("demo/transcript-pack.md")) {
   }
 }
 
+if (exists("demo/whole-person-tour.md")) {
+  const wholePersonTourText = read("demo/whole-person-tour.md");
+  for (const requiredText of wholePersonTourRequiredText) {
+    if (!wholePersonTourText.includes(requiredText)) {
+      failures.push(`demo/whole-person-tour.md is missing required text: ${requiredText}`);
+    }
+  }
+}
+
 if (exists("evals/red-face-tests.md") && exists("evals/research-to-behavior-checklist.md")) {
   const evalCoverageText = `${read("evals/red-face-tests.md")}\n${read("evals/research-to-behavior-checklist.md")}`;
   for (const requiredText of evalCoverageRequiredText) {
@@ -1137,6 +1165,11 @@ for (const failure of transcriptPack.failures) {
   failures.push(`Transcript pack check failed: ${failure}`);
 }
 
+const wholePersonTour = verifyWholePersonTour(root);
+for (const failure of wholePersonTour.failures) {
+  failures.push(`Whole-person tour check failed: ${failure}`);
+}
+
 const firstReplyAcceptance = verifyFirstReplyAcceptance(root);
 for (const failure of firstReplyAcceptance.failures) {
   failures.push(`First-reply acceptance check failed: ${failure}`);
@@ -1208,6 +1241,8 @@ const summary = {
   startHerePromptBlocks: startHere.promptBlocks,
   landingCopyButtons: landingCopy.checkedButtons,
   transcriptPackCases: transcriptPack.checkedCases,
+  wholePersonTourStops: wholePersonTour.stops,
+  wholePersonTourPromptBlocks: wholePersonTour.promptBlocks,
   firstReplyAcceptanceCases: firstReplyAcceptance.checkedCases,
   redFaceTests: evalCoverage.redFaceTests,
   researchToBehaviorRows: evalCoverage.researchRows,

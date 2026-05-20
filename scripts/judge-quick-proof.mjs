@@ -14,6 +14,7 @@ import { verifyProductThesis } from "./verify-product-thesis.mjs";
 import { verifyStartHere } from "./verify-start-here.mjs";
 import { verifySubmissionCopy } from "./verify-submission-copy.mjs";
 import { verifyTranscriptPack } from "./verify-transcript-pack.mjs";
+import { verifyWholePersonTour } from "./verify-whole-person-tour.mjs";
 
 function addFailures(failures, label, result) {
   for (const failure of result.failures || []) {
@@ -27,6 +28,7 @@ export function judgeQuickProof(root = process.cwd()) {
   const firstRun = verifyFirstRun(root);
   const firstReplyScorecard = verifyFirstReplyScorecard(root);
   const transcriptPack = verifyTranscriptPack(root);
+  const wholePersonTour = verifyWholePersonTour(root);
   const firstReplyAcceptance = verifyFirstReplyAcceptance(root);
   const consoleBehavior = verifyConsoleBehavior(root);
   const evalCoverage = verifyEvalCoverage(root);
@@ -41,6 +43,7 @@ export function judgeQuickProof(root = process.cwd()) {
   addFailures(failures, "First run", firstRun);
   addFailures(failures, "First-reply scorecard", firstReplyScorecard);
   addFailures(failures, "Transcript pack", transcriptPack);
+  addFailures(failures, "Whole-person tour", wholePersonTour);
   addFailures(failures, "First-reply acceptance", firstReplyAcceptance);
   addFailures(failures, "Console behavior", consoleBehavior);
   addFailures(failures, "Eval coverage", evalCoverage);
@@ -64,6 +67,8 @@ export function judgeQuickProof(root = process.cwd()) {
       firstRunChecks: firstRun.checks,
       firstReplyScorecardChecks: firstReplyScorecard.checks,
       transcriptPackCases: transcriptPack.checkedCases,
+      wholePersonTourStops: wholePersonTour.stops,
+      wholePersonTourPromptBlocks: wholePersonTour.promptBlocks,
       firstReplyAcceptanceCases: firstReplyAcceptance.checkedCases,
       consoleBehaviorCases: consoleBehavior.checkedCases,
       demoPromptTabs: consoleBehavior.demoPromptTabs,
@@ -79,7 +84,7 @@ export function judgeQuickProof(root = process.cwd()) {
       skoolCommentCharacters: submissionCopy.characterCount,
     },
     passMeaning:
-      "The folder has a cold-start path, first-reply gate, transcript evidence, runnable console, stress evals, admin operations playbooks, research-to-behavior proof, product thesis, ICM trace, judge FAQ, and scorecard.",
+      "The folder has a cold-start path, first-reply gate, transcript evidence, a whole-person judge tour, runnable console, stress evals, admin operations playbooks, research-to-behavior proof, product thesis, ICM trace, judge FAQ, and scorecard.",
     failures,
   };
 }

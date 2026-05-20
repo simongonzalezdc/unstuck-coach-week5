@@ -34,6 +34,8 @@ export function verifyJudgeFaq(root = process.cwd()) {
     "How does it fit ICM?",
     "What goes above the brief?",
     "What is still blocked?",
+    "six-stop whole-person judge tour",
+    "scripts/verify-whole-person-tour.mjs",
     "I need a coach to get started on this.",
     "state, friction, one humane visible move, held context, proof, capture, body-state routing, transition, recovery, and closure",
     "scripts/verify-first-reply-acceptance.mjs",

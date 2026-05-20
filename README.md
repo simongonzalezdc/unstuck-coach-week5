@@ -209,6 +209,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `RECEIPTS.md` maps each public claim to the exact file that proves it.
 - `demo/before-after.md` shows how Startline Coach differs from generic productivity advice.
 - `demo/transcript-pack.md` gives cold-test transcript examples for the moments a judge is likely to try.
+- `demo/whole-person-tour.md` gives a six-stop cold tour across the full life surface.
 - `evals/red-face-tests.md` stress-tests shame, overload, inbox/calendar reality, time blindness, capture, tangents, hyperfocus, and safety boundaries.
 - `evals/research-to-behavior-checklist.md` maps the research foundation to actual coach behavior, including live-obligation rescue before cleanup.
 - `reference/signal-map.md` gives the whole-person operating surface map: food/body, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, and closure/recovery.
@@ -229,6 +230,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `scripts/verify-landing-copy.mjs` checks that the landing launch-kit prompts, including the inbox/calendar recovery prompt, stay copy-ready.
 - `scripts/verify-transcript-pack.mjs` checks that the cold-test transcript pack stays complete.
 - `scripts/verify-first-reply-acceptance.mjs` checks that cold-test first replies name friction, give one move, ask for proof, and avoid generic advice patterns.
+- `scripts/verify-whole-person-tour.mjs` checks that the whole-person tour keeps six surfaces, pasteable prompts, proof checks, and immediate-fail signals.
 - `scripts/verify-console-behavior.mjs` checks the runnable console's protocol classifications.
 - `scripts/verify-eval-coverage.mjs` checks red-face coverage and the research-to-behavior map.
 - `scripts/verify-admin-ops-playbooks.mjs` checks the calendar/inbox admin operations playbooks.
@@ -248,6 +250,7 @@ Run:
 ```bash
 node scripts/judge-quick-proof.mjs
 node scripts/verify-admin-ops-playbooks.mjs
+node scripts/verify-whole-person-tour.mjs
 node scripts/verify-public-bundle.mjs
 ```
 
