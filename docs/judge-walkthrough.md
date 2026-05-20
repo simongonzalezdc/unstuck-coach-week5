@@ -166,7 +166,7 @@ The landing page should make the product understandable before you read every fi
 - the runnable console preview
 - the before/after behavior difference
 - the folder-method map
-- the five-minute judge path
+- the cold judge path
 - the record-ready pitch reel page
 
 Check the Calendar and inbox layer. It should show Calendar Reality, Inbox Live Obligation, Reply Debt Recovery, and the no-account-access safety boundary before asking you to trust the deeper playbooks.

@@ -215,7 +215,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `FIRST_REPLY_SCORECARD.md` gives the fastest pass/fail gate for whether the first response actually coaches.
 - `COMPETITION_RULES_TRACE.md` maps every Week 5 rule and judging question to concrete evidence in the folder.
 - `WRITEUP.md` compresses the submission thesis into a short judge-readable argument.
-- `HANDOFF_CARD.md` gives a one-page operator handoff with use cases, good/bad behavior, gaps, and the five-minute test.
+- `HANDOFF_CARD.md` gives a one-page operator handoff with use cases, good/bad behavior, gaps, and the cold-start test.
 - `JUDGE_SCORECARD.md` gives an 18-point scoring rubric with evidence links.
 - `JUDGE_FAQ.md` gives the shortest answers to likely Week 5 judging objections before a judge opens every file.
 - `JUDGE_BRIEF.md` gives a one-page above-the-brief argument so the winning case is not scattered across the folder.

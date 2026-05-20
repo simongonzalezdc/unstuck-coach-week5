@@ -541,6 +541,33 @@ const staleWholePersonDriftText = [
   },
 ];
 
+const staleShortcutScopeText = [
+  {
+    file: "README.md",
+    text: "five-minute test",
+  },
+  {
+    file: "START_HERE.md",
+    text: "five-minute judge path",
+  },
+  {
+    file: "docs/judge-walkthrough.md",
+    text: "five-minute judge path",
+  },
+  {
+    file: "landing/index.html",
+    text: "Five-minute judge path",
+  },
+  {
+    file: "landing/index.html",
+    text: "first 5 minutes",
+  },
+  {
+    file: "landing/index.html",
+    text: "first five minutes",
+  },
+];
+
 const readmeRequiredText = [
   "A folder-based whole-person executive-function accessibility coach for people who need help starting, switching, remembering, regulating, capturing, recovering, and closing loops without shame.",
   "The core idea: Startline Coach acts as portable executive-function accessibility.",
@@ -1358,6 +1385,12 @@ for (const stale of staleCodingFirstText) {
 for (const stale of staleWholePersonDriftText) {
   if (exists(stale.file) && read(stale.file).includes(stale.text)) {
     failures.push(`${stale.file} still contains stale whole-person positioning text: ${stale.text}`);
+  }
+}
+
+for (const stale of staleShortcutScopeText) {
+  if (exists(stale.file) && read(stale.file).includes(stale.text)) {
+    failures.push(`${stale.file} still contains stale shortcut-as-scope text: ${stale.text}`);
   }
 }
 

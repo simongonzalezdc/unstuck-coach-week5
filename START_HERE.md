@@ -64,7 +64,7 @@ That message makes me feel like I did something wrong.
 - `JUDGE_BRIEF.md` for the one-page above-the-brief case.
 - `JUDGE_FAQ.md` for the shortest answers to likely Week 5 judging questions.
 - `FIRST_RUN.md` for the exact cold-start receipt and tiny proof loop.
-- `docs/judge-walkthrough.md` for the five-minute judge path.
+- `docs/judge-walkthrough.md` for the cold judge path.
 - `landing/index.html#admin-ops` for the calendar/inbox operations band.
 - `demo/transcript-pack.md` for nine cold-test examples.
 - `scripts/verify-first-reply-acceptance.mjs` for the executable first-reply gate.
