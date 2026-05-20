@@ -25,9 +25,12 @@ node scripts/verify-reel-page.mjs
 node scripts/verify-judge-faq.mjs
 node scripts/verify-judge-scorecard.mjs
 node scripts/verify-judge-brief.mjs
+node scripts/verify-landing-accessibility.mjs
+node scripts/verify-source-notes.mjs
 node scripts/verify-competition-rules-trace.mjs
 node scripts/verify-product-thesis.mjs
 node scripts/verify-icm-trace.mjs
+node scripts/verify-mode-router.mjs
 node scripts/verify-first-run.mjs
 node scripts/verify-first-reply-scorecard.mjs
 node scripts/verify-start-here.mjs
@@ -56,9 +59,12 @@ Expected before public-link insertion:
 - `verify-judge-faq.mjs` reports eight FAQ questions, evidence references, and zero public-unsafe private/local references.
 - `verify-judge-scorecard.mjs` reports nine criteria rows, a sequential fast scoring path, and zero public-unsafe private/local references.
 - `verify-judge-brief.mjs` reports seven brief sections, evidence references, six fast-test steps, and zero public-unsafe private/local references.
+- `verify-landing-accessibility.mjs` reports labelled landing sections, local hash links, image alt text, copy controls, tab behavior, focus-visible CSS, reduced-motion CSS, and zero failures.
+- `verify-source-notes.mjs` reports source lineage, research-to-behavior rows, design-lineage bullets, portability notes, and zero public-unsafe private/local references.
 - `verify-competition-rules-trace.mjs` reports 12 brief requirement rows, 4 judging question rows, above-the-brief proof bullets, 4 blockers, and zero public-unsafe private/local references.
 - `verify-product-thesis.mjs` reports the folder-first product rationale, whole-person scope, proof logic, and boundaries with zero failures.
 - `verify-icm-trace.mjs` reports the public ICM fit map, evidence references, and zero failures.
+- `verify-mode-router.mjs` reports 5 stance rows, 5 routing rules, explicit non-coding-only execution framing, and zero failures.
 - `verify-first-run.mjs` reports the cold-start receipt checks and zero failures.
 - `verify-first-reply-scorecard.mjs` reports the first-reply pass/fail criteria and evidence links with zero failures.
 - `verify-start-here.mjs` reports the 60-second path, first prompt, acceptance test, and proof links with zero failures.
@@ -132,6 +138,7 @@ The final green state is:
 - The GitHub link is visible through unauthenticated GitHub API access, proving the private review repo is not being submitted by accident.
 - The Skool comment draft remains 2-3 sentences.
 - Product thesis, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, first-run receipt, first-reply scorecard, start-here path, landing copy controls, transcript pack, first-reply acceptance, and console behavior cases still pass.
+- Landing accessibility, source-note lineage, mode routing, whole-person tour, admin operations, eval coverage, and submission-surface sync still pass inside the final publication gate.
 - Submission surfaces still match the approved Skool draft.
 - The clean-stage preflight has passed from the source folder.
 - `final-review-smoke.mjs --expect-ready --skip-build` reports `status: "pass"`.

@@ -278,12 +278,15 @@ const publicationChecklistRequiredText = [
   "node scripts/verify-judge-faq.mjs",
   "node scripts/verify-judge-scorecard.mjs",
   "node scripts/verify-judge-brief.mjs",
+  "node scripts/verify-landing-accessibility.mjs",
+  "node scripts/verify-source-notes.mjs",
   "node scripts/verify-competition-rules-trace.mjs",
   "node scripts/verify-product-thesis.mjs",
   "node scripts/final-review-smoke.mjs --expect-blocked",
   "node scripts/final-review-smoke.mjs --expect-ready --skip-build",
   "node scripts/verify-publication-ready.mjs",
   "node scripts/verify-github-public-url.mjs",
+  "node scripts/verify-mode-router.mjs",
   "node scripts/verify-first-reply-scorecard.mjs",
   "node scripts/verify-start-here.mjs",
   "node scripts/verify-landing-copy.mjs",
@@ -457,6 +460,21 @@ const finalReviewSmokeRequiredText = [
   "verify-clean-public-stage.mjs",
   "Expected publication gate to remain blocked before final public link insertion.",
   "Expected final GitHub URL to be publicly visible before publication.",
+];
+
+const publicationReadyRequiredText = [
+  "verifyLandingAccessibility",
+  "verifySourceNotes",
+  "verifyWholePersonTour",
+  "verifyModeRouter",
+  "Source notes",
+  "Whole-person tour",
+  "Landing accessibility",
+  "Mode router",
+  "sourceNotesResearchRows",
+  "wholePersonTourStops",
+  "modeRouterStances",
+  "landingAccessibilityImages",
 ];
 
 const githubPublicUrlRequiredText = [
@@ -1351,6 +1369,15 @@ if (exists("scripts/final-review-smoke.mjs")) {
   for (const requiredText of finalReviewSmokeRequiredText) {
     if (!finalReviewSmoke.includes(requiredText)) {
       failures.push(`scripts/final-review-smoke.mjs is missing required text: ${requiredText}`);
+    }
+  }
+}
+
+if (exists("scripts/verify-publication-ready.mjs")) {
+  const publicationReady = read("scripts/verify-publication-ready.mjs");
+  for (const requiredText of publicationReadyRequiredText) {
+    if (!publicationReady.includes(requiredText)) {
+      failures.push(`scripts/verify-publication-ready.mjs is missing required text: ${requiredText}`);
     }
   }
 }

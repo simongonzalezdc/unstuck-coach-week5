@@ -260,7 +260,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `scripts/verify-admin-ops-playbooks.mjs` checks the calendar/inbox admin operations playbooks.
 - `scripts/judge-quick-proof.mjs` gives a publication-independent proof summary for the cold judge path, including original-Liam inbox/calendar behavior.
 - `scripts/verify-public-bundle.mjs` checks required files, landing proof/launch-kit text, local landing refs, public-safe text, submission copy, transcript completeness, and console behavior.
-- `scripts/verify-publication-ready.mjs` is the final posting gate after the public GitHub link is inserted; it rejects the old Week 3 repo and reruns the proof-layer checks.
+- `scripts/verify-publication-ready.mjs` is the final posting gate after the public GitHub link is inserted; it rejects the old Week 3 repo and reruns the proof-layer checks, including source-note lineage, landing accessibility, whole-person tour coverage, and mode routing.
 - `scripts/verify-github-public-url.mjs` proves the final GitHub link is publicly visible through unauthenticated GitHub API access, so the private review repo cannot pass as public.
 - `scripts/final-review-smoke.mjs` runs the proof checks in one concise command, rebuilds the public payload unless skipped, and verifies whether the publication gate is expected to be blocked or ready.
 - `scripts/verify-clean-public-stage.mjs` stages the payload into a temporary separate folder, verifies it there, and removes the temporary target.
@@ -274,13 +274,15 @@ Run:
 ```bash
 node scripts/judge-quick-proof.mjs
 node scripts/verify-source-notes.mjs
+node scripts/verify-landing-accessibility.mjs
+node scripts/verify-mode-router.mjs
 node scripts/verify-admin-ops-playbooks.mjs
 node scripts/verify-whole-person-tour.mjs
 node scripts/verify-judge-brief.mjs
 node scripts/verify-public-bundle.mjs
 ```
 
-The quick proof reports the cold-start path, first-reply gate, transcript evidence, whole-person tour, runnable console, stress evals, admin operations playbooks, source-notes lineage proof, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, concise judge brief, and fastest cold prompts without requiring the final public GitHub link. The bundle verifier checks required files, local landing-page links/assets, product thesis, source notes, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, judge brief, first-run receipt, first-reply scorecard, start-here prompt readiness, landing copy controls, Skool comment shape, synchronized submission surfaces, transcript completeness, whole-person tour coverage, first-reply acceptance, runnable console behavior, public-safe checklist text, emoji/symbol-range leakage, and private provenance patterns. Before final publication it may warn that the GitHub link is still pending; after the public repo link is inserted, those warnings should be gone.
+The quick proof reports the cold-start path, first-reply gate, transcript evidence, whole-person tour, runnable console, stress evals, admin operations playbooks, source-notes lineage proof, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, concise judge brief, and fastest cold prompts without requiring the final public GitHub link. The bundle verifier checks required files, local landing-page links/assets, product thesis, source notes, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, judge brief, first-run receipt, first-reply scorecard, start-here prompt readiness, landing accessibility, landing copy controls, mode routing, Skool comment shape, synchronized submission surfaces, transcript completeness, whole-person tour coverage, first-reply acceptance, runnable console behavior, public-safe checklist text, emoji/symbol-range leakage, and private provenance patterns. Before final publication it may warn that the GitHub link is still pending; after the public repo link is inserted, those warnings should be gone.
 
 To prove the payload can stage into a separate clean repository folder, run:
 

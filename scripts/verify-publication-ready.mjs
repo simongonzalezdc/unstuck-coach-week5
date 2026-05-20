@@ -14,15 +14,19 @@ import { verifyIcmTrace } from "./verify-icm-trace.mjs";
 import { verifyJudgeFaq } from "./verify-judge-faq.mjs";
 import { verifyJudgeScorecard } from "./verify-judge-scorecard.mjs";
 import { verifyJudgeBrief } from "./verify-judge-brief.mjs";
+import { verifyLandingAccessibility } from "./verify-landing-accessibility.mjs";
 import { verifyLandingCopy } from "./verify-landing-copy.mjs";
+import { verifyModeRouter } from "./verify-mode-router.mjs";
 import { verifyEvalCoverage } from "./verify-eval-coverage.mjs";
 import { verifyPitchReel } from "./verify-pitch-reel.mjs";
 import { verifyReelPage } from "./verify-reel-page.mjs";
 import { verifyProductThesis } from "./verify-product-thesis.mjs";
+import { verifySourceNotes } from "./verify-source-notes.mjs";
 import { verifyStartHere } from "./verify-start-here.mjs";
 import { verifySubmissionCopy } from "./verify-submission-copy.mjs";
 import { verifySubmissionSurfaces } from "./verify-submission-surfaces.mjs";
 import { verifyTranscriptPack } from "./verify-transcript-pack.mjs";
+import { verifyWholePersonTour } from "./verify-whole-person-tour.mjs";
 
 const root = process.cwd();
 const submissionPath = path.join(root, "SUBMISSION.md");
@@ -92,11 +96,17 @@ export function verifyPublicationReady() {
   const productThesis = verifyProductThesis(root);
   addVerifierFailures(failures, "Product thesis", productThesis);
 
+  const sourceNotes = verifySourceNotes(root);
+  addVerifierFailures(failures, "Source notes", sourceNotes);
+
   const competitionRulesTrace = verifyCompetitionRulesTrace(root);
   addVerifierFailures(failures, "Competition rules trace", competitionRulesTrace);
 
   const icmTrace = verifyIcmTrace(root);
   addVerifierFailures(failures, "ICM trace", icmTrace);
+
+  const modeRouter = verifyModeRouter(root);
+  addVerifierFailures(failures, "Mode router", modeRouter);
 
   const firstRun = verifyFirstRun(root);
   addVerifierFailures(failures, "First run", firstRun);
@@ -110,8 +120,14 @@ export function verifyPublicationReady() {
   const landingCopy = verifyLandingCopy(root);
   addVerifierFailures(failures, "Landing copy", landingCopy);
 
+  const landingAccessibility = verifyLandingAccessibility(root);
+  addVerifierFailures(failures, "Landing accessibility", landingAccessibility);
+
   const transcriptPack = verifyTranscriptPack(root);
   addVerifierFailures(failures, "Transcript pack", transcriptPack);
+
+  const wholePersonTour = verifyWholePersonTour(root);
+  addVerifierFailures(failures, "Whole-person tour", wholePersonTour);
 
   const firstReplyAcceptance = verifyFirstReplyAcceptance(root);
   addVerifierFailures(failures, "First-reply acceptance", firstReplyAcceptance);
@@ -152,18 +168,31 @@ export function verifyPublicationReady() {
     githubLink,
     consoleBehaviorCases: consoleBehavior.checkedCases,
     productThesisSections: productThesis.sections,
+    sourceNotesSections: sourceNotes.sections,
+    sourceNotesDesignLineageBullets: sourceNotes.designLineageBullets,
+    sourceNotesResearchRows: sourceNotes.researchRows,
+    sourceNotesKeyDesignChoices: sourceNotes.keyDesignChoices,
+    sourceNotesPortabilityBullets: sourceNotes.portabilityBullets,
     competitionRulesTraceBriefRows: competitionRulesTrace.briefRequirementRows,
     competitionRulesTraceJudgingRows: competitionRulesTrace.judgingQuestionRows,
     competitionRulesTraceProofBullets: competitionRulesTrace.aboveBriefProofBullets,
     competitionRulesTraceBlockers: competitionRulesTrace.blockerBullets,
     icmTraceSections: icmTrace.sections,
     icmTraceEvidenceRefs: icmTrace.evidenceRefs,
+    modeRouterStances: modeRouter.stances,
+    modeRouterRules: modeRouter.routingRules,
     firstRunChecks: firstRun.checks,
     firstRunPromptBlocks: firstRun.promptBlocks,
     firstReplyScorecardChecks: firstReplyScorecard.checks,
     startHerePromptBlocks: startHere.promptBlocks,
     landingCopyButtons: landingCopy.checkedButtons,
+    landingAccessibilityImages: landingAccessibility.images,
+    landingAccessibilityButtons: landingAccessibility.buttons,
+    landingAccessibilityLabelledSections: landingAccessibility.labelledSections,
+    landingAccessibilityHashLinks: landingAccessibility.localHashLinks,
     transcriptPackCases: transcriptPack.checkedCases,
+    wholePersonTourStops: wholePersonTour.stops,
+    wholePersonTourPromptBlocks: wholePersonTour.promptBlocks,
     firstReplyAcceptanceCases: firstReplyAcceptance.checkedCases,
     redFaceTests: evalCoverage.redFaceTests,
     researchToBehaviorRows: evalCoverage.researchRows,
