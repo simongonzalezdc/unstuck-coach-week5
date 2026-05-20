@@ -65,7 +65,8 @@ startline-coach/
 ├── examples.md
 ├── demo/
 │   ├── before-after.md
-│   └── transcript-pack.md
+│   ├── transcript-pack.md
+│   └── whole-person-tour.md
 ├── landing/
 │   ├── assets/
 │   │   └── startline-handoff-card.svg
@@ -91,6 +92,7 @@ startline-coach/
 │   ├── verify-landing-copy.mjs
 │   ├── verify-transcript-pack.mjs
 │   ├── verify-first-reply-acceptance.mjs
+│   ├── verify-whole-person-tour.mjs
 │   ├── verify-console-behavior.mjs
 │   ├── verify-eval-coverage.mjs
 │   ├── verify-admin-ops-playbooks.mjs
