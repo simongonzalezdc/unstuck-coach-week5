@@ -10,6 +10,7 @@ import { verifyFirstRun } from "./verify-first-run.mjs";
 import { verifyIcmTrace } from "./verify-icm-trace.mjs";
 import { verifyJudgeFaq } from "./verify-judge-faq.mjs";
 import { verifyJudgeScorecard } from "./verify-judge-scorecard.mjs";
+import { verifyJudgeBrief } from "./verify-judge-brief.mjs";
 import { verifyProductThesis } from "./verify-product-thesis.mjs";
 import { verifyStartHere } from "./verify-start-here.mjs";
 import { verifySubmissionCopy } from "./verify-submission-copy.mjs";
@@ -37,6 +38,7 @@ export function judgeQuickProof(root = process.cwd()) {
   const icmTrace = verifyIcmTrace(root);
   const judgeFaq = verifyJudgeFaq(root);
   const judgeScorecard = verifyJudgeScorecard(root);
+  const judgeBrief = verifyJudgeBrief(root);
   const submissionCopy = verifySubmissionCopy(root);
 
   addFailures(failures, "Start here", startHere);
@@ -52,6 +54,7 @@ export function judgeQuickProof(root = process.cwd()) {
   addFailures(failures, "ICM trace", icmTrace);
   addFailures(failures, "Judge FAQ", judgeFaq);
   addFailures(failures, "Judge scorecard", judgeScorecard);
+  addFailures(failures, "Judge brief", judgeBrief);
   addFailures(failures, "Submission copy", submissionCopy);
 
   return {
@@ -80,11 +83,13 @@ export function judgeQuickProof(root = process.cwd()) {
       icmTraceFitRows: icmTrace.fitRows,
       judgeFaqQuestions: judgeFaq.questions,
       judgeScorecardCriteriaRows: judgeScorecard.criteriaRows,
+      judgeBriefSections: judgeBrief.sections,
+      judgeBriefEvidenceRefs: judgeBrief.evidenceRefs,
       skoolCommentSentences: submissionCopy.sentenceCount,
       skoolCommentCharacters: submissionCopy.characterCount,
     },
     passMeaning:
-      "The folder has a cold-start path, first-reply gate, transcript evidence, a whole-person judge tour, runnable console, stress evals, admin operations playbooks, research-to-behavior proof, product thesis, ICM trace, judge FAQ, and scorecard.",
+      "The folder has a cold-start path, first-reply gate, transcript evidence, a whole-person judge tour, runnable console, stress evals, admin operations playbooks, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, and concise judge brief.",
     failures,
   };
 }

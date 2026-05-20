@@ -24,6 +24,7 @@ node scripts/verify-pitch-reel.mjs
 node scripts/verify-reel-page.mjs
 node scripts/verify-judge-faq.mjs
 node scripts/verify-judge-scorecard.mjs
+node scripts/verify-judge-brief.mjs
 node scripts/verify-competition-rules-trace.mjs
 node scripts/verify-product-thesis.mjs
 node scripts/verify-icm-trace.mjs
@@ -54,6 +55,7 @@ Expected before public-link insertion:
 - `verify-reel-page.mjs` reports six record-ready reel scenes, resolved local refs, and zero public-unsafe private/local references.
 - `verify-judge-faq.mjs` reports eight FAQ questions, evidence references, and zero public-unsafe private/local references.
 - `verify-judge-scorecard.mjs` reports nine criteria rows, a sequential fast scoring path, and zero public-unsafe private/local references.
+- `verify-judge-brief.mjs` reports seven brief sections, evidence references, six fast-test steps, and zero public-unsafe private/local references.
 - `verify-competition-rules-trace.mjs` reports 12 brief requirement rows, 4 judging question rows, above-the-brief proof bullets, 4 blockers, and zero public-unsafe private/local references.
 - `verify-product-thesis.mjs` reports the folder-first product rationale, whole-person scope, proof logic, and boundaries with zero failures.
 - `verify-icm-trace.mjs` reports the public ICM fit map, evidence references, and zero failures.

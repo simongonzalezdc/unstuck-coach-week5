@@ -13,6 +13,7 @@ import { verifyIcmTrace } from "./verify-icm-trace.mjs";
 import { judgeQuickProof } from "./judge-quick-proof.mjs";
 import { verifyJudgeFaq } from "./verify-judge-faq.mjs";
 import { verifyJudgeScorecard } from "./verify-judge-scorecard.mjs";
+import { verifyJudgeBrief } from "./verify-judge-brief.mjs";
 import { verifyLandingCopy } from "./verify-landing-copy.mjs";
 import { verifyEvalCoverage } from "./verify-eval-coverage.mjs";
 import { verifyPitchReel } from "./verify-pitch-reel.mjs";
@@ -189,6 +190,45 @@ const judgeFaqRequiredText = [
   "scripts/verify-publication-ready.mjs",
 ];
 
+const judgeBriefRequiredText = [
+  "A one-page read",
+  "above the brief",
+  "not a generic ADHD/productivity folder",
+  "whole-person executive-function accessibility coach",
+  "Coding is one proof scenario.",
+  "above-the-brief layer",
+  "first-run receipt",
+  "first-reply scorecard",
+  "six-stop whole-person tour",
+  "Calendar/inbox admin operations",
+  "original Liam scope",
+  "no-account-access boundary",
+  "I need a coach to get started on this.",
+  "My inbox and calendar are a mess and I do not know what is real.",
+  "node scripts/judge-quick-proof.mjs",
+  "article",
+  "long menu",
+  "moralizing",
+  "vague continuation",
+  "unsafe clinical advice",
+  "ICM as practical workflow architecture",
+  "visible context, editable decisions, bounded handoffs, and auditable proof",
+  "final public GitHub URL",
+  "owner approves the publication path",
+  "PRODUCT_THESIS.md",
+  "ICM_TRACE.md",
+  "COMPETITION_RULES_TRACE.md",
+  "FIRST_RUN.md",
+  "FIRST_REPLY_SCORECARD.md",
+  "demo/whole-person-tour.md",
+  "reference/admin-ops-playbooks.md",
+  "evals/red-face-tests.md",
+  "JUDGE_FAQ.md",
+  "JUDGE_SCORECARD.md",
+  "landing/index.html",
+  "scripts/final-review-smoke.mjs",
+];
+
 const publicationChecklistRequiredText = [
   "Do Not Publish Until",
   "Premium/VIP eligibility is documented as confirmed.",
@@ -201,6 +241,7 @@ const publicationChecklistRequiredText = [
   "node scripts/verify-pitch-reel.mjs",
   "node scripts/verify-judge-faq.mjs",
   "node scripts/verify-judge-scorecard.mjs",
+  "node scripts/verify-judge-brief.mjs",
   "node scripts/verify-competition-rules-trace.mjs",
   "node scripts/verify-product-thesis.mjs",
   "node scripts/final-review-smoke.mjs --expect-blocked",
@@ -304,7 +345,9 @@ const judgeQuickProofRequiredText = [
   "verifyAdminOpsPlaybooks",
   "verifyEvalCoverage",
   "verifyWholePersonTour",
+  "verifyJudgeBrief",
   "verifySubmissionCopy",
+  "concise judge brief",
   "My inbox and calendar are a mess and I do not know what is real.",
 ];
 
@@ -348,6 +391,7 @@ const finalReviewSmokeRequiredText = [
   "verify-pitch-reel.mjs",
   "verify-judge-faq.mjs",
   "verify-judge-scorecard.mjs",
+  "verify-judge-brief.mjs",
   "verify-competition-rules-trace.mjs",
   "verify-publication-ready.mjs",
   "verify-github-public-url.mjs",
@@ -457,13 +501,16 @@ const readmeRequiredText = [
   "│   └── whole-person-tour.md",
   "demo/whole-person-tour.md` gives a six-stop cold tour across the full life surface.",
   "JUDGE_FAQ.md` gives the shortest answers to likely Week 5 judging objections",
+  "JUDGE_BRIEF.md` gives a one-page above-the-brief argument so the winning case is not scattered across the folder.",
   "PITCH_REEL.md` compresses the presentation layer into a verified 75-second judge reel.",
   "│   ├── public-bundle-files.mjs",
   "│   ├── render-review-screenshots.mjs",
   "│   ├── verify-whole-person-tour.mjs",
+  "│   ├── verify-judge-brief.mjs",
   "scripts/render-review-screenshots.mjs` refreshes the landing, admin-band, scorecard, FAQ, proof-gate, and reel screenshots for design approval using standard Playwright.",
   "scripts/verify-eval-coverage.mjs` checks red-face coverage and the research-to-behavior map.",
   "scripts/verify-admin-ops-playbooks.mjs` checks the calendar/inbox admin operations playbooks.",
+  "scripts/verify-judge-brief.mjs` checks that the judge brief keeps the whole-person wedge, above-the-brief case, fast test, failure modes, ICM fit, evidence map, blocked state, and no public-unsafe private/local references.",
   "scripts/judge-quick-proof.mjs` gives a publication-independent proof summary",
   "whole-person tour coverage",
   "scripts/verify-github-public-url.mjs` proves the final GitHub link is publicly visible through unauthenticated GitHub API access",
@@ -709,7 +756,7 @@ const landingRequiredText = [
   "Triage one inbox item",
   "Name the next hard anchor",
   "My inbox and calendar are a mess and I do not know what is real.",
-  "68 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
+  "70 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
   "Food/body",
   "Eat before planning",
   "Leave breadcrumb",
@@ -767,7 +814,7 @@ const landingRequiredText = [
   "node scripts/verify-pitch-reel.mjs",
   "75-second pitch reel ready.",
   "Final link missing. Review placeholder still present.",
-  "68 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
+  "70 public files, 9 console cases, 9 transcripts, 9 first-reply checks.",
   "First run receipt",
   "Judge path",
   "Claude Project launch kit",
@@ -832,8 +879,10 @@ const landingRequiredText = [
   "../PROJECT_INSTRUCTIONS.md",
   "../JUDGE_SCORECARD.md",
   "../JUDGE_FAQ.md",
+  "../JUDGE_BRIEF.md",
   "../scripts/verify-judge-faq.mjs",
   "../scripts/verify-judge-scorecard.mjs",
+  "../scripts/verify-judge-brief.mjs",
   "../scripts/verify-competition-rules-trace.mjs",
 ];
 
@@ -1065,6 +1114,15 @@ if (exists("JUDGE_FAQ.md")) {
   for (const requiredText of judgeFaqRequiredText) {
     if (!judgeFaq.includes(requiredText)) {
       failures.push(`JUDGE_FAQ.md is missing required text: ${requiredText}`);
+    }
+  }
+}
+
+if (exists("JUDGE_BRIEF.md")) {
+  const judgeBrief = read("JUDGE_BRIEF.md");
+  for (const requiredText of judgeBriefRequiredText) {
+    if (!judgeBrief.includes(requiredText)) {
+      failures.push(`JUDGE_BRIEF.md is missing required text: ${requiredText}`);
     }
   }
 }
@@ -1357,6 +1415,11 @@ for (const failure of judgeScorecard.failures) {
   failures.push(`Judge scorecard check failed: ${failure}`);
 }
 
+const judgeBrief = verifyJudgeBrief(root);
+for (const failure of judgeBrief.failures) {
+  failures.push(`Judge brief check failed: ${failure}`);
+}
+
 const summary = {
   requiredFiles: publicBundleFiles.length,
   checkedFiles: allFiles.length,
@@ -1398,6 +1461,9 @@ const summary = {
   judgeFaqEvidenceRefs: judgeFaq.evidenceRefs,
   judgeScorecardCriteriaRows: judgeScorecard.criteriaRows,
   judgeScorecardFastPathSteps: judgeScorecard.fastPathSteps,
+  judgeBriefSections: judgeBrief.sections,
+  judgeBriefEvidenceRefs: judgeBrief.evidenceRefs,
+  judgeBriefFastTestSteps: judgeBrief.fastTestSteps,
   readmeTreeFiles: exists("README.md") ? verifyReadmeTreeAgainstManifest(read("README.md")).files : 0,
   failures,
   warnings,

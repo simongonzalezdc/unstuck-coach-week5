@@ -55,6 +55,7 @@ startline-coach/
 ├── HANDOFF_CARD.md
 ├── JUDGE_SCORECARD.md
 ├── JUDGE_FAQ.md
+├── JUDGE_BRIEF.md
 ├── PROJECT_INSTRUCTIONS.md
 ├── PUBLICATION_CHECKLIST.md
 ├── WALKTHROUGH.md
@@ -88,6 +89,7 @@ startline-coach/
 │   ├── verify-reel-page.mjs
 │   ├── verify-judge-faq.mjs
 │   ├── verify-judge-scorecard.mjs
+│   ├── verify-judge-brief.mjs
 │   ├── verify-competition-rules-trace.mjs
 │   ├── verify-product-thesis.mjs
 │   ├── verify-icm-trace.mjs
@@ -209,6 +211,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `HANDOFF_CARD.md` gives a one-page operator handoff with use cases, good/bad behavior, gaps, and the five-minute test.
 - `JUDGE_SCORECARD.md` gives an 18-point scoring rubric with evidence links.
 - `JUDGE_FAQ.md` gives the shortest answers to likely Week 5 judging objections before a judge opens every file.
+- `JUDGE_BRIEF.md` gives a one-page above-the-brief argument so the winning case is not scattered across the folder.
 - `PROJECT_INSTRUCTIONS.md` gives paste-ready Claude Project instructions and a first-reply acceptance test so a stranger can load the coach without translating the README.
 - `PUBLICATION_CHECKLIST.md` gives the final publication gate without exposing local review notes.
 - `WALKTHROUGH.md` provides the longer recording/read-through script and shot list.
@@ -229,6 +232,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `scripts/verify-reel-page.mjs` checks that the record-ready reel page has six scenes, local refs, responsive CSS hooks, and no public-unsafe private/local references.
 - `scripts/verify-judge-faq.mjs` checks that the judge FAQ keeps eight short answers, evidence references, and no public-unsafe private/local references.
 - `scripts/verify-judge-scorecard.mjs` checks that the judge scorecard keeps nine criteria, a sequential fast path, evidence links, and no public-unsafe private/local references.
+- `scripts/verify-judge-brief.mjs` checks that the judge brief keeps the whole-person wedge, above-the-brief case, fast test, failure modes, ICM fit, evidence map, blocked state, and no public-unsafe private/local references.
 - `scripts/verify-competition-rules-trace.mjs` checks that the Week 5 rules trace keeps the required brief rows, judging-question rows, above-the-brief proof list, blockers, and no public-unsafe private/local references.
 - `scripts/verify-product-thesis.mjs` checks that the product thesis stays explicit about folder-first design, first-contact coaching, proof, and boundaries.
 - `scripts/verify-icm-trace.mjs` checks that the ICM trace stays public, evidence-backed, and tied to the proof layer.
@@ -259,10 +263,11 @@ Run:
 node scripts/judge-quick-proof.mjs
 node scripts/verify-admin-ops-playbooks.mjs
 node scripts/verify-whole-person-tour.mjs
+node scripts/verify-judge-brief.mjs
 node scripts/verify-public-bundle.mjs
 ```
 
-The quick proof reports the cold-start path, first-reply gate, transcript evidence, whole-person tour, runnable console, stress evals, admin operations playbooks, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, and fastest cold prompts without requiring the final public GitHub link. The bundle verifier checks required files, local landing-page links/assets, product thesis, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, first-run receipt, first-reply scorecard, start-here prompt readiness, landing copy controls, Skool comment shape, synchronized submission surfaces, transcript completeness, whole-person tour coverage, first-reply acceptance, runnable console behavior, public-safe checklist text, emoji/symbol-range leakage, and private provenance patterns. Before final publication it may warn that the GitHub link is still pending; after the public repo link is inserted, those warnings should be gone.
+The quick proof reports the cold-start path, first-reply gate, transcript evidence, whole-person tour, runnable console, stress evals, admin operations playbooks, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, concise judge brief, and fastest cold prompts without requiring the final public GitHub link. The bundle verifier checks required files, local landing-page links/assets, product thesis, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, judge brief, first-run receipt, first-reply scorecard, start-here prompt readiness, landing copy controls, Skool comment shape, synchronized submission surfaces, transcript completeness, whole-person tour coverage, first-reply acceptance, runnable console behavior, public-safe checklist text, emoji/symbol-range leakage, and private provenance patterns. Before final publication it may warn that the GitHub link is still pending; after the public repo link is inserted, those warnings should be gone.
 
 To prove the payload can stage into a separate clean repository folder, run:
 

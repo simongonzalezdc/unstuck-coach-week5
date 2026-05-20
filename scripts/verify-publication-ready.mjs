@@ -13,6 +13,7 @@ import { verifyFirstRun } from "./verify-first-run.mjs";
 import { verifyIcmTrace } from "./verify-icm-trace.mjs";
 import { verifyJudgeFaq } from "./verify-judge-faq.mjs";
 import { verifyJudgeScorecard } from "./verify-judge-scorecard.mjs";
+import { verifyJudgeBrief } from "./verify-judge-brief.mjs";
 import { verifyLandingCopy } from "./verify-landing-copy.mjs";
 import { verifyEvalCoverage } from "./verify-eval-coverage.mjs";
 import { verifyPitchReel } from "./verify-pitch-reel.mjs";
@@ -139,6 +140,9 @@ export function verifyPublicationReady() {
   const judgeScorecard = verifyJudgeScorecard(root);
   addVerifierFailures(failures, "Judge scorecard", judgeScorecard);
 
+  const judgeBrief = verifyJudgeBrief(root);
+  addVerifierFailures(failures, "Judge brief", judgeBrief);
+
   if (!/Skool comment draft:/i.test(submission)) {
     warnings.push("SUBMISSION.md does not expose the Skool comment draft heading.");
   }
@@ -176,6 +180,9 @@ export function verifyPublicationReady() {
     judgeFaqEvidenceRefs: judgeFaq.evidenceRefs,
     judgeScorecardCriteriaRows: judgeScorecard.criteriaRows,
     judgeScorecardFastPathSteps: judgeScorecard.fastPathSteps,
+    judgeBriefSections: judgeBrief.sections,
+    judgeBriefEvidenceRefs: judgeBrief.evidenceRefs,
+    judgeBriefFastTestSteps: judgeBrief.fastTestSteps,
     failures,
     warnings,
   };

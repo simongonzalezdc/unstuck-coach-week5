@@ -29,6 +29,7 @@ const proofChecks = [
   "scripts/verify-reel-page.mjs",
   "scripts/verify-judge-faq.mjs",
   "scripts/verify-judge-scorecard.mjs",
+  "scripts/verify-judge-brief.mjs",
   "scripts/verify-competition-rules-trace.mjs",
   "scripts/verify-product-thesis.mjs",
   "scripts/verify-icm-trace.mjs",
