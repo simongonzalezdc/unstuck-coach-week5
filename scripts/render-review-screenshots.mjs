@@ -100,6 +100,12 @@ async function main() {
     },
     {
       file: "landing/index.html",
+      name: "startline-review-landing-narrow",
+      viewport: { width: 320, height: 860 },
+      requiredText: ["External executive function for the whole human.", "Food first", "Hard anchor", "Literal ask", "Restart mark"],
+    },
+    {
+      file: "landing/index.html",
       name: "startline-review-admin-desktop",
       viewport: { width: 1440, height: 1000 },
       selector: ".admin-rhythm-board",
