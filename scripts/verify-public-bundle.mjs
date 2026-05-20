@@ -303,6 +303,13 @@ const publicationChecklistRequiredText = [
   "node scripts/verify-admin-ops-playbooks.mjs",
   "node scripts/verify-whole-person-tour.mjs",
   "node scripts/judge-quick-proof.mjs",
+  "keep the reviewed source folder as the canonical copy",
+  "Do not maintain two different `SUBMISSION.md` files.",
+  "Insert the approved final public GitHub URL in the reviewed source folder.",
+  "Run the ready gates from the reviewed source folder.",
+  "Run the public-bundle and ready gates again from inside that final public repository.",
+  "Run this from the reviewed source folder before staging or copying into the final public repository.",
+  "the public repository was staged from the wrong copy",
 ];
 
 const signalMapRequiredText = [
