@@ -144,6 +144,8 @@ const judgeWalkthroughRequiredText = [
 
 const receiptsRequiredText = [
   "The product thesis is explicit",
+  "The operating surface is inspectable",
+  "food/body, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, and closure/recovery",
   "ICM fit is explicit and inspectable",
   "one-command final smoke gate",
   "submission surfaces stay synchronized",
@@ -164,11 +166,13 @@ const receiptsRequiredText = [
 const judgeFaqRequiredText = [
   "What is Startline Coach?",
   "Who exactly does it coach?",
+  "reference/signal-map.md` makes that breadth inspectable as operating surfaces",
   "Is this just an ADHD knowledge base?",
   "How should I cold-test it?",
   "What is an immediate fail?",
   "How does it fit ICM?",
   "What goes above the brief?",
+  "a whole-person operating-surface map",
   "What is still blocked?",
   "a judge quick proof command",
   "the folder owner approves the landing/reel design",
@@ -201,6 +205,22 @@ const publicationChecklistRequiredText = [
   "node scripts/verify-eval-coverage.mjs",
   "node scripts/verify-admin-ops-playbooks.mjs",
   "node scripts/judge-quick-proof.mjs",
+];
+
+const signalMapRequiredText = [
+  "Operating Surface Map",
+  "Startline is a whole-person coach.",
+  "Food and body",
+  "Calendar and inbox",
+  "Messages and shame",
+  "Home and admin loops",
+  "Capture and re-entry",
+  "Closure and recovery",
+  "One hard anchor or one live item.",
+  "One parked note or one restart breadcrumb.",
+  "Food/body can outrank planning.",
+  "Calendar/inbox reality can outrank cleanup.",
+  "Shame sorting can outrank reply drafting.",
 ];
 
 const rulesTraceRequiredText = [
@@ -381,6 +401,7 @@ const readmeRequiredText = [
   "A folder-based whole-person executive-function accessibility coach for people who need help starting, switching, remembering, regulating, capturing, recovering, and closing loops without shame.",
   "The core idea: Startline Coach acts as portable executive-function accessibility.",
   "If Startline gives a productivity article, it failed.",
+  "reference/signal-map.md` gives the whole-person operating surface map",
   "JUDGE_FAQ.md` gives the shortest answers to likely Week 5 judging objections",
   "PITCH_REEL.md` compresses the presentation layer into a verified 75-second judge reel.",
   "scripts/verify-eval-coverage.mjs` checks red-face coverage and the research-to-behavior map.",
@@ -645,6 +666,8 @@ const landingRequiredText = [
   "Home and admin loops",
   "Capture and re-entry",
   "The folder is the product. The page makes it judgeable.",
+  "The whole-person operating surface is inspectable.",
+  "../reference/signal-map.md",
   "Brief floor",
   "ICM fit",
   "Read ICM trace",
@@ -899,6 +922,15 @@ if (exists("JUDGE_FAQ.md")) {
   for (const requiredText of judgeFaqRequiredText) {
     if (!judgeFaq.includes(requiredText)) {
       failures.push(`JUDGE_FAQ.md is missing required text: ${requiredText}`);
+    }
+  }
+}
+
+if (exists("reference/signal-map.md")) {
+  const signalMap = read("reference/signal-map.md");
+  for (const requiredText of signalMapRequiredText) {
+    if (!signalMap.includes(requiredText)) {
+      failures.push(`reference/signal-map.md is missing required text: ${requiredText}`);
     }
   }
 }

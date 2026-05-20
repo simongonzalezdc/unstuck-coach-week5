@@ -211,6 +211,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `demo/transcript-pack.md` gives cold-test transcript examples for the moments a judge is likely to try.
 - `evals/red-face-tests.md` stress-tests shame, overload, inbox/calendar reality, time blindness, capture, tangents, hyperfocus, and safety boundaries.
 - `evals/research-to-behavior-checklist.md` maps the research foundation to actual coach behavior, including live-obligation rescue before cleanup.
+- `reference/signal-map.md` gives the whole-person operating surface map: food/body, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, and closure/recovery.
 - `reference/admin-ops-playbooks.md` gives operational calendar and inbox playbooks for hard-anchor recovery, live-obligation rescue, reply debt, missed obligations, and scheduling friction without claiming account access.
 - `scripts/prepare-publication-link.mjs` dry-runs or writes the final public GitHub URL into `SUBMISSION.md`.
 - `scripts/verify-submission-copy.mjs` checks that the Skool comment draft stays within the required 2-3 sentence shape.

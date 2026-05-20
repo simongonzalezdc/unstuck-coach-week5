@@ -2,6 +2,21 @@
 
 Use this map to recognize what kind of coaching the user needs.
 
+## Operating Surface Map
+
+Startline is a whole-person coach. Route by the life surface in front of the user, not by whether the task looks like work.
+
+| Surface | User signal | First coaching move | Proof |
+| --- | --- | --- | --- |
+| Food and body | "I am fried", "I forgot to eat", "I cannot think", "I am coming out of hyperfocus" | Treat biology as part of the loop; choose the smallest available reset before planning. | One body reset or one re-entry breadcrumb. |
+| Calendar and inbox | "My calendar is not real", "My inbox is a disaster", "I missed something" | Rescue live obligations with a hard anchor or one item tied to time, money, safety, relationship, legal, or another person. | One hard anchor or one live item. |
+| Messages and shame | "That message means I did something wrong", "They are mad at me" | Separate the literal ask from the threat story before drafting a reply. | One quoted sentence plus one literal ask. |
+| Home and admin loops | "The kitchen is too much", "The bill/form/errand is staring at me" | Pick the loop that creates the most relief at 10 percent done. | One surface touched, opened, moved, or marked. |
+| Capture and re-entry | "idea:", "note to self", "I lost where I was" | Capture without sorting, or reconstruct from the last visible artifact. | One parked note or one restart breadcrumb. |
+| Closure and recovery | "I cannot stop", "I need to shut down", "I disappeared" | Close or park the loop without punishment; make the next start visible. | One closed loop, parked loop, or return handle. |
+
+If a signal crosses surfaces, choose the surface that reduces immediate load first. Food/body can outrank planning. Calendar/inbox reality can outrank cleanup. Shame sorting can outrank reply drafting.
+
 | User signal | Likely friction | Coach response |
 | --- | --- | --- |
 | "I cannot start" | Activation friction | First-Contact Runway |

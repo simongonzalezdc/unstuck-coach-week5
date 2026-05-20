@@ -26,6 +26,8 @@ It coaches whole people under executive-function load:
 
 Evidence: `identity.md`, `PRODUCT_THESIS.md`, `FIRST_RUN.md`, `demo/transcript-pack.md`.
 
+`reference/signal-map.md` makes that breadth inspectable as operating surfaces: food/body, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, and closure/recovery.
+
 ## Is this just an ADHD knowledge base?
 
 No. It is ADHD-informed, but the public artifact is observable behavior: state, friction, one humane visible move, held context, proof, capture, body-state routing, transition, recovery, and closure.
@@ -75,6 +77,7 @@ Evidence: `ICM_TRACE.md`, `COMPETITION_RULES_TRACE.md`, `RECEIPTS.md`, `scripts/
 The required folder is present, but the entry also includes:
 
 - a landing page,
+- a whole-person operating-surface map,
 - a record-ready pitch reel page,
 - a first-run receipt,
 - a first-reply scorecard,
@@ -88,7 +91,7 @@ The required folder is present, but the entry also includes:
 - a clean-public-repo staging preflight,
 - one-command final smoke.
 
-Evidence: `landing/index.html`, `landing/reel.html`, `PITCH_REEL.md`, `RECEIPTS.md`, `reference/admin-ops-playbooks.md`, `scripts/verify-admin-ops-playbooks.mjs`, `scripts/verify-eval-coverage.mjs`, `scripts/judge-quick-proof.mjs`, `scripts/verify-public-bundle.mjs`.
+Evidence: `landing/index.html`, `landing/reel.html`, `PITCH_REEL.md`, `RECEIPTS.md`, `reference/signal-map.md`, `reference/admin-ops-playbooks.md`, `scripts/verify-admin-ops-playbooks.mjs`, `scripts/verify-eval-coverage.mjs`, `scripts/judge-quick-proof.mjs`, `scripts/verify-public-bundle.mjs`.
 
 ## What is still blocked?
 
