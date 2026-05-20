@@ -23,7 +23,7 @@ function fileUrl(file) {
   return pathToFileURL(path.join(root, file)).href;
 }
 
-async function captureViewport({ browser, file, name, viewport, selector, requiredText = [] }) {
+async function captureViewport({ browser, file, name, viewport, selector, requiredText = [], elementOnly = false }) {
   const page = await browser.newPage({ viewport });
   const events = [];
   page.on("console", (message) => {
@@ -34,11 +34,20 @@ async function captureViewport({ browser, file, name, viewport, selector, requir
   page.on("pageerror", (error) => events.push(`pageerror: ${error.message}`));
 
   await page.goto(fileUrl(file), { waitUntil: "load" });
-  await page.waitForTimeout(250);
+  await page.addStyleTag({
+    content:
+      ".reveal-item { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }",
+  });
+  await page.waitForTimeout(1100);
 
   if (selector) {
-    await page.locator(selector).scrollIntoViewIfNeeded();
-    await page.waitForTimeout(150);
+    const targetTop = await page.locator(selector).evaluate((element) => {
+      return element.getBoundingClientRect().top + window.scrollY;
+    });
+    await page.evaluate((top) => {
+      window.scrollTo(0, Math.max(0, top - 118));
+    }, targetTop);
+    await page.waitForTimeout(1250);
   }
 
   const bodyText = await page.locator("body").innerText();
@@ -48,13 +57,18 @@ async function captureViewport({ browser, file, name, viewport, selector, requir
   });
 
   const screenshotPath = path.join(outputDir, `${name}.png`);
-  await page.screenshot({ path: screenshotPath, fullPage: false });
+  if (elementOnly && selector) {
+    await page.locator(selector).screenshot({ path: screenshotPath });
+  } else {
+    await page.screenshot({ path: screenshotPath, fullPage: false });
+  }
   await page.close();
 
   return {
     name,
     file,
     selector,
+    elementOnly,
     viewport,
     screenshot: screenshotPath,
     consoleOrPageEvents: events,
@@ -138,6 +152,32 @@ async function main() {
       requiredText: ["Run the whole proof layer before publishing.", "Final link missing. Review placeholder still present."],
     },
     {
+      file: "landing/index.html",
+      name: "startline-review-submission-desktop",
+      viewport: { width: 1440, height: 1000 },
+      selector: ".submission-section",
+      elementOnly: true,
+      requiredText: [
+        "SKOOL SUBMISSION COPY",
+        "one-page judge brief",
+        "whole-person tour",
+        "final review smoke test",
+      ],
+    },
+    {
+      file: "landing/index.html",
+      name: "startline-review-submission-mobile",
+      viewport: { width: 390, height: 900 },
+      selector: ".submission-section",
+      elementOnly: true,
+      requiredText: [
+        "SKOOL SUBMISSION COPY",
+        "one-page judge brief",
+        "whole-person tour",
+        "final review smoke test",
+      ],
+    },
+    {
       file: "landing/reel.html",
       name: "startline-review-reel-desktop",
       viewport: { width: 1440, height: 1000 },
@@ -188,6 +228,7 @@ async function main() {
       name: result.name,
       file: result.file,
       selector: result.selector,
+      elementOnly: result.elementOnly,
       viewport: result.viewport,
       horizontalOverflow: result.horizontalOverflow,
       consoleOrPageEvents: result.consoleOrPageEvents.length,
