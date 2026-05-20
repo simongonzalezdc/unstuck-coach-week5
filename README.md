@@ -60,9 +60,12 @@ startline-coach/
 ├── WALKTHROUGH.md
 ├── PITCH_REEL.md
 ├── RECEIPTS.md
+├── SUBMISSION.md
 ├── identity.md
 ├── rules.md
 ├── examples.md
+├── docs/
+│   └── judge-walkthrough.md
 ├── demo/
 │   ├── before-after.md
 │   ├── transcript-pack.md
@@ -77,6 +80,7 @@ startline-coach/
 │   └── app.js
 ├── scripts/
 │   ├── prepare-publication-link.mjs
+│   ├── public-bundle-files.mjs
 │   ├── verify-submission-copy.mjs
 │   ├── verify-submission-surfaces.mjs
 │   ├── verify-pitch-reel.mjs
