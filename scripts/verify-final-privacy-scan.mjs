@@ -6,6 +6,7 @@ import { pathToFileURL } from "node:url";
 import { publicBundleFiles } from "./public-bundle-files.mjs";
 
 const binaryPublicBundleFiles = new Set([
+  "landing/assets/startline-coach-logo.png",
   "landing/assets/startline-admin-bridge.jpg",
 ]);
 

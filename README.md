@@ -2,7 +2,7 @@
 
 A folder-based whole-person executive-function accessibility coach for people who need help starting, switching, remembering, regulating, capturing, recovering, and closing loops without shame.
 
-Drop this folder into a Claude Project and ask Claude to coach you through the life loop in front of you: work, home, body, admin, inbox, calendar, communication, transition, re-entry, or shutdown.
+Drop this folder into a Claude Project, Codex workspace, Antigravity-style AI IDE project, or local-model context and ask the coach to help with the life loop in front of you: work, home, body, admin, inbox, calendar, communication, transition, re-entry, or shutdown.
 
 The core idea: Startline Coach acts as portable executive-function accessibility. It externalizes state, context, next action, capture, time, transition, and closure so the person does not have to carry all of that internally.
 
@@ -35,13 +35,27 @@ It does not just answer questions about ADHD, productivity, or motivation. It co
 - Creates re-entry breadcrumbs.
 - Uses shame-free return protocols.
 - Captures raw ideas without turning them into a lecture.
+- Sorts raw brain dumps into one next move plus parked context.
+- Uses a bounded dopamine menu when the user needs activation fuel before starting.
 - Makes time visible with buffers, hard stops, and start anchors.
 - Uses a tangent firewall: chase, bookmark, or discard.
 - Switches strategy after repeated failed attempts.
 - Resets messy systems without shame.
 - Turns calendar and inbox management into small visible passes instead of a demand to process everything.
 
-## Folder Structure
+## Try It Quickly
+
+1. Open `START_HERE.md`.
+2. Load the folder into a Claude Project or another AI workspace.
+3. Paste `PROJECT_INSTRUCTIONS.md`.
+4. Try: `I need a coach to get started on this.`
+5. Score the first response with `FIRST_REPLY_SCORECARD.md`.
+
+The landing page gives the visual version of this path. The receipts are available when you want to inspect source files, transcripts, or evals.
+
+## Receipt Room: Folder Map
+
+This section is for inspection after the human value is clear.
 
 ```text
 startline-coach/
@@ -73,9 +87,11 @@ startline-coach/
 │   └── whole-person-tour.md
 ├── landing/
 │   ├── assets/
+│   │   ├── startline-coach-logo.png
 │   │   ├── startline-handoff-card.svg
 │   │   └── startline-admin-bridge.jpg
 │   ├── index.html
+│   ├── evidence.html
 │   ├── reel.html
 │   ├── styles.css
 │   ├── reel.css
@@ -83,6 +99,7 @@ startline-coach/
 ├── scripts/
 │   ├── prepare-publication-link.mjs
 │   ├── public-bundle-files.mjs
+│   ├── build-evidence-page.mjs
 │   ├── render-review-screenshots.mjs
 │   ├── verify-landing-accessibility.mjs
 │   ├── verify-source-notes.mjs
@@ -131,6 +148,8 @@ startline-coach/
 
 ## How To Use
 
+### Claude Project
+
 1. Create a Claude Project.
 2. Add this whole folder as project knowledge.
 3. Paste `PROJECT_INSTRUCTIONS.md` into the Claude Project instructions.
@@ -140,9 +159,38 @@ startline-coach/
 You are Startline Coach. Read identity.md, rules.md, examples.md, and reference/. Coach me through the life loop in front of me. If my first message is vague, ask one state-calibrating question. If I name a stuck signal, route it directly.
 ```
 
-## Fast Judge Path
+### Codex
 
-This is a review shortcut, not the product boundary. Startline's scope remains whole-person executive-function accessibility across life loops; this path only makes the first reply easy to test.
+Open the folder as the Codex workspace and ask Codex to read the operating files before coaching:
+
+```bash
+codex -C startline-coach "Read PROJECT_INSTRUCTIONS.md and START_HERE.md, then coach the stuck loop in front of me."
+```
+
+If you are already inside the folder, start Codex there and send the same start prompt used above.
+
+### Antigravity Or Another AI IDE
+
+Create a project from the Startline folder. Keep file access scoped to this project, then ask the workspace to read `PROJECT_INSTRUCTIONS.md`, `START_HERE.md`, `identity.md`, `rules.md`, `examples.md`, and `reference/` before coaching.
+
+Use the same first chat message from the Claude Project path.
+
+### Local Models
+
+Use a local runner with enough context to hold the operating files. If it cannot ingest the whole folder, paste `PROJECT_INSTRUCTIONS.md` first, then add:
+
+- `identity.md`
+- `rules.md`
+- `examples.md`
+- `reference/coaching-protocols.md`
+- `reference/signal-map.md`
+- `reference/safety-boundaries.md`
+
+Then start with one cold prompt from `START_HERE.md`.
+
+## Quick Evaluation Path
+
+This is a shortcut, not the product boundary. Startline's scope remains whole-person executive-function accessibility across life loops; this path only makes the first reply easy to test.
 
 Open `START_HERE.md` for the shortest path, `JUDGE_BRIEF.md` for the one-page above-the-brief case, then `landing/index.html` for the visual walkthrough.
 
@@ -150,7 +198,7 @@ Open `FIRST_RUN.md` if you want the exact cold-start receipt before reading the 
 
 Use the runnable console on the landing page to preview how the protocols turn a messy stuck point into state, friction, one move, and a proof check.
 
-Open `docs/judge-walkthrough.md` for the shortest evaluation path.
+Open `docs/judge-walkthrough.md` for a longer evaluation path.
 
 The quick test:
 
@@ -207,7 +255,8 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 
 ## Proof Artifacts
 
-- `landing/index.html` gives a visual judge path, above-the-brief proof band, 60-second cold-run band, Claude Project launch kit, runnable coach console, live coaching demo, folder-method map, one-command proof gate, and submission copy.
+- `landing/index.html` gives the visual product front door: whole-person hero, coaching routes, Claude Project launch kit, Codex/AI IDE/local-model setup paths, runnable coach console, live coaching demo, folder-method map, and readable source-proof links.
+- `landing/assets/startline-coach-logo.png` gives the public brand mark used in the navigation and favicon.
 - `landing/assets/startline-admin-bridge.jpg` gives the admin-operations band a bitmap operating-map asset using the simplified PuenteWorks bridge/Mola visual language.
 - `landing/reel.html` gives a record-ready six-scene pitch reel page for the optional video/GIF proof layer.
 - `START_HERE.md` gives the 60-second route, exact start prompt, first-reply acceptance test, and fast cold prompts.
@@ -229,17 +278,18 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `demo/before-after.md` shows how Startline Coach differs from generic productivity advice.
 - `demo/transcript-pack.md` gives cold-test transcript examples for the moments a judge is likely to try.
 - `demo/whole-person-tour.md` gives a six-stop cold tour across the full life surface.
-- `evals/red-face-tests.md` stress-tests shame, overload, inbox/calendar reality, time blindness, capture, tangents, hyperfocus, and safety boundaries.
+- `evals/red-face-tests.md` stress-tests shame, overload, brain dumps, dopamine-menu drift, inbox/calendar reality, time blindness, capture, tangents, hyperfocus, and safety boundaries.
 - `evals/research-to-behavior-checklist.md` maps the research foundation to actual coach behavior, including live-obligation rescue before cleanup.
 - `reference/mode-router.md` preserves the original multi-mode assistant insight as a public-safe stance portfolio: ally support, strategy, execution, memory keeping, and recovery closure.
-- `reference/signal-map.md` gives the whole-person operating surface map: food/body, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, and closure/recovery.
+- `reference/signal-map.md` gives the whole-person operating surface map: food/body and activation fuel, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, and closure/recovery.
 - `reference/admin-ops-playbooks.md` gives operational calendar and inbox playbooks for hard-anchor recovery, live-obligation rescue, reply debt, missed obligations, and scheduling friction without claiming account access.
-- `scripts/prepare-publication-link.mjs` dry-runs or writes the final public GitHub URL into `SUBMISSION.md`.
-- `scripts/render-review-screenshots.mjs` refreshes the landing, narrow/mobile first-glance, admin-band, first-run receipt, scorecard, FAQ, proof-gate, submission section, and reel screenshots for design approval using standard Playwright.
+- `scripts/prepare-publication-link.mjs` dry-runs or writes the approved repository URL into `SUBMISSION.md`.
+- `scripts/build-evidence-page.mjs` renders the actual Markdown receipts into `landing/evidence.html` so proof clicks show readable source-backed content instead of hand-typed claim cards.
+- `scripts/render-review-screenshots.mjs` refreshes the landing, narrow/mobile first-glance, evidence reader, admin-band, first-run receipt, scorecard, FAQ, and reel screenshots for design approval using standard Playwright.
 - `scripts/verify-landing-accessibility.mjs` checks landing semantics, labeled controls, hash targets, reduced-motion handling, focus-visible treatment, and accessibility behavior wiring.
 - `scripts/verify-source-notes.mjs` checks the public source notes for competition fit, design lineage, research translation, portability, and private-provenance safety.
 - `scripts/verify-submission-copy.mjs` checks that the Skool comment draft stays within the required 2-3 sentence shape.
-- `scripts/verify-submission-surfaces.mjs` checks that the Skool draft, SUBMISSION landing version, and landing-page submission copy stay synchronized.
+- `scripts/verify-submission-surfaces.mjs` checks that the Skool draft and SUBMISSION landing version stay synchronized while the landing avoids a separate submission panel.
 - `scripts/verify-pitch-reel.mjs` checks that the 75-second pitch reel has six timed shots, a short voiceover, and no public-unsafe private/local references.
 - `scripts/verify-reel-page.mjs` checks that the record-ready reel page has six scenes, local refs, responsive CSS hooks, and no public-unsafe private/local references.
 - `scripts/verify-judge-faq.mjs` checks that the judge FAQ keeps eight short answers, evidence references, and no public-unsafe private/local references.
@@ -263,7 +313,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `scripts/verify-public-bundle.mjs` checks required files, landing proof/launch-kit text, local landing refs, public-safe text, submission copy, transcript completeness, and console behavior.
 - `scripts/verify-final-privacy-scan.mjs` gives the final post-link privacy pass a named command instead of leaving it as a manual grep ritual.
 - `scripts/verify-publication-ready.mjs` is the final posting gate after the public GitHub link is inserted; it rejects the old Week 3 repo and reruns the proof-layer checks, including source-note lineage, landing accessibility, whole-person tour coverage, and mode routing.
-- `scripts/verify-github-public-url.mjs` proves the final GitHub link is publicly visible through unauthenticated GitHub API access, so the private review repo cannot pass as public.
+- `scripts/verify-github-public-url.mjs` checks that the approved repository URL is visible through unauthenticated GitHub API access.
 - `scripts/final-review-smoke.mjs` runs the proof checks in one concise command, rebuilds the public payload unless skipped, and verifies whether the publication gate is expected to be blocked or ready.
 - `scripts/verify-clean-public-stage.mjs` stages the payload into a temporary separate folder, verifies it there, and removes the temporary target.
 - `scripts/build-public-bundle.mjs` exports the clean public repo payload after the source bundle verifies.
@@ -337,7 +387,7 @@ node scripts/verify-github-public-url.mjs
 node scripts/verify-final-privacy-scan.mjs
 ```
 
-Both checks should report `status: "ready"`. Until the final public GitHub link replaces the review placeholder, this gate is expected to report `status: "blocked"`. It should also stay blocked if the link points at the old Week 3 repository or at any private repository that unauthenticated GitHub API access cannot see.
+Both checks should report `status: "ready"` after the approved repository URL is inserted. Before that handoff, this gate is expected to report `status: "blocked"`. It should also stay blocked if the link points at the old Week 3 repository or at any repository unauthenticated GitHub API access cannot see.
 
 For one-command final review before the link exists, run:
 

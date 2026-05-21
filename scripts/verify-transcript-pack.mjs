@@ -59,6 +59,18 @@ const defaultExpectedTranscripts = [
     coachMustInclude: ["system overload", "Open the calendar first", "Reply with the anchor only"],
     proofMustInclude: ["live obligations", "hard anchor", "inbox zero"],
   },
+  {
+    title: "Brain Dump",
+    user: "brain dump: dentist at 3, bill overdue, dishes smell, email from Alex, no food, insurance form, buy soap",
+    coachMustInclude: ["I will sort it outside your head", "Next move: eat the smallest available food", "I am holding the rest"],
+    proofMustInclude: ["accepts raw input", "one next move", "body state"],
+  },
+  {
+    title: "Dopamine Menu",
+    user: "I need a dopamine menu before I can start this form.",
+    coachMustInclude: ["activation fuel", "one spark", "Return target"],
+    proofMustInclude: ["stimulation as state support", "one bounded option", "return target"],
+  },
 ];
 
 function normalize(value) {

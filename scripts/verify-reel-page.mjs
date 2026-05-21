@@ -50,13 +50,13 @@ export function verifyReelPage(root = process.cwd()) {
     "start, switch, remember",
     "A stranger can start before reading every file.",
     "I need a coach to get started on this.",
-    "Judge the coach on the first response.",
+    "Score the coach on the first response.",
     "A stuck sentence becomes a coaching move.",
     "The coach is tested where generic advice breaks.",
-    "The public payload verifies while publishing stays blocked.",
-    "node scripts/final-review-smoke.mjs --expect-blocked",
+    "The source proof stays readable without slowing the first move.",
+    "Open the evidence reader",
     "../PITCH_REEL.md",
-    "../scripts/verify-reel-page.mjs",
+    "./evidence.html#pitch-reel",
   ];
 
   for (const text of requiredHtml) {

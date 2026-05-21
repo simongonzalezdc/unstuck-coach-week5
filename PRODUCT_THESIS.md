@@ -1,15 +1,15 @@
 # Startline Coach Product Thesis
 
-Startline Coach is designed as a folder, not an app, because the Week 5 object is a coach that lives inside a Claude Project. The product surface is the context itself: identity, rules, examples, reference protocols, and proof artifacts that make the coach portable, inspectable, and easy to test cold.
+Startline Coach is designed as a folder, not an app, because the Week 5 object is a coach that can live inside a Claude Project and remain portable to other agent surfaces. The product surface is the context itself: identity, rules, examples, reference protocols, and proof artifacts that make the coach portable, inspectable, and easy to test cold.
 
-The public cold test is first contact because it is the easiest moment for a judge to evaluate quickly. That does not define the whole product. The full coach covers whole-person executive-function accessibility: start, choose, hold context, capture ideas, manage inbox and calendar reality, regulate body state, transition, recover, and close with a re-entry trail.
+The public cold test is first contact because it is the easiest moment for a judge to evaluate quickly. That does not define the whole product. The full coach covers whole-person executive-function accessibility: start, choose, hold context, sort brain dumps, capture ideas, manage inbox and calendar reality, regulate body state, use bounded activation fuel, transition, recover, and close with a re-entry trail.
 
 ## Design Principles
 
 | Principle | Decision | Evidence |
 | --- | --- | --- |
-| Folder over app | The coach must be drop-in Claude Project knowledge, so the files are the interface. | `identity.md`, `rules.md`, `examples.md`, `reference/`, `PROJECT_INSTRUCTIONS.md` |
-| Whole-person EF access | The coach supports task start, choice, working-memory hold, inbox triage, calendar reality checks, capture, body-state routing, transition, recovery, and closure. | `identity.md`, `rules.md`, `reference/coaching-protocols.md`, `reference/admin-ops-playbooks.md`, `reference/signal-map.md` |
+| Folder over app | The coach must be drop-in project knowledge, so the files are the interface across Claude Project, Codex, AI IDEs, and local-model contexts. | `identity.md`, `rules.md`, `examples.md`, `reference/`, `PROJECT_INSTRUCTIONS.md`, `START_HERE.md` |
+| Whole-person EF access | The coach supports task start, choice, working-memory hold, brain-dump sorting, inbox triage, calendar reality checks, capture, body-state routing, bounded activation fuel, transition, recovery, and closure. | `identity.md`, `rules.md`, `reference/coaching-protocols.md`, `reference/admin-ops-playbooks.md`, `reference/signal-map.md` |
 | Mode routing | The coach shifts between ally support, strategy, execution, memory keeping, and recovery closure without making the user choose a mode. | `identity.md`, `rules.md`, `reference/mode-router.md`, `scripts/verify-mode-router.mjs` |
 | First contact before productivity | The first reply should create one visible move, not explain executive dysfunction. | `START_HERE.md`, `FIRST_RUN.md`, `demo/transcript-pack.md`, `scripts/verify-first-run.mjs`, `scripts/verify-first-reply-acceptance.mjs` |
 | Interpretable context | The method is staged as state, friction, move, hold, check, close so a judge can inspect the loop. | `rules.md`, `reference/coaching-protocols.md`, `ICM_TRACE.md`, `landing/index.html`, `scripts/verify-icm-trace.mjs` |
@@ -18,7 +18,7 @@ The public cold test is first contact because it is the easiest moment for a jud
 
 ## Why The Folder Is The Product
 
-The brief asks for a coach folder someone can drop into a Claude Project. Startline does not hide the folder behind a website. The landing page is only the judge door: it shows the thesis, makes the first run copy-ready, and points back to the files that actually shape the coach.
+The brief asks for a coach folder someone can drop into a Claude Project. Startline keeps that primary path, but does not make Claude Project the only usable surface. Codex, Antigravity-style project IDEs, and local models can all use the same operating files when they can read the folder or receive the core files in context. The landing page is only the judge door: it shows the thesis, makes the first run copy-ready, and points back to the files that actually shape the coach.
 
 The folder structure creates an interpretable coaching system:
 
@@ -27,7 +27,7 @@ The folder structure creates an interpretable coaching system:
 - `examples.md` calibrates tone and behavior under realistic pressure.
 - `reference/` holds reusable protocols, admin operations playbooks, signal maps, source notes, and safety boundaries.
 - `PROJECT_INSTRUCTIONS.md` turns the folder into paste-ready Claude Project setup.
-- `START_HERE.md` gives a cold judge the fastest possible first run.
+- `START_HERE.md` gives a cold judge the fastest possible first run, including non-Claude setup paths.
 - `FIRST_RUN.md` shows the exact cold-start prompt, expected first reply, and proof loop.
 
 ## Why First Contact Is The Demo, Not The Product
@@ -41,9 +41,11 @@ The product is broader than that demo. Startline also coaches:
 - triaging inbox and message piles by live obligation instead of inbox zero,
 - making calendar reality visible with hard anchors, buffers, and explicit parking,
 - recovering missed obligations through one calendar anchor and one inbox cue instead of panic-scanning everything,
+- sorting raw brain dumps without making the user clean them up first,
 - capturing raw ideas without opening a new loop,
 - estimating time with setup and transition cost included,
 - checking body state before forcing a plan,
+- using one bounded dopamine-menu spark when activation fuel is missing,
 - exiting hyperfocus without shame,
 - re-entering after avoidance or interruption,
 - closing or parking the loop with a visible breadcrumb.

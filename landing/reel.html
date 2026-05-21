@@ -8,19 +8,19 @@
       name="description"
       content="A record-ready six-scene pitch reel for the Startline Coach Week 5 submission."
     >
-    <link rel="icon" type="image/svg+xml" href="./assets/startline-handoff-card.svg">
+    <link rel="icon" type="image/png" href="./assets/startline-coach-logo.png">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./reel.css">
   </head>
   <body class="reel-page">
     <header class="reel-nav" aria-label="Pitch reel navigation">
       <a class="wordmark" href="./index.html#reel" aria-label="Back to Startline Coach landing page">
-        <span class="wordmark-mark" aria-hidden="true"></span>
+        <img class="wordmark-mark" src="./assets/startline-coach-logo.png" alt="" aria-hidden="true" width="64" height="64">
         Startline Coach
       </a>
       <nav aria-label="Reel references">
         <a href="../PITCH_REEL.md">Script</a>
-        <a href="../scripts/verify-reel-page.mjs">Verifier</a>
+        <a href="./evidence.html#pitch-reel">Source proof</a>
         <a href="./index.html">Landing</a>
       </nav>
     </header>
@@ -75,7 +75,7 @@
       <section class="reel-slide" id="shot-3" data-shot="0:18-0:31" aria-labelledby="shot-3-title">
         <div class="slide-copy">
           <p class="eyebrow">0:18-0:31 / First reply gate</p>
-          <h2 id="shot-3-title">Judge the coach on the first response.</h2>
+          <h2 id="shot-3-title">Score the coach on the first response.</h2>
           <p>
             If the first reply gives an article, menu, moralizing, or vague continuation,
             the folder is not coaching hard enough.
@@ -140,7 +140,7 @@
           <h2 id="shot-5-title">The coach is tested where generic advice breaks.</h2>
           <p>
             Shame, overload, communication threat, re-entry, raw capture, failed plans,
-            body-first recovery, and inbox/calendar reality each have evidence the judge can inspect.
+            body-first recovery, and inbox/calendar reality each have readable source proof.
           </p>
         </div>
         <div class="slide-grid three-up" aria-label="Stress proof files">
@@ -165,16 +165,16 @@
       <section class="reel-slide final-slide" id="shot-6" data-shot="0:58-1:15" aria-labelledby="shot-6-title">
         <div class="slide-copy">
           <p class="eyebrow">0:58-1:15 / Close on proof</p>
-          <h2 id="shot-6-title">The public payload verifies while publishing stays blocked.</h2>
+          <h2 id="shot-6-title">The source proof stays readable without slowing the first move.</h2>
           <p>
-            The final smoke gate proves the current folder is ready for review, while
-            refusing to publish until the approved public GitHub link exists.
+            The page should land on the coach first. The evidence reader is there
+            when someone wants the files, examples, boundaries, and scorecard.
           </p>
         </div>
-        <div class="terminal-card" aria-label="Final smoke command">
-          <span class="pane-label">Run before publishing</span>
-          <pre><code>node scripts/final-review-smoke.mjs --expect-blocked</code></pre>
-          <p>Expected blockers: final public GitHub URL missing, review placeholder still present.</p>
+        <div class="terminal-card proof-card" aria-label="Source proof links">
+          <span class="pane-label">Readable proof</span>
+          <p>Start with the first reply scorecard, then open transcripts, stress cases, and boundaries.</p>
+          <a href="./evidence.html#first-reply-scorecard">Open the evidence reader</a>
         </div>
       </section>
     </main>

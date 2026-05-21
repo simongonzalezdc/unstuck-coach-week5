@@ -17,7 +17,30 @@ This is a review shortcut, not the product boundary: Startline still covers whol
 I need a coach to get started on this.
 ```
 
-## Paste Into Claude Project
+## If You Do Not Have Claude Code Or Claude Project
+
+The folder still works if the tool can read local files.
+
+Codex path:
+
+```bash
+codex -C startline-coach "Read PROJECT_INSTRUCTIONS.md and START_HERE.md, then coach the stuck loop in front of me."
+```
+
+Antigravity or AI IDE path:
+
+1. Create a project from this folder.
+2. Keep the agent scoped to the project folder.
+3. Ask it to read `PROJECT_INSTRUCTIONS.md`, `START_HERE.md`, `identity.md`, `rules.md`, `examples.md`, and `reference/`.
+4. Start with the first cold prompt.
+
+Local model path:
+
+1. Paste `PROJECT_INSTRUCTIONS.md`.
+2. Add `identity.md`, `rules.md`, `examples.md`, `reference/coaching-protocols.md`, `reference/signal-map.md`, and `reference/safety-boundaries.md`.
+3. Start with the first cold prompt.
+
+## Paste Into Claude Project Or Another Runner
 
 Use this as the first chat message after the folder is loaded:
 

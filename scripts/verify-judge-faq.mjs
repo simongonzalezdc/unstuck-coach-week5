@@ -35,17 +35,14 @@ export function verifyJudgeFaq(root = process.cwd()) {
     "What goes above the brief?",
     "one-page judge brief",
     "JUDGE_BRIEF.md",
-    "scripts/verify-judge-brief.mjs",
-    "What is still blocked?",
-    "six-stop whole-person judge tour",
-    "scripts/verify-whole-person-tour.mjs",
+    "What are the boundaries?",
+    "six-stop whole-person tour",
     "I need a coach to get started on this.",
     "state, friction, one humane visible move, held context, proof, capture, body-state routing, transition, recovery, and closure",
-    "scripts/verify-first-reply-acceptance.mjs",
-    "scripts/final-review-smoke.mjs",
     "landing/reel.html",
-    "scripts/verify-eval-coverage.mjs",
-    "scripts/verify-publication-ready.mjs",
+    "RECEIPTS.md",
+    "the next move is small enough to test",
+    "Startline is not therapy, medical advice, diagnosis, medication guidance, autonomous account access, or a promise to clean someone's life for them.",
   ];
 
   for (const text of requiredText) {

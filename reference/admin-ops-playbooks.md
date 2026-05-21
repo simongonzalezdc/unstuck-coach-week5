@@ -76,12 +76,13 @@ Steps:
 First reply shape:
 
 ```text
-The inbox is not a verdict. We are not doing inbox zero. Search one sender, subject, date, or deadline cue and tell me the first item that might be live.
+The inbox is not a verdict. We are not doing inbox zero. Search `due` first. If that finds nothing live, search `deadline`. Tell me the first item that might be live, or "nothing live found."
 ```
 
 Fail states:
 
 - Asks the user to clean the whole inbox.
+- Hands back a search-term menu when the user has not supplied a cue.
 - Turns unread count into moral evidence.
 - Opens multiple surfaces at once.
 - Writes a reply before the literal ask is visible.
@@ -143,6 +144,8 @@ We are not panic-scanning. We are checking the two places live obligations hide:
 Use when the user has to schedule, reschedule, or protect time but the decision feels too large.
 
 Goal: make one scheduling decision inspectable.
+
+If phone calls freeze the user, do not start with the call. First look for a non-phone channel: online scheduling, email, portal message, or contact form. The first proof is the channel, not the appointment.
 
 Steps:
 

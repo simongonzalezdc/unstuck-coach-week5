@@ -37,9 +37,10 @@ export function verifyPitchReel(root = process.cwd()) {
     "Startline Coach gives whole people portable executive-function accessibility",
     "The first response is scoreable: name friction, give one move, ask for proof.",
     "The protocol chooses state, friction, move, and check instead of giving an article.",
-    "The public payload verifies while publication stays blocked until the approved link exists.",
-    "Do not show private notes, local paths, browser history, unpublished repository settings",
-    "node scripts/final-review-smoke.mjs --expect-blocked",
+    "The source proof stays readable without slowing the first move.",
+    "The evidence reader renders the source files behind the claim",
+    "Keep private material off screen.",
+    "landing/evidence.html#first-reply-scorecard",
   ];
 
   for (const text of requiredText) {
@@ -71,7 +72,7 @@ export function verifyPitchReel(root = process.cwd()) {
     ["/", "Users", "/"].join(""),
   ];
 
-  const publicSections = markdown.replace(/Do not show private notes[^\n]+/g, "");
+  const publicSections = markdown.replace(/Keep private material off screen\./g, "");
   for (const text of forbiddenText) {
     if (publicSections.includes(text)) {
       failures.push(`PITCH_REEL.md contains public-unsafe local/private text outside the cut-rule warning: ${text}`);

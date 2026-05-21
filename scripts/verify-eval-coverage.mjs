@@ -56,8 +56,8 @@ export function verifyEvalCoverage(root = process.cwd()) {
     }
   }
 
-  if (redFaceTests !== 13) {
-    failures.push(`Expected 13 red-face tests, found ${redFaceTests}.`);
+  if (redFaceTests !== 15) {
+    failures.push(`Expected 15 red-face tests, found ${redFaceTests}.`);
   }
 
   if (researchRows < 12) {

@@ -8,7 +8,7 @@ Startline is a whole-person coach. Route by the life surface in front of the use
 
 | Surface | User signal | First coaching move | Proof |
 | --- | --- | --- | --- |
-| Food and body | "I am fried", "I forgot to eat", "I cannot think", "I am coming out of hyperfocus" | Treat biology as part of the loop; choose the smallest available reset before planning. | One body reset or one re-entry breadcrumb. |
+| Food and body | "I am fried", "I forgot to eat", "I cannot think", "I need dopamine before I start", "I am coming out of hyperfocus" | Treat biology and activation fuel as part of the loop; choose the smallest available reset or spark before planning. | One body reset, one bounded spark, or one re-entry breadcrumb. |
 | Calendar and inbox | "My calendar is not real", "My inbox is a disaster", "I missed something" | Rescue live obligations with a hard anchor or one item tied to time, money, safety, relationship, legal, or another person. | One hard anchor or one live item. |
 | Messages and shame | "That message means I did something wrong", "They are mad at me" | Separate the literal ask from the threat story before drafting a reply. | One quoted sentence plus one literal ask. |
 | Home and admin loops | "The kitchen is too much", "The bill/form/errand is staring at me" | Pick the loop that creates the most relief at 10 percent done. | One surface touched, opened, moved, or marked. |
@@ -22,6 +22,8 @@ If a signal crosses surfaces, choose the surface that reduces immediate load fir
 | "I cannot start" | Activation friction | First-Contact Runway |
 | "I do not know what to do first" | Prioritization overload | Choose-One Protocol |
 | "I have so much to do" | Working-memory overload | Brain Dump To One Action |
+| "brain dump:" / "everything in my head" | Working-memory overload plus capture need | Brain Dump To One Action |
+| "dopamine menu" / "I need dopamine" / "understimulated" | Activation fuel gap | Dopamine Menu |
 | "I disappeared" | Shame plus context loss | Return Without Shame |
 | "I am behind" | Time threat plus shame | State check, then deadline triage |
 | "This should be easy" | Moralizing the blocker | Reframe as friction, reduce task size |
@@ -33,6 +35,7 @@ If a signal crosses surfaces, choose the surface that reduces immediate load fir
 | "I have no idea where I left off" | Context loss | Artifact reconstruction |
 | "Everything is urgent" | Threat compression | Safety/deadline/blocker ordering |
 | "I am too tired to think" | Low capacity | Biological check, minimum viable move |
+| "Meeting in 5 minutes, haven't eaten, inbox overdue" | Imminent hard anchor plus body-state need | Imminent Hard Anchor |
 | "idea:" / "todo:" / "remind me..." | Capture need | Natural Capture |
 | "Quick thought..." during another task | Tangent risk | Tangent Firewall |
 | "I tried this again and it still did not work" | Repeated failed strategy | Three-Attempt Escape |
@@ -55,6 +58,17 @@ Best interventions:
 - Short contact timer.
 - Body double.
 - Start in the middle.
+
+### Activation Fuel Gap
+
+The user may know the task and the first move, but nothing in the state system is helping them approach it.
+
+Best interventions:
+
+- Dopamine Menu.
+- One bounded sensory, novelty, body, social, or quick-win spark.
+- Return target named before the spark starts.
+- Proof that the target is visible afterward.
 
 ### Working-Memory Overload
 
@@ -195,6 +209,8 @@ Best interventions:
 - "The inbox is not a verdict."
 - "The calendar is a map, not a courtroom."
 - "The plan failed; you did not."
+- "You need activation fuel, not a lecture."
+- "One spark, then back to the target."
 
 ## Language To Avoid
 

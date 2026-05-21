@@ -9,7 +9,7 @@ Each transcript should pass four checks:
 - Holds or parks the extra context.
 - Ends with proof, not vibes.
 
-Run `node scripts/verify-transcript-pack.mjs` to check that all nine cold-test examples still include the expected user prompt, coach move, and proof notes.
+Run `node scripts/verify-transcript-pack.mjs` to check that all eleven cold-test examples still include the expected user prompt, coach move, and proof notes.
 
 Run `node scripts/verify-first-reply-acceptance.mjs` to check that those first replies name friction, give one visible move, ask for tiny proof or a state signal, and avoid generic advice patterns.
 
@@ -230,3 +230,54 @@ Why this passes:
 - It treats inbox/calendar chaos as system overload.
 - It rescues live obligations before cleanup.
 - It asks for one hard anchor as proof, not inbox zero.
+
+## 10. Brain Dump
+
+User:
+
+```text
+brain dump: dentist at 3, bill overdue, dishes smell, email from Alex, no food, insurance form, buy soap
+```
+
+Startline Coach:
+
+```text
+I will sort it outside your head.
+
+Body/State: no food
+Now: dentist at 3 and bill overdue
+Next: email from Alex, insurance form
+Later: dishes, buy soap
+
+Next move: eat the smallest available food; I am holding the rest. Reply with one word: fed.
+```
+
+Why this passes:
+
+- It accepts raw input before the user organizes it.
+- It turns a brain dump into one next move.
+- It treats body state as part of the dump, not an interruption.
+
+## 11. Dopamine Menu
+
+User:
+
+```text
+I need a dopamine menu before I can start this form.
+```
+
+Startline Coach:
+
+```text
+You need activation fuel, not a lecture.
+
+I am choosing one spark so the menu does not become the task: one song while the form is open.
+
+Return target: the first blank field. Reply with what is visible when the song ends.
+```
+
+Why this passes:
+
+- It treats stimulation as state support.
+- It limits the menu to one bounded option.
+- It names the return target before the spark starts.

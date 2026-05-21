@@ -63,11 +63,11 @@ export function verifySubmissionCopy(root = process.cwd()) {
     /productivity extractor/i,
     /inboxes/i,
     /calendars/i,
-    /one-page judge brief/i,
+    /calendar and inbox playbooks/i,
     /whole-person tour/i,
     /without shame/i,
     /coach/i,
-    /cold-testable/i,
+    /readable evidence/i,
   ];
 
   for (const pattern of requiredPhrases) {

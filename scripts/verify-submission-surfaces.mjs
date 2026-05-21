@@ -54,7 +54,8 @@ export function verifySubmissionSurfaces(root = process.cwd()) {
   const landing = read(root, "landing/index.html");
   const skoolComment = extractSkoolCommentDraft(submission);
   const landingVersion = extractTextBlock(submission, "Landing-page version");
-  const landingSection = landing.match(/<section class="submission-section"[\s\S]*?<\/section>/i)?.[0] || "";
+  const landingSection =
+    landing.match(/<section\b[^>]*class="[^"]*\bsubmission-section\b[^"]*"[\s\S]*?<\/section>/i)?.[0] || "";
   const landingText = normalize(stripHtml(landingSection));
   const normalizedSkool = normalize(skoolComment);
   const normalizedLandingVersion = normalize(landingVersion);
@@ -71,24 +72,25 @@ export function verifySubmissionSurfaces(root = process.cwd()) {
     failures.push("Landing-page version in SUBMISSION.md must match the primary Skool comment draft.");
   }
 
-  if (normalizedSkool && !landingText.includes(normalizedSkool)) {
-    failures.push("landing/index.html submission section must contain the primary Skool comment draft.");
+  if (landingSection) {
+    failures.push("landing/index.html should not render the Skool submission copy as a review panel.");
   }
 
   const requiredPhrases = [
     "whose bottleneck is not intelligence or effort",
-    "one-page judge brief",
+    "calendar and inbox playbooks",
     "whole-person tour",
     "productivity extractor",
-    "final review smoke test",
+    "readable evidence",
+    "source proof",
   ];
 
   for (const phrase of requiredPhrases) {
     if (!normalizedSkool.includes(phrase)) {
       failures.push(`Primary Skool comment draft missing phrase: ${phrase}`);
     }
-    if (!landingText.includes(phrase)) {
-      failures.push(`Landing submission section missing phrase: ${phrase}`);
+    if (!normalizedLandingVersion.includes(phrase)) {
+      failures.push(`Landing-page version block missing phrase: ${phrase}`);
     }
   }
 

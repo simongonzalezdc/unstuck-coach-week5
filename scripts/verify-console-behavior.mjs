@@ -67,6 +67,26 @@ const defaultCases = [
     },
   },
   {
+    name: "brain dump overload",
+    input: "brain dump: dentist at 3, bill overdue, dishes smell, email from Alex, no food, insurance form, buy soap",
+    expected: {
+      state: "Yellow",
+      friction: "Brain dump overload",
+      move: "Sort outside the head.",
+      check: "One next move.",
+    },
+  },
+  {
+    name: "dopamine menu",
+    input: "I need a dopamine menu before I can start this form.",
+    expected: {
+      state: "Yellow",
+      friction: "Activation fuel gap",
+      move: "Choose one tiny spark.",
+      check: "Spark plus target.",
+    },
+  },
+  {
     name: "repeated failed plan",
     input: "I tried the same plan three times and failed every time.",
     expected: {
@@ -134,6 +154,8 @@ function makeHarness() {
     "That message makes me feel like I did something wrong.",
     "My inbox and calendar are a mess and I do not know what is real.",
     "I need to shower, answer the text, find the form, and clean the kitchen.",
+    "brain dump: dentist at 3, bill overdue, dishes smell, email from Alex, no food, insurance form, buy soap",
+    "I need a dopamine menu before I can start this form.",
     "idea: make a shutdown checklist for Sunday nights",
   ].map((sample) => makeElement({ sample }));
   const copyControls = [];

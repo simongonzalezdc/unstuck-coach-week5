@@ -303,6 +303,19 @@
   color: rgba(255, 245, 220, 0.76);
 }
 
+.proof-card a {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 1rem;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid rgba(255, 245, 220, 0.28);
+  border-radius: 999px;
+  color: var(--cream-line);
+  background: rgba(255, 245, 220, 0.1);
+  font-weight: 800;
+  text-decoration: none;
+}
+
 @media (max-width: 980px) {
   .reel-nav nav {
     display: none;

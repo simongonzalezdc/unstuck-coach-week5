@@ -25,31 +25,28 @@ export function verifyJudgeBrief(root = process.cwd()) {
   const markdown = read(root, "JUDGE_BRIEF.md");
   const sections = (markdown.match(/^## /gm) || []).length;
   const evidenceRefs = (markdown.match(/`(?:[^`]+\.md|scripts\/[^`]+\.mjs|landing\/index\.html)`/g) || []).length;
-  const fastTest = markdown.split("## Fast Judge Test")[1]?.split("## ")[0] || "";
+  const fastTest =
+    markdown.split("## Try It Quickly")[1]?.split("## ")[0] ||
+    markdown.split("## Fast Judge Test")[1]?.split("## ")[0] ||
+    "";
   const fastTestSteps = (fastTest.match(/^\d+\. /gm) || []).length;
 
   const requiredText = [
     "A one-page read",
-    "above the brief",
+    "human case before opening every receipt",
     "not a generic ADHD/productivity folder",
     "whole-person executive-function accessibility coach",
     "Coding is one proof scenario.",
     "food/body, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, transitions, hyperfocus recovery, and shutdown",
-    "above-the-brief layer",
-    "first-run receipt",
-    "first-reply scorecard",
-    "six-stop whole-person tour",
-    "repeatable screenshot helper",
-    "desktop, mobile, and narrow mobile",
-    "Calendar/inbox admin operations",
-    "original Liam scope",
-    "no-account-access boundary",
-    "mode router preserves the original multi-mode assistant insight",
+    "The folder gives the coach a stable job instead of a pile of advice.",
+    "cold-start receipt",
+    "first contact scoreable",
+    "six life surfaces",
+    "calendar reality, inbox live obligations, reply debt, missed obligations, and scheduling friction",
     "reference/mode-router.md",
     "ally, strategist, engineer/executor, keeper, and recovery stances",
     "I need a coach to get started on this.",
     "My inbox and calendar are a mess and I do not know what is real.",
-    "node scripts/judge-quick-proof.mjs",
     "article",
     "long menu",
     "moralizing",
@@ -57,9 +54,7 @@ export function verifyJudgeBrief(root = process.cwd()) {
     "unsafe clinical advice",
     "ICM as practical workflow architecture",
     "visible context, editable decisions, bounded handoffs, and auditable proof",
-    "final public GitHub URL",
-    "review placeholder",
-    "owner approves the publication path",
+    "The landing page should make the product clear first. The receipts carry the proof:",
     "PRODUCT_THESIS.md",
     "ICM_TRACE.md",
     "COMPETITION_RULES_TRACE.md",
@@ -69,12 +64,9 @@ export function verifyJudgeBrief(root = process.cwd()) {
     "reference/admin-ops-playbooks.md",
     "reference/mode-router.md",
     "evals/red-face-tests.md",
-    "JUDGE_FAQ.md",
-    "JUDGE_SCORECARD.md",
-    "landing/index.html",
-    "scripts/render-review-screenshots.mjs",
-    "scripts/judge-quick-proof.mjs",
-    "scripts/final-review-smoke.mjs",
+    "RECEIPTS.md",
+    "Startline is a coaching scaffold.",
+    "It does not diagnose, treat, recommend medication, replace professional support, read accounts, send messages, edit calendars, or promise inbox zero.",
   ];
 
   for (const text of requiredText) {
@@ -91,8 +83,8 @@ export function verifyJudgeBrief(root = process.cwd()) {
     failures.push(`Expected at least 13 evidence references, found ${evidenceRefs}.`);
   }
 
-  if (fastTestSteps !== 6) {
-    failures.push(`Expected 6 fast judge test steps, found ${fastTestSteps}.`);
+  if (fastTestSteps !== 5) {
+    failures.push(`Expected 5 fast judge test steps, found ${fastTestSteps}.`);
   }
 
   const forbiddenText = [

@@ -9,7 +9,7 @@ Use this as the evidence map for the entry. Each claim should point to a file a 
 | The product thesis is explicit | `PRODUCT_THESIS.md`, `scripts/verify-product-thesis.mjs` | The entry explains why the folder is the product, why first contact is a cold test rather than the whole scope, how the method maps to whole-person accessibility behavior, and where the coach stops. |
 | ICM fit is explicit and inspectable | `ICM_TRACE.md`, `scripts/verify-icm-trace.mjs`, `COMPETITION_RULES_TRACE.md` | The entry maps staged context, editable decisions, handoffs, auditability, and publication safety to concrete files and checks. |
 | The first reply is scoreable | `FIRST_REPLY_SCORECARD.md`, `scripts/verify-first-reply-scorecard.mjs`, `scripts/verify-first-reply-acceptance.mjs` | The judge can reject articles, menus, moralizing, vague continuations, and unsafe clinical moves before reading the whole folder. |
-| It is paste-ready for Claude Project | `PROJECT_INSTRUCTIONS.md`, `README.md` | A stranger can add the folder as knowledge, paste the instructions, and start with a test prompt. |
+| It is paste-ready beyond Claude Project | `PROJECT_INSTRUCTIONS.md`, `README.md`, `START_HERE.md`, `landing/index.html` | A stranger can add the folder as knowledge in Claude Project, open it as a Codex workspace, create an Antigravity-style project, or paste the core files into a local-model runner. |
 | It has a true first file | `START_HERE.md`, `scripts/verify-start-here.mjs` | The fastest route contains the 60-second path, exact start prompt, first-reply acceptance test, and cold prompts. |
 | The first run is a receipt | `FIRST_RUN.md`, `scripts/verify-first-run.mjs` | The judge can inspect the exact cold-start prompt, expected first reply, tiny proof loop, and immediate fail patterns. |
 | The domain is specific | `identity.md`, `WRITEUP.md` | The athlete is a whole person with executive-function access friction at concrete start, switch, memory, body-state, re-entry, and closure thresholds, not a generic self-improvement audience. |
@@ -24,9 +24,9 @@ Use this as the evidence map for the entry. Each claim should point to a file a 
 | The admin layer is operational, not decorative | `reference/admin-ops-playbooks.md`, `scripts/verify-admin-ops-playbooks.mjs` | Calendar and inbox management have five playbooks, five close statuses, and explicit no-account-access boundaries. |
 | It converts research into behavior | `evals/research-to-behavior-checklist.md`, `scripts/verify-eval-coverage.mjs`, `reference/source-notes.md`, `scripts/verify-source-notes.mjs` | Research concepts map to actual protocols, including live-obligation rescue before cleanup, and the public source notes verify competition fit, design lineage, research translation, portability, and private-provenance safety instead of acting as bibliography padding. |
 | It is above the brief without hiding the folder | `JUDGE_BRIEF.md`, `landing/index.html`, `COMPETITION_RULES_TRACE.md`, `ICM_TRACE.md`, `demo/transcript-pack.md`, `JUDGE_SCORECARD.md`, `scripts/verify-judge-brief.mjs` | The one-page judge brief and landing proof band distinguish the required-file floor, whole-person scope, ICM trace, cold-test transcripts, and judge scorecard. |
-| It removes first-run friction | `landing/index.html`, `PROJECT_INSTRUCTIONS.md`, `demo/transcript-pack.md` | The landing launch kit exposes the exact start prompt and the first cold-test prompts before the judge leaves the page. |
+| It removes first-run friction | `landing/index.html`, `PROJECT_INSTRUCTIONS.md`, `demo/transcript-pack.md` | The landing launch kit exposes the exact start prompt, non-Claude runner paths, and the first cold-test prompts before the judge leaves the page. |
 | The landing page carries the first move | `landing/index.html`, `START_HERE.md`, `scripts/verify-start-here.mjs` | The 60-second cold-run band tells the judge exactly what to open, paste, and test before reading everything. |
-| The submission surfaces stay synchronized | `SUBMISSION.md`, `landing/index.html`, `scripts/verify-submission-surfaces.mjs` | The primary Skool draft, SUBMISSION landing-page version, and landing-page submission section use the same approved story. |
+| The submission surfaces stay synchronized | `SUBMISSION.md`, `scripts/verify-submission-surfaces.mjs` | The primary Skool draft and SUBMISSION landing-page version use the same approved story; the landing does not render a separate submission panel. |
 | The launch prompts are copy-ready | `landing/index.html`, `landing/app.js`, `scripts/verify-landing-copy.mjs` | The start prompt and four cold prompts have copy controls with verified target text, including the inbox/calendar recovery prompt. |
 | It makes failure obvious quickly | `landing/index.html`, `PROJECT_INSTRUCTIONS.md`, `HANDOFF_CARD.md`, `docs/judge-walkthrough.md`, `scripts/verify-first-reply-acceptance.mjs` | The first-reply acceptance test separates real coaching from articles, menus, moralizing, or vague continuations, and the verifier rejects generic-advice patterns. |
 | It has a cold judge path | `landing/index.html`, `docs/judge-walkthrough.md`, `HANDOFF_CARD.md`, `demo/transcript-pack.md` | A stranger can test the first reply quickly without mistaking the judging shortcut for the whole product scope. |
@@ -43,7 +43,7 @@ Use this as the evidence map for the entry. Each claim should point to a file a 
 
 ## Five Fast Tests
 
-Paste these into a Claude Project after loading the folder:
+Paste these into a Claude Project or another runner after loading the folder:
 
 ```text
 I need a coach to get started on this.

@@ -54,7 +54,7 @@ node scripts/final-review-smoke.mjs --expect-blocked
 Expected before public-link insertion:
 
 - `verify-submission-copy.mjs` reports 2-3 Skool comment sentences.
-- `verify-submission-surfaces.mjs` reports the Skool draft, SUBMISSION landing version, and landing-page submission copy are synchronized.
+- `verify-submission-surfaces.mjs` reports the Skool draft and SUBMISSION landing version are synchronized, while the landing avoids a separate submission panel.
 - `verify-pitch-reel.mjs` reports six timed shots, a short voiceover, and zero public-unsafe private/local references.
 - `verify-reel-page.mjs` reports six record-ready reel scenes, resolved local refs, and zero public-unsafe private/local references.
 - `verify-judge-faq.mjs` reports eight FAQ questions, evidence references, and zero public-unsafe private/local references.
@@ -79,7 +79,7 @@ Expected before public-link insertion:
 - `judge-quick-proof.mjs` reports `status: "pass"` and summarizes the judge-facing proof counts without requiring the final public GitHub URL.
 - `verify-public-bundle.mjs` reports zero failures.
 - `verify-final-privacy-scan.mjs` reports `status: "pass"` and zero private/local provenance leaks across the public bundle.
-- `render-review-screenshots.mjs` refreshes landing, narrow/mobile first-glance, calendar/inbox admin-band, first-run receipt, scorecard, FAQ, proof-gate, submission section, and reel screenshots when Playwright is available through local install or `NODE_PATH`.
+- `render-review-screenshots.mjs` refreshes landing, narrow/mobile first-glance, evidence reader, calendar/inbox admin-band, first-run receipt, scorecard, FAQ, and reel screenshots when Playwright is available through local install or `NODE_PATH`.
 - `verify-clean-public-stage.mjs` stages into a temporary separate folder, verifies the staged payload, removes the temporary target, and reports zero failures.
 - `final-review-smoke.mjs --expect-blocked` reports `status: "pass"` before the final public link is inserted.
 - Warnings about the missing final GitHub link are expected while the folder is still private.

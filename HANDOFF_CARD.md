@@ -12,6 +12,8 @@ Startline Coach helps a whole person cross executive-function barriers when acce
 - A message, review, or feedback feels personally threatening.
 - The user is returning after avoidance.
 - The user is exiting hyperfocus and needs a clean re-entry breadcrumb.
+- The user dumps everything in their head and needs the coach to sort it.
+- The user needs a bounded dopamine-menu spark before they can start.
 - A raw idea needs capture without becoming a derailment.
 
 ## First Prompt

@@ -49,6 +49,8 @@ const demos = [
   },
 ];
 
+globalThis.document?.documentElement?.classList?.add("js");
+
 function optionalSelector(selector) {
   try {
     return document.querySelector(selector);
@@ -87,14 +89,97 @@ if (navToggle) {
   });
 }
 
-const promptEl = document.querySelector("#demo-prompt");
-const genericEl = document.querySelector("#demo-generic");
-const startlineEl = document.querySelector("#demo-startline");
-const tabs = Array.from(document.querySelectorAll(".prompt-tab"));
+const reviewPanels = optionalSelectorAll(".review-panel");
+const reviewPanelIds = new Set(reviewPanels.map((panel) => panel.id).filter(Boolean));
+const reviewPanelAliases = new Map([
+  ["proof-gate", "receipts"],
+  ["judge", "demo"],
+  ["submission", "demo"],
+]);
+const reviewPanelLinks = optionalSelectorAll('a[href^="#"]').filter((link) =>
+  reviewPanelIds.has(link.getAttribute("href").replace(/^#/, "")),
+);
+const defaultReviewPanel = reviewPanelIds.has("demo") ? "demo" : reviewPanels[0]?.id;
+
+function setActiveReviewPanel(panelId = defaultReviewPanel, options = {}) {
+  panelId = reviewPanelAliases.get(panelId) || panelId;
+  if (!panelId || !reviewPanelIds.has(panelId)) return false;
+
+  const { updateHash = false, scroll = false } = options;
+  reviewPanels.forEach((panel) => {
+    const active = panel.id === panelId;
+    panel.classList.toggle("is-active", active);
+    panel.hidden = !active;
+    panel.setAttribute("aria-hidden", String(!active));
+  });
+
+  reviewPanelLinks.forEach((link) => {
+    const active = link.getAttribute("href") === `#${panelId}`;
+    link.classList.toggle("is-active", active);
+    if (active) {
+      link.setAttribute("aria-current", "true");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+
+  document.body.classList.add("review-deck-ready");
+
+  if (updateHash && window.location.hash !== `#${panelId}`) {
+    window.history.pushState(null, "", `#${panelId}`);
+  }
+
+  if (scroll) {
+    optionalSelector(".review-deck")?.scrollIntoView({ block: "start", behavior: "auto" });
+  }
+
+  return true;
+}
+
+if (reviewPanels.length) {
+  reviewPanelLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const panelId = link.getAttribute("href").replace(/^#/, "");
+      event.preventDefault();
+      setActiveReviewPanel(panelId, { updateHash: true, scroll: true });
+      document.body.classList.remove("nav-open");
+      navToggle?.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  window.addEventListener("hashchange", () => {
+    const panelId = window.location.hash.replace(/^#/, "");
+    if (reviewPanelIds.has(panelId) || reviewPanelAliases.has(panelId)) {
+      setActiveReviewPanel(panelId, { scroll: true, updateHash: reviewPanelAliases.has(panelId) });
+    }
+  });
+
+  const initialPanel = window.location.hash.replace(/^#/, "");
+  const didSelectHash = setActiveReviewPanel(initialPanel, {
+    scroll: Boolean(initialPanel),
+    updateHash: reviewPanelAliases.has(initialPanel),
+  });
+  if (!didSelectHash) {
+    setActiveReviewPanel(defaultReviewPanel);
+  }
+
+  window.StartlineLanding = {
+    showPanel(panelId, options = {}) {
+      return setActiveReviewPanel(panelId, options);
+    },
+  };
+}
+
+const promptEl = optionalSelector("#demo-prompt");
+const genericEl = optionalSelector("#demo-generic");
+const startlineEl = optionalSelector("#demo-startline");
+const tabs = optionalSelectorAll(".prompt-tab");
 let activeDemo = 0;
 let cycleTimer = null;
 
 function setDemo(index, userInitiated = false) {
+  if (!promptEl || !genericEl || !startlineEl || !tabs.length) return;
+
   activeDemo = index;
   const demo = demos[index];
   promptEl.textContent = demo.prompt;
@@ -114,33 +199,55 @@ function setDemo(index, userInitiated = false) {
 
 function restartCycle() {
   window.clearInterval(cycleTimer);
-  cycleTimer = window.setInterval(() => {
-    setDemo((activeDemo + 1) % demos.length);
-  }, 6000);
+  cycleTimer = null;
 }
 
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    const index = Number.parseInt(tab.dataset.demo, 10);
-    setDemo(index, true);
+if (promptEl && genericEl && startlineEl && tabs.length) {
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const index = Number.parseInt(tab.dataset.demo, 10);
+      setDemo(index, true);
+    });
   });
-});
 
-restartCycle();
+  restartCycle();
+}
 
-const coachConsole = document.querySelector("#coach-console");
-const coachInput = document.querySelector("#coach-input");
-const sampleChips = Array.from(document.querySelectorAll(".sample-chip"));
-const consoleState = document.querySelector("#console-state");
-const consoleStateNote = document.querySelector("#console-state-note");
-const consoleFriction = document.querySelector("#console-friction");
-const consoleFrictionNote = document.querySelector("#console-friction-note");
-const consoleMove = document.querySelector("#console-move");
-const consoleMoveNote = document.querySelector("#console-move-note");
-const consoleCheck = document.querySelector("#console-check");
-const consoleCheckNote = document.querySelector("#console-check-note");
+const coachConsole = optionalSelector("#coach-console");
+const coachInput = optionalSelector("#coach-input");
+const sampleChips = optionalSelectorAll(".sample-chip");
+const consoleState = optionalSelector("#console-state");
+const consoleStateNote = optionalSelector("#console-state-note");
+const consoleFriction = optionalSelector("#console-friction");
+const consoleFrictionNote = optionalSelector("#console-friction-note");
+const consoleMove = optionalSelector("#console-move");
+const consoleMoveNote = optionalSelector("#console-move-note");
+const consoleCheck = optionalSelector("#console-check");
+const consoleCheckNote = optionalSelector("#console-check-note");
 
 const consolePatterns = [
+  {
+    match: /(brain dump|braindump|dump:|dumping|everything in my head|too much in my head|mental clutter|dentist.*bill|bill.*dishes.*email)/i,
+    state: "Yellow",
+    stateNote: "The user is carrying too many loops internally. The coach becomes the sorting surface.",
+    friction: "Brain dump overload",
+    frictionNote: "The raw dump is valid input. The user should not have to organize it before receiving help.",
+    move: "Sort outside the head.",
+    moveNote: "Bucket the dump into Body/State, Now, Next, Later, Waiting, and Trash, then return one next move.",
+    check: "One next move.",
+    checkNote: "Proof is a single action signal, with the rest visibly held.",
+  },
+  {
+    match: /(dopamine menu|dopamine|understimulated|stimulation|activation fuel|need a spark|nothing feels rewarding|boring|reward menu|fun menu)/i,
+    state: "Yellow",
+    stateNote: "The task may be clear, but the state system needs activation fuel.",
+    friction: "Activation fuel gap",
+    frictionNote: "This is a regulation bridge, not clinical dopamine advice and not a reward rabbit hole.",
+    move: "Choose one tiny spark.",
+    moveNote: "Pick or assign one 2-10 minute body, novelty, comfort, social, or quick-win cue, then name the return target.",
+    check: "Spark plus target.",
+    checkNote: "Proof is that the target is visible when the spark ends.",
+  },
   {
     match: /(idea|maybe|what if|could build|new feature|checklist|someday|another thing|remember|remind me|note to self)/i,
     state: "Green-yellow",
@@ -232,6 +339,19 @@ const fallbackConsole = {
 };
 
 function renderConsole(result) {
+  if (
+    !consoleState ||
+    !consoleStateNote ||
+    !consoleFriction ||
+    !consoleFrictionNote ||
+    !consoleMove ||
+    !consoleMoveNote ||
+    !consoleCheck ||
+    !consoleCheckNote
+  ) {
+    return;
+  }
+
   consoleState.textContent = result.state;
   consoleStateNote.textContent = result.stateNote;
   consoleFriction.textContent = result.friction;
@@ -250,17 +370,19 @@ function coachMoment(text) {
   return consolePatterns.find((pattern) => pattern.match.test(normalized)) || fallbackConsole;
 }
 
-coachConsole.addEventListener("submit", (event) => {
-  event.preventDefault();
-  renderConsole(coachMoment(coachInput.value));
-});
-
-sampleChips.forEach((chip) => {
-  chip.addEventListener("click", () => {
-    coachInput.value = chip.dataset.sample;
+if (coachConsole && coachInput) {
+  coachConsole.addEventListener("submit", (event) => {
+    event.preventDefault();
     renderConsole(coachMoment(coachInput.value));
   });
-});
+
+  sampleChips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      coachInput.value = chip.dataset.sample;
+      renderConsole(coachMoment(coachInput.value));
+    });
+  });
+}
 
 const copyControls = Array.from(document.querySelectorAll(".copy-control"));
 
@@ -302,29 +424,120 @@ copyControls.forEach((control) => {
   });
 });
 
-const revealTargets = optionalSelectorAll(
-  ".section-heading, .scope-core, .scope-lanes li, .admin-rhythm-visual, .admin-rhythm-card, .admin-boundary, .coldrun-steps li, .brief-board article, .scorecard-board article, .reel-board article, .thesis-points article, .handoff-figure, .setup-board article, .response-pane, .coach-console, .console-output article, .file-node, .behavior-grid article, .receipts-grid a, .proofgate-board article, .judge-steps li, .submission-copy",
-);
+const isEvidencePage = document.body?.classList?.contains("evidence-page") || false;
 
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
+function setupEvidenceReader() {
+  if (!isEvidencePage) return;
+
+  const documents = optionalSelectorAll("[data-reader-document]");
+  const groups = optionalSelectorAll("[data-evidence-group]");
+  const verification = optionalSelector("#verification");
+  if (!documents.length || !groups.length) return;
+
+  const documentById = new Map(documents.map((documentNode) => [documentNode.id, documentNode]));
+  const groupById = new Map(groups.map((groupNode) => [groupNode.id, groupNode]));
+  const firstDocument = documents[0];
+
+  function documentForHash(hash) {
+    const id = hash.replace(/^#/, "");
+    if (documentById.has(id)) return documentById.get(id);
+    if (groupById.has(id)) return groupById.get(id).querySelector("[data-reader-document]");
+    return firstDocument;
+  }
+
+  function setActiveLinks(activeDocument, activeGroup, showingVerification) {
+    optionalSelectorAll(".reader-rail-group a, .mobile-index-groups a, .group-document-strip a, .source-actions a").forEach(
+      (link) => {
+        const href = link.getAttribute("href");
+        const active =
+          href === `#${activeDocument?.id}` ||
+          (!activeDocument && showingVerification && href === "#verification") ||
+          (activeGroup && href === `#${activeGroup.id}`);
+        link.classList.toggle("is-active", Boolean(active));
+        if (active) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      },
+    );
+  }
+
+  function activateEvidenceTarget(hash = window.location.hash, shouldScroll = false) {
+    const id = hash.replace(/^#/, "");
+    const showingVerification = id === "verification";
+    const activeDocument = showingVerification ? null : documentForHash(hash);
+    const activeGroup = activeDocument ? groupById.get(activeDocument.dataset.readerGroup) : null;
+
+    documents.forEach((documentNode) => {
+      const active = documentNode === activeDocument;
+      documentNode.classList.toggle("is-active", active);
+      documentNode.hidden = !active;
+      documentNode.setAttribute("aria-hidden", String(!active));
+    });
+
+    groups.forEach((groupNode) => {
+      const active = groupNode === activeGroup;
+      groupNode.classList.toggle("has-active-doc", active);
+      groupNode.hidden = !active;
+      groupNode.setAttribute("aria-hidden", String(!active));
+    });
+
+    if (verification) {
+      verification.hidden = !showingVerification;
+      verification.setAttribute("aria-hidden", String(!showingVerification));
+    }
+
+    document.body.classList.toggle("show-verification", showingVerification);
+    document.body.classList.add("reader-ready");
+    setActiveLinks(activeDocument, activeGroup, showingVerification);
+
+    if (shouldScroll) {
+      const target = showingVerification ? verification : activeDocument || activeGroup;
+      target?.scrollIntoView({ block: "start", behavior: "auto" });
+    }
+  }
+
+  optionalSelectorAll(".evidence-page a[href^='#']").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const href = link.getAttribute("href");
+      if (!href || href === window.location.hash) {
+        event.preventDefault();
+        activateEvidenceTarget(href || "#top", true);
+        return;
+      }
+      event.preventDefault();
+      window.history.pushState(null, "", href);
+      activateEvidenceTarget(href, true);
+    });
+  });
+
+  optionalSelectorAll("[data-section-action]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const activeDocument = button.closest("[data-reader-document]");
+      if (!activeDocument) return;
+      const shouldOpen = button.dataset.sectionAction === "expand";
+      activeDocument.querySelectorAll(".rendered-section").forEach((section) => {
+        section.open = shouldOpen;
       });
-    },
-    { rootMargin: "0px 0px -12% 0px", threshold: 0.12 },
-  );
+    });
+  });
 
-  revealTargets.forEach((target, index) => {
-    target.classList.add("reveal-item");
-    target.style.transitionDelay = `${Math.min(index % 6, 5) * 55}ms`;
-    revealObserver.observe(target);
+  window.addEventListener("hashchange", () => {
+    activateEvidenceTarget(window.location.hash, true);
   });
-} else {
-  revealTargets.forEach((target) => {
-    target.classList.add("is-visible");
-  });
+
+  activateEvidenceTarget(window.location.hash || `#${firstDocument.id}`, Boolean(window.location.hash));
 }
+
+setupEvidenceReader();
+
+const revealTargets = isEvidencePage
+  ? []
+  : optionalSelectorAll(
+      ".section-heading, .scope-core, .scope-lanes li, .admin-rhythm-visual, .admin-rhythm-card, .admin-boundary, .coldrun-steps li, .brief-board article, .scorecard-board article, .reel-board article, .thesis-points article, .handoff-figure, .setup-board article, .response-pane, .coach-console, .console-output article, .file-node, .behavior-grid article, .receipts-grid a, .evidence-hero-panel, .evidence-index a, .evidence-card",
+    );
+
+revealTargets.forEach((target) => {
+  target.classList.add("reveal-item", "is-visible");
+});

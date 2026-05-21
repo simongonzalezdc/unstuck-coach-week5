@@ -41,6 +41,29 @@ async function captureViewport({ browser, file, name, viewport, selector, requir
   await page.waitForTimeout(1100);
 
   if (selector) {
+    await page.locator(selector).evaluate((element) => {
+      const panel = element.closest(".review-panel");
+      if (!panel) return;
+
+      document.querySelectorAll(".review-panel").forEach((candidate) => {
+        const active = candidate === panel;
+        candidate.classList.toggle("is-active", active);
+        candidate.hidden = !active;
+        candidate.setAttribute("aria-hidden", String(!active));
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        const active = link.getAttribute("href") === `#${panel.id}`;
+        link.classList.toggle("is-active", active);
+        if (active) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    });
+    await page.waitForTimeout(250);
+
     const targetTop = await page.locator(selector).evaluate((element) => {
       return element.getBoundingClientRect().top + window.scrollY;
     });
@@ -105,12 +128,24 @@ async function main() {
       requiredText: ["External executive function for the whole human.", "Food first", "Hard anchor", "Literal ask", "Restart mark"],
     },
     {
+      file: "landing/evidence.html",
+      name: "startline-review-evidence-desktop",
+      viewport: { width: 1440, height: 1000 },
+      requiredText: ["Rendered Markdown, not claim cards.", "The file content is on this page.", "START_HERE.md"],
+    },
+    {
+      file: "landing/evidence.html",
+      name: "startline-review-evidence-mobile",
+      viewport: { width: 390, height: 900 },
+      requiredText: ["Rendered Markdown, not claim cards.", "The file content is on this page.", "START_HERE.md"],
+    },
+    {
       file: "landing/index.html",
       name: "startline-review-admin-desktop",
       viewport: { width: 1440, height: 1000 },
       selector: ".admin-rhythm-board",
       elementOnly: true,
-      requiredText: ["Original operations support, rebuilt as safe coaching.", "No autonomous reading"],
+      requiredText: ["Calendar and inbox are part of the life loop.", "No autonomous reading"],
     },
     {
       file: "landing/index.html",
@@ -118,7 +153,7 @@ async function main() {
       viewport: { width: 390, height: 900 },
       selector: ".admin-rhythm-board",
       elementOnly: true,
-      requiredText: ["Original operations support, rebuilt as safe coaching.", "No autonomous reading"],
+      requiredText: ["Calendar and inbox are part of the life loop.", "No autonomous reading"],
     },
     {
       file: "landing/index.html",
@@ -128,8 +163,8 @@ async function main() {
       elementOnly: true,
       requiredText: [
         "The first run is already scripted.",
-        "First run receipt",
-        "EXACT COLD-START RECEIPT",
+        "First run",
+        "FIRST-RUN BEHAVIOR",
         "I need a coach to get started on this.",
       ],
     },
@@ -141,8 +176,8 @@ async function main() {
       elementOnly: true,
       requiredText: [
         "The first run is already scripted.",
-        "First run receipt",
-        "EXACT COLD-START RECEIPT",
+        "First run",
+        "FIRST-RUN BEHAVIOR",
         "I need a coach to get started on this.",
       ],
     },
@@ -151,68 +186,28 @@ async function main() {
       name: "startline-review-scorecard-desktop",
       viewport: { width: 1440, height: 1000 },
       selector: "#scorecard",
-      requiredText: ["Judge the coach before reading the whole folder.", "Verify scorecard"],
+      requiredText: ["Know whether the first reply is coaching.", "Open score evidence"],
     },
     {
       file: "landing/index.html",
       name: "startline-review-scorecard-mobile",
       viewport: { width: 390, height: 900 },
       selector: "#scorecard",
-      requiredText: ["Judge the coach before reading the whole folder.", "Verify scorecard"],
+      requiredText: ["Know whether the first reply is coaching.", "Open score evidence"],
     },
     {
       file: "landing/index.html",
       name: "startline-review-faq-desktop",
       viewport: { width: 1440, height: 1000 },
       selector: "#faq",
-      requiredText: ["The fastest objections have short answers.", "Open FAQ"],
+      requiredText: ["The coach helps with the next move, not someone else's life.", "Read boundaries"],
     },
     {
       file: "landing/index.html",
       name: "startline-review-faq-mobile",
       viewport: { width: 390, height: 900 },
       selector: "#faq",
-      requiredText: ["The fastest objections have short answers.", "Open FAQ"],
-    },
-    {
-      file: "landing/index.html",
-      name: "startline-review-proofgate-desktop",
-      viewport: { width: 1440, height: 1000 },
-      selector: "#proof-gate",
-      requiredText: ["Run the whole proof layer before publishing.", "Final link missing. Review placeholder still present."],
-    },
-    {
-      file: "landing/index.html",
-      name: "startline-review-proofgate-mobile",
-      viewport: { width: 390, height: 900 },
-      selector: "#proof-gate",
-      requiredText: ["Run the whole proof layer before publishing.", "Final link missing. Review placeholder still present."],
-    },
-    {
-      file: "landing/index.html",
-      name: "startline-review-submission-desktop",
-      viewport: { width: 1440, height: 1000 },
-      selector: ".submission-section",
-      elementOnly: true,
-      requiredText: [
-        "SKOOL SUBMISSION COPY",
-        "one-page judge brief",
-        "whole-person tour",
-        "final review smoke test",
-      ],
-    },
-    {
-      file: "landing/index.html",
-      name: "startline-review-submission-mobile",
-      viewport: { width: 390, height: 900 },
-      selector: ".submission-section",
-      elementOnly: true,
-      requiredText: [
-        "SKOOL SUBMISSION COPY",
-        "one-page judge brief",
-        "whole-person tour",
-        "final review smoke test",
-      ],
+      requiredText: ["The coach helps with the next move, not someone else's life.", "Read boundaries"],
     },
     {
       file: "landing/reel.html",
@@ -220,7 +215,7 @@ async function main() {
       viewport: { width: 1440, height: 1000 },
       requiredText: [
         "External executive function for the whole human.",
-        "The public payload verifies while publishing stays blocked.",
+        "The source proof stays readable without slowing the first move.",
       ],
     },
     {
@@ -229,7 +224,7 @@ async function main() {
       viewport: { width: 390, height: 900 },
       requiredText: [
         "External executive function for the whole human.",
-        "The public payload verifies while publishing stays blocked.",
+        "The source proof stays readable without slowing the first move.",
       ],
     },
   ];

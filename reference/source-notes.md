@@ -4,7 +4,7 @@ This file explains the design lineage without requiring non-public systems or ex
 
 ## Competition Fit
 
-The competition asks for a folder-based AI coach for a specific domain. The folder should be portable into a Claude Project and should feel like a coach, not a knowledge base.
+The competition asks for a folder-based AI coach for a specific domain. The folder should be portable into a Claude Project and other project-scoped agent surfaces, and should feel like a coach, not a knowledge base.
 
 Startline Coach is intentionally narrow:
 
@@ -94,5 +94,12 @@ The coach does not require:
 - Local scripts.
 - A particular editor.
 - A particular repository.
+- Claude Project or Claude Code as the only runner.
+- Cloud inference if the local model can hold the operating files.
 
 Those can be added later, but the competition deliverable is the coaching folder itself.
+
+Portable usage rule:
+
+- If a tool can read the folder, ask it to load `PROJECT_INSTRUCTIONS.md`, `START_HERE.md`, `identity.md`, `rules.md`, `examples.md`, and `reference/`.
+- If a tool cannot read the folder, paste `PROJECT_INSTRUCTIONS.md` first, then add the core identity, rules, examples, coaching protocols, signal map, and safety boundaries.

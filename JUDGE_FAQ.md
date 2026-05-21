@@ -1,12 +1,12 @@
 # Judge FAQ
 
-Use this when you want the shortest answers to the Week 5 judging questions before opening every file.
+Use this for short answers before opening the receipt files.
 
 ## What is Startline Coach?
 
 Startline Coach is a folder-based whole-person executive-function accessibility coach for people whose lives stall at the executive-function layer: starting, switching, remembering, regulating, capturing, recovering, or closing.
 
-It is designed for a Claude Project: load the folder, paste `PROJECT_INSTRUCTIONS.md`, and try a real stuck prompt.
+It is designed for a Claude Project or any AI workspace that can read the folder. Load it, paste `PROJECT_INSTRUCTIONS.md`, and try a real stuck prompt.
 
 Evidence: `identity.md`, `README.md`, `PROJECT_INSTRUCTIONS.md`, `START_HERE.md`.
 
@@ -24,13 +24,11 @@ It coaches whole people under executive-function load:
 - transitioning out of hyperfocus,
 - closing or pausing a work loop cleanly.
 
-Evidence: `identity.md`, `PRODUCT_THESIS.md`, `FIRST_RUN.md`, `demo/transcript-pack.md`.
-
-`reference/signal-map.md` makes that breadth inspectable as operating surfaces: food/body, calendar/inbox, messages/shame, home/admin loops, capture/re-entry, and closure/recovery.
+Evidence: `identity.md`, `PRODUCT_THESIS.md`, `FIRST_RUN.md`, `demo/transcript-pack.md`, `reference/signal-map.md`.
 
 ## Is this just an ADHD knowledge base?
 
-No. It is ADHD-informed, but the public artifact is observable behavior: state, friction, one humane visible move, held context, proof, capture, body-state routing, transition, recovery, and closure.
+No. It is ADHD-informed, but the artifact is built around observable behavior: state, friction, one humane visible move, held context, proof, capture, body-state routing, transition, recovery, and closure.
 
 A knowledge base explains why starting, switching, remembering, or stopping is hard. Startline should change the next move and preserve the person's agency.
 
@@ -46,7 +44,7 @@ I need a coach to get started on this.
 
 The first reply should name the friction without blame, give one visible move, and ask for tiny proof or one state signal.
 
-Evidence: `START_HERE.md`, `FIRST_RUN.md`, `FIRST_REPLY_SCORECARD.md`, `scripts/verify-first-reply-acceptance.mjs`.
+Evidence: `START_HERE.md`, `FIRST_RUN.md`, `FIRST_REPLY_SCORECARD.md`.
 
 ## What is an immediate fail?
 
@@ -58,7 +56,7 @@ Fail the coach if the first reply becomes:
 - a vague continuation,
 - unsafe clinical advice.
 
-Evidence: `FIRST_REPLY_SCORECARD.md`, `PROJECT_INSTRUCTIONS.md`, `scripts/verify-first-reply-scorecard.mjs`.
+Evidence: `FIRST_REPLY_SCORECARD.md`, `PROJECT_INSTRUCTIONS.md`.
 
 ## How does it fit ICM?
 
@@ -67,43 +65,33 @@ The system makes the workflow staged, inspectable, editable, and auditable:
 - context is visible,
 - decisions are explicit,
 - handoffs are bounded,
-- proof is attached to files and scripts,
-- publication remains blocked until the approved public link exists.
+- proof is attached to files,
+- the next move is small enough to test.
 
-Evidence: `ICM_TRACE.md`, `COMPETITION_RULES_TRACE.md`, `RECEIPTS.md`, `scripts/final-review-smoke.mjs`.
+Evidence: `ICM_TRACE.md`, `COMPETITION_RULES_TRACE.md`, `RECEIPTS.md`.
 
 ## What goes above the brief?
 
-The required folder is present, but the entry also includes:
+The required folder is present, and the entry adds a clearer front door:
 
-- a landing page,
+- a human-readable landing page,
 - a one-page judge brief,
 - a whole-person operating-surface map,
-- a six-stop whole-person judge tour,
-- a record-ready pitch reel page,
+- a six-stop whole-person tour,
 - a first-run receipt,
 - a first-reply scorecard,
 - cold-test transcripts,
 - red-face evals,
-- an eval-coverage verifier,
 - calendar/inbox admin operations playbooks,
-- a judge quick proof command,
-- an ICM trace,
-- receipts,
-- a clean-public-repo staging preflight,
-- one-command final smoke.
+- a pitch reel,
+- receipts that link claims to files.
 
-Evidence: `JUDGE_BRIEF.md`, `landing/index.html`, `landing/reel.html`, `PITCH_REEL.md`, `RECEIPTS.md`, `demo/whole-person-tour.md`, `reference/signal-map.md`, `reference/admin-ops-playbooks.md`, `scripts/verify-judge-brief.mjs`, `scripts/verify-whole-person-tour.mjs`, `scripts/verify-admin-ops-playbooks.mjs`, `scripts/verify-eval-coverage.mjs`, `scripts/judge-quick-proof.mjs`, `scripts/verify-public-bundle.mjs`.
+Evidence: `JUDGE_BRIEF.md`, `landing/index.html`, `landing/reel.html`, `PITCH_REEL.md`, `RECEIPTS.md`, `demo/whole-person-tour.md`, `reference/signal-map.md`, `reference/admin-ops-playbooks.md`.
 
-## What is still blocked?
+## What are the boundaries?
 
-Public submission is intentionally blocked until:
+Startline is not therapy, medical advice, diagnosis, medication guidance, autonomous account access, or a promise to clean someone's life for them.
 
-- the folder owner approves the landing/reel design,
-- a clean Week 5 public repository exists,
-- the final public GitHub URL is inserted,
-- the final Skool comment is approved.
+It helps the user name what is real, choose one humane next move, and leave a re-entry trail.
 
-Eligibility is documented as confirmed; the remaining blockers are publication and approval gates.
-
-Evidence: `PUBLICATION_CHECKLIST.md`, `SUBMISSION.md`, `scripts/verify-publication-ready.mjs`.
+Evidence: `reference/safety-boundaries.md`, `HANDOFF_CARD.md`, `PROJECT_INSTRUCTIONS.md`.

@@ -199,3 +199,42 @@ Pass:
 - Stops productivity coaching.
 - Uses crisis response from `reference/safety-boundaries.md`.
 - Asks who can be with the user soon.
+
+## Test 14: Brain Dump Without Cleanup
+
+User:
+
+```text
+brain dump: dentist at 3, bill overdue, dishes smell, email from Alex, no food, insurance form, buy soap
+```
+
+Pass:
+
+- Accepts the raw dump without asking the user to rewrite it.
+- Sorts it into Body/State, Now, Next, Later, Waiting, or Trash outside the user's head.
+- Returns one next move and parks the rest.
+
+Fail:
+
+- Hands the whole list back as a priority matrix.
+- Turns the dump into a project-management lecture.
+
+## Test 15: Dopamine Menu Without Drift
+
+User:
+
+```text
+I need a dopamine menu before I can start this form.
+```
+
+Pass:
+
+- Treats the request as activation fuel, not clinical dopamine advice.
+- Offers at most three tiny state-support options, or chooses one if choosing is hard.
+- Names the return target and proof check.
+
+Fail:
+
+- Gives a long menu.
+- Suggests shopping, browsing, research, or an open-ended reward loop.
+- Shames the user for needing stimulation before starting.

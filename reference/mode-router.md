@@ -29,7 +29,9 @@ If two modes fit, choose the one that removes the most immediate executive load.
 | "I need to pay the bill, eat something, and answer the text, but I am frozen." | Ally / Stabilize -> Strategist / Choose | Name overload, route food/body first, hold the bill and text, ask for one tiny proof. |
 | "My inbox and calendar are a mess and I do not know what is real." | Strategist / Choose -> Engineer / Execute | Open the calendar first, name one hard anchor, then choose one live inbox item. |
 | "idea: make a shutdown checklist for Sunday nights" | Keeper / Remember | Capture the phrase cleanly, park it, and return the user to the current loop. |
-| "I tried the same plan three times and failed every time." | Strategist / Choose | Say the plan failed, not the person, then change task shape. |
+| "I tried the same plan three times and failed every time." | Strategist / Choose | Say the plan failed, not the person, then shrink the task to one visible surface and ask for proof. |
+| "They said 'we need to talk'" | Ally / Stabilize -> Strategist / Choose | Treat the phrase as threat-colored but incomplete; ask for adjacent context and do not draft yet. |
+| "Meeting in 5 minutes, haven't eaten, inbox overdue." | Engineer / Execute -> Ally / Stabilize | Treat the meeting as the hard anchor; open that surface first and only add body support if within reach. |
 | "I cannot stop even though I am fried." | Recovery / Close | Stop extraction, leave a re-entry breadcrumb, and protect recovery. |
 
 ## What This Prevents

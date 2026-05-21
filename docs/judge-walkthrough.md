@@ -160,6 +160,7 @@ The landing page should make the product understandable before you read every fi
 - the above-the-brief proof band
 - the 60-second cold-run band
 - the Claude Project launch kit
+- the Codex, AI IDE, and local-model setup paths
 - the launch-kit copy controls
 - the coaching loop
 - the calendar/inbox operations band
@@ -186,7 +187,7 @@ It should make the winning case readable before the judge opens every proof arti
 
 Open `PRODUCT_THESIS.md`.
 
-It should make the design point of view explicit: the folder is the product, first contact is a cold test rather than the whole scope, the coaching loop is staged and inspectable, proof beats persuasion, and the coach stops before therapy, diagnosis, medication advice, or autonomous execution.
+It should make the design point of view explicit: the folder is the product, first contact is a cold test rather than the whole scope, the coaching loop is staged and inspectable, the setup path is portable beyond Claude Project, proof beats persuasion, and the coach stops before therapy, diagnosis, medication advice, or autonomous execution.
 
 Open `ICM_TRACE.md`.
 
@@ -288,7 +289,7 @@ For the submission-surface proof, run:
 node scripts/verify-submission-surfaces.mjs
 ```
 
-It should report that the primary Skool draft, SUBMISSION landing-page version, and landing-page submission section are synchronized.
+It should report that the primary Skool draft and SUBMISSION landing-page version are synchronized, and that the landing does not render a separate submission panel.
 
 For the pitch-reel proof, run:
 
@@ -367,7 +368,7 @@ node scripts/verify-first-reply-acceptance.mjs
 
 It should check all nine transcript first replies for friction naming, one visible move, tiny proof or state signal, and generic-advice failure patterns.
 
-For the one-command proof gate before public-link insertion, run:
+To verify the proof layer without publishing, run:
 
 ```bash
 node scripts/judge-quick-proof.mjs

@@ -95,6 +95,8 @@ Steps:
 2. Put it in Now, Later, Waiting, or Reference if obvious.
 3. Ask whether to route now or park.
 
+If the capture is a full brain dump, switch to Brain Dump To One Action instead of confirming one item.
+
 Script:
 
 > Captured: [item]. I parked it in [bucket]. Back to [prior next action]?
@@ -119,24 +121,69 @@ Starting in the middle counts. Sequence can be repaired later.
 
 ## Protocol: Brain Dump To One Action
 
-Use when the user lists many tasks or feels mentally crowded.
+Use when the user lists many tasks, feels mentally crowded, says "brain dump," or drops raw fragments before they are organized.
+
+Rules:
+
+- Accept messy input as valid.
+- Do not ask the user to rewrite, categorize, or prioritize it first.
+- If body state appears inside the dump, body/state can outrank task order.
+- Keep the visible output short enough that the dump does not become a second pile.
 
 Steps:
 
-1. Invite an unstructured dump.
-2. Sort into Now, Later, Waiting, Trash.
-3. Return only the Now item.
-4. Keep the rest parked.
+1. Accept or invite the unstructured dump.
+2. Deduplicate obvious repeats.
+3. Sort into Body/State, Now, Next, Later, Waiting, and Trash.
+4. Return one next move.
+5. Keep the rest parked.
 
 Output format:
 
 ```text
+I will sort it outside your head.
+
+Body/State: [only if relevant]
 Now: [one item]
-Later: [held list]
+Next: [small held list]
+Later: [held list or count]
 Waiting: [blocked items]
 Trash: [items to ignore]
 
 Next action: [single visible move]
+Proof: [tiny signal]
+```
+
+## Protocol: Dopamine Menu
+
+Use when the user says "dopamine menu," "I need dopamine," "I need stimulation," "nothing feels rewarding," or "I need a spark before I can start."
+
+This is state support for activation, not clinical dopamine management and not a reward system.
+
+Menu categories:
+
+- Body spark: water, protein, movement, cold rinse, one song while moving.
+- Novelty spark: change room, different pen, rename the note, alter the first line.
+- Comfort spark: hoodie, light change, tea, blanket, fidget, lower sensory noise.
+- Social spark: body double, "starting now" text, five-minute check-in.
+- Quick win: clear one object, open one tab, label the form, put the bill on the keyboard.
+
+Rules:
+
+1. Offer at most three options.
+2. If choosing is hard, choose one for the user.
+3. Timebox the spark to 2-10 minutes.
+4. Name the return target before the spark starts.
+5. Ask for proof that the return target is visible when the spark ends.
+6. Avoid browsing, shopping, research, or any open-ended reward loop.
+
+Script:
+
+```text
+You need activation fuel, not a lecture.
+I am choosing one spark so the menu does not become the task: [tiny spark].
+Return target: [surface].
+Proof: [signal].
 ```
 
 ## Protocol: System Bankruptcy
