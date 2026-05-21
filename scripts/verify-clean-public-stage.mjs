@@ -24,18 +24,18 @@ function runNode(args, options = {}) {
   return result;
 }
 
-function countFiles(dir) {
-  let count = 0;
+function listFiles(dir, base = dir) {
+  const files = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.name === ".DS_Store") continue;
     const absolute = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      count += countFiles(absolute);
+      files.push(...listFiles(absolute, base));
     } else {
-      count += 1;
+      files.push(path.relative(base, absolute));
     }
   }
-  return count;
+  return files.sort();
 }
 
 function assertOutsideRoot(target) {
@@ -56,7 +56,12 @@ export function verifyCleanPublicStage() {
     runNode(["scripts/stage-public-repo.mjs", "--target", target, "--write"]);
     const verification = runNode(["scripts/verify-public-bundle.mjs"], { cwd: target });
     const verificationSummary = JSON.parse(verification.stdout.trim());
-    const stagedFileCount = countFiles(target);
+    const stagedFiles = listFiles(target);
+    const stagedFileCount = stagedFiles.length;
+    const stagedFileSet = new Set(stagedFiles);
+    const expectedFileSet = new Set(publicBundleFiles);
+    const missingFiles = publicBundleFiles.filter((file) => !stagedFileSet.has(file));
+    const unexpectedFiles = stagedFiles.filter((file) => !expectedFileSet.has(file));
 
     const failures = [];
     if (verificationSummary.failures?.length) {
@@ -70,6 +75,12 @@ export function verifyCleanPublicStage() {
     if (stagedFileCount < publicBundleFiles.length) {
       failures.push(`Expected at least ${publicBundleFiles.length} staged files, found ${stagedFileCount}.`);
     }
+    for (const file of missingFiles) {
+      failures.push(`Clean-stage target is missing public bundle file: ${file}`);
+    }
+    for (const file of unexpectedFiles) {
+      failures.push(`Clean-stage target contains unexpected file: ${file}`);
+    }
     if (fs.existsSync(path.join(target, "output"))) {
       failures.push("Clean-stage target contains generated output directory.");
     }
@@ -79,6 +90,8 @@ export function verifyCleanPublicStage() {
       checked: true,
       stagedFiles: stagedFileCount,
       requiredFiles: publicBundleFiles.length,
+      missingFiles,
+      unexpectedFiles,
       targetOutsideRoot: true,
       targetRemoved,
       publicBundleWarnings: verificationSummary.warnings || [],
