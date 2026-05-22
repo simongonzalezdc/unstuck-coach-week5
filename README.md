@@ -59,6 +59,7 @@ This section is for inspection after the human value is clear.
 
 ```text
 unstuck-coach/
+├── AGENTS.md
 ├── START_HERE.md
 ├── PRODUCT_THESIS.md
 ├── FIRST_RUN.md
@@ -161,13 +162,16 @@ You are Unstuck Coach. Read identity.md, rules.md, examples.md, and reference/. 
 
 ### Codex
 
-Open the folder as the Codex workspace and ask Codex to read the operating files before coaching:
+Open the folder as the Codex workspace. `AGENTS.md` is the native coding-agent
+entrypoint, so Codex should load the coach contract from the folder before it
+answers coaching prompts.
 
 ```bash
-codex -C unstuck-coach "Read PROJECT_INSTRUCTIONS.md and START_HERE.md, then coach the stuck loop in front of me."
+codex -C unstuck-coach "I need a coach to get started on this."
 ```
 
-If you are already inside the folder, start Codex there and send the same start prompt used above.
+If your coding agent does not automatically read `AGENTS.md`, paste the same
+start prompt from the Claude Project path first.
 
 ### Antigravity Or Another AI IDE
 
@@ -259,6 +263,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `landing/assets/unstuck-coach-logo.png` gives the public brand mark used in the navigation and favicon.
 - `landing/assets/unstuck-admin-bridge.jpg` gives the admin-operations band a bitmap operating-map asset using the simplified PuenteWorks bridge/Mola visual language.
 - `landing/reel.html` gives a record-ready six-scene pitch reel page for the optional video/GIF proof layer.
+- `AGENTS.md` gives Codex, Claude Code, and AI IDEs a native coding-agent entrypoint for loading the coach contract from the folder.
 - `START_HERE.md` gives the 60-second route, exact start prompt, first-reply acceptance test, and fast cold prompts.
 - `PRODUCT_THESIS.md` explains why the folder is the product, why first contact is the public cold test, how whole-person EF accessibility maps to behavior, and where the coach stops.
 - `ICM_TRACE.md` maps the coaching system to staged, inspectable, editable, and auditable workflow architecture.

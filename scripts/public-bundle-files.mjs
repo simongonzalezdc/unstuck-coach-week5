@@ -1,5 +1,6 @@
 export const publicBundleFiles = [
   ".gitignore",
+  "AGENTS.md",
   "START_HERE.md",
   "README.md",
   "PRODUCT_THESIS.md",
