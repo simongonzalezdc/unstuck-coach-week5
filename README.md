@@ -4,7 +4,7 @@ A folder-based whole-person executive-function accessibility coach for people wh
 
 Drop this folder into a Claude Project, Codex workspace, Antigravity-style AI IDE project, or local-model context and ask the coach to help with the life loop in front of you: work, home, body, admin, inbox, calendar, communication, transition, re-entry, or shutdown.
 
-The core idea: Unstuck Coach acts as portable executive-function accessibility. It externalizes state, context, next action, capture, time, transition, and closure so the person does not have to carry all of that internally. When the user supplies calendar, inbox, task-pile, language, prior-conversation, or repeated-pattern context, the coach uses it as state-aware accessibility context before asking for another self-report.
+The core idea: Unstuck Coach acts as portable executive-function accessibility. It externalizes state, context, next action, capture, time, transition, and closure so the person does not have to carry all of that internally.
 
 ## Who This Is For
 
@@ -42,15 +42,16 @@ It does not just answer questions about ADHD, productivity, or motivation. It co
 - Switches strategy after repeated failed attempts.
 - Resets messy systems without shame.
 - Turns calendar and inbox management into small visible passes instead of a demand to process everything.
-- Infers capacity cautiously from supplied context, names uncertainty, and keeps the next move small.
 
 ## Try It Quickly
 
-1. Open `START_HERE.md`.
-2. Load the folder into a Claude Project or another AI workspace.
-3. Paste `PROJECT_INSTRUCTIONS.md`.
-4. Try: `I need a coach to get started on this.`
-5. Score the first response with `FIRST_REPLY_SCORECARD.md`.
+1. Try the live VPS demo: `https://unstuck.kyanitelabs.tech/`.
+2. The live demo is backed by GLM-5.1 through Z.AI's international coding-plan endpoint with reasoning enabled and a 1200-token completion budget.
+3. Open `START_HERE.md`.
+4. Load the folder into a Claude Project or another AI workspace.
+5. Paste `PROJECT_INSTRUCTIONS.md`.
+6. Try: `I need a coach to get started on this.`
+7. Score the first response with `FIRST_REPLY_SCORECARD.md`.
 
 The landing page gives the visual version of this path. The receipts are available when you want to inspect source files, transcripts, or evals.
 

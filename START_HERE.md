@@ -4,16 +4,16 @@ This is the shortest path for a judge or reviewer who wants to know whether Unst
 
 This is a review shortcut, not the product boundary: Unstuck still covers whole-person executive-function access across body state, admin, inbox, calendar, messages, transitions, re-entry, and closure.
 
-Unstuck is state-aware when context is visible: supplied calendar blocks, inbox pressure, task piles, language fragments, and prior conversation can lower the next move without making the user answer a state questionnaire first.
-
 ## 60-Second Path
 
-1. Open `landing/index.html`.
-2. Open `JUDGE_BRIEF.md` for the one-page above-the-brief case.
-3. Read the proof strip, calendar/inbox operations band, first-run receipt, and Claude Project launch kit.
-4. Paste `PROJECT_INSTRUCTIONS.md` into a Claude Project.
-5. Add this whole folder as project knowledge.
-6. Try the first cold prompt below.
+1. Open the live VPS demo: `https://unstuck.kyanitelabs.tech/`.
+2. Confirm `/api/config` reports `Z.AI GLM-5.1 (medium reasoning)` and the page header reports `GLM 5.1`.
+3. Open `landing/index.html`.
+4. Open `JUDGE_BRIEF.md` for the one-page above-the-brief case.
+5. Read the proof strip, calendar/inbox operations band, first-run receipt, and Claude Project launch kit.
+6. Paste `PROJECT_INSTRUCTIONS.md` into a Claude Project.
+7. Add this whole folder as project knowledge.
+8. Try the first cold prompt below.
 
 ```text
 I need a coach to get started on this.
@@ -95,7 +95,6 @@ That message makes me feel like I did something wrong.
 - `demo/transcript-pack.md` for nine cold-test examples.
 - `scripts/verify-first-reply-acceptance.mjs` for the executable first-reply gate.
 - `reference/admin-ops-playbooks.md` for the calendar/inbox management playbooks.
-- `reference/mode-router.md#context-lens` for state-aware routing from supplied context.
 - `scripts/verify-admin-ops-playbooks.mjs` for the admin-operations playbook gate.
 - `scripts/judge-quick-proof.mjs` for a publication-independent proof summary of the judge path.
 - `scripts/verify-judge-brief.mjs` for the judge-brief gate.

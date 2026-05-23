@@ -1,8 +1,5 @@
 # Generated exports.
 output/
 .playwright-cli/
-.worktrees/
-.omc/
-.omx/
 *.log
 .DS_Store
