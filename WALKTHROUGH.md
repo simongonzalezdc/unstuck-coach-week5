@@ -52,7 +52,7 @@ Use receipts after the human value is clear:
 - Keep the video under 90 seconds.
 - Use `PITCH_REEL.md` and `landing/reel.html` for the short public-facing reel.
 - Show the landing page or `START_HERE.md` first, not the file tree.
-- Show the runnable console once.
+- Open the live demo once.
 - Show one live prompt switch in the demo.
 - Show receipts only after the coach behavior is clear.
 - Keep private material off screen.

@@ -101,7 +101,7 @@ export function judgeQuickProof(root = process.cwd()) {
       skoolCommentCharacters: submissionCopy.characterCount,
     },
     passMeaning:
-      "The folder has a cold-start path, first-reply gate, transcript evidence, a whole-person judge tour, runnable console, stress evals, admin operations playbooks, mode router, source-notes lineage proof, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, and concise judge brief.",
+      "The folder has a cold-start path, first-reply gate, transcript evidence, a whole-person judge tour, live-demo bridge, protocol behavior verifier, stress evals, admin operations playbooks, mode router, source-notes lineage proof, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, and concise judge brief.",
     failures,
   };
 }

@@ -15,7 +15,7 @@ Unstuck Coach gives whole people portable executive-function accessibility: star
 | 0:00-0:08 | Landing hero and mobile first-reply preview | This is whole-person EF accessibility, with one stuck prompt as the fastest visible test. |
 | 0:08-0:18 | `START_HERE.md` plus Claude Project launch kit | A stranger can start before reading every file. |
 | 0:18-0:31 | First-reply scorecard and `FIRST_RUN.md` | The first response is scoreable: name friction, give one move, ask for proof. |
-| 0:31-0:44 | Runnable landing console with a stuck prompt | The protocol chooses state, friction, move, and check instead of giving an article. |
+| 0:31-0:44 | Live demo with a stuck prompt | The hosted coach turns the prompt into one next move instead of giving an article. |
 | 0:44-0:58 | Transcript pack, red-face evals, and ICM trace | The coach is tested under shame, overload, inbox/calendar reality, communication threat, and re-entry. |
 | 0:58-1:15 | Evidence reader and scorecard | The source proof stays readable without slowing the first move. |
 
@@ -24,7 +24,7 @@ Unstuck Coach gives whole people portable executive-function accessibility: star
 ```text
 Unstuck Coach is a folder-based executive-function accessibility coach for whole people: start, switch, remember, regulate, capture, recover, and close. It is not an ADHD knowledge base and not a productivity extractor. Load the folder into a Claude Project, paste the project instructions, and try: I need a coach to get started on this.
 
-The first reply has to name the friction without blame, give one concrete move, hold the rest of the context, and ask for tiny proof. The landing console previews that loop. The transcript pack, red-face evals, eval-coverage verifier, first-run receipt, scorecard, product thesis, and ICM trace make the behavior inspectable.
+The first reply has to name the friction without blame, give one concrete move, hold the rest of the context, and ask for tiny proof. The live demo shows that loop. The transcript pack, red-face evals, eval-coverage verifier, first-run receipt, scorecard, product thesis, and ICM trace make the behavior inspectable.
 
 The evidence reader renders the source files behind the claim: first-run receipt, first-reply scorecard, transcripts, stress cases, safety boundaries, whole-person tour, and admin playbooks. The story ends on the coach and the files someone can inspect, not on process machinery.
 ```

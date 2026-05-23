@@ -164,7 +164,7 @@ The landing page should make the product understandable before you read every fi
 - the launch-kit copy controls
 - the coaching loop
 - the calendar/inbox operations band
-- the runnable console preview
+- the live demo bridge
 - the before/after behavior difference
 - the folder-method map
 - the cold judge path
@@ -273,7 +273,7 @@ Run the verifier:
 node scripts/verify-public-bundle.mjs
 ```
 
-It should report zero failures, a 2-3 sentence Skool comment draft, and nine console behavior cases. Warnings about the final GitHub link are expected until the public repo URL is inserted.
+It should report zero failures, a 2-3 sentence Skool comment draft, and nine protocol behavior cases. Warnings about the final GitHub link are expected until the public repo URL is inserted.
 
 For the submission-copy proof, run:
 

@@ -36,7 +36,7 @@ export function verifyPitchReel(root = process.cwd()) {
     "One-Line Hook",
     "Unstuck Coach gives whole people portable executive-function accessibility",
     "The first response is scoreable: name friction, give one move, ask for proof.",
-    "The protocol chooses state, friction, move, and check instead of giving an article.",
+    "The hosted coach turns the prompt into one next move instead of giving an article.",
     "The source proof stays readable without slowing the first move.",
     "The evidence reader renders the source files behind the claim",
     "Keep private material off screen.",

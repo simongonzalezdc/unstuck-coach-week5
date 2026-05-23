@@ -53,7 +53,6 @@
       </button>
       <nav class="nav-links" id="primary-links" aria-label="Page sections">
         <a href="https://unstuck.kyanitelabs.tech/"><span>Live demo</span></a>
-        <a href="#console"><span>Try a stuck sentence</span></a>
         <a href="#setup"><span>Use the folder</span></a>
         <a href="./evidence.html#first-reply-scorecard"><span>Read source proof</span></a>
       </nav>
@@ -189,7 +188,6 @@
           </div>
           <nav class="review-deck-nav" aria-label="Unstuck coaching routes">
             <a href="#demo" data-panel-link="demo"><span>Try it</span><strong>Same prompt, different intervention</strong></a>
-            <a href="#console" data-panel-link="console"><span>Console</span><strong>Run a stuck sentence</strong></a>
             <a href="#scorecard" data-panel-link="scorecard"><span>First reply</span><strong>Pass/fail behavior</strong></a>
             <a href="#setup" data-panel-link="setup"><span>Setup</span><strong>Cold-start script</strong></a>
             <a href="#scope" data-panel-link="scope"><span>Scope</span><strong>Whole-person surface</strong></a>
@@ -730,8 +728,8 @@
             </article>
             <article>
               <span class="pane-label">0:31-0:44</span>
-              <strong>Run the console.</strong>
-              <p>A stuck sentence becomes state, friction, move, and check instead of an article.</p>
+              <strong>Open the live demo.</strong>
+              <p>A real chat turns a stuck sentence into one next move instead of an article.</p>
             </article>
             <article>
               <span class="pane-label">0:44-0:58</span>
@@ -792,63 +790,6 @@
               <p id="demo-unstuck">I am holding the three loops. Biology comes first because planning on empty is false data. Eat the smallest available food, then reply with one word: fed.</p>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section id="console" class="section review-panel console-section" aria-labelledby="console-title">
-        <div class="console-layout">
-          <div class="section-heading compact">
-            <p class="eyebrow">Runnable preview</p>
-            <h2 id="console-title">Type the stuck point. Watch the protocol choose a move.</h2>
-            <p>
-              This deterministic console previews the folder logic: state, friction,
-              one concrete action, and a tiny proof check.
-            </p>
-          </div>
-
-          <form class="coach-console" id="coach-console">
-            <div class="input-field">
-              <label for="coach-input">Current stuck point</label>
-              <textarea id="coach-input" rows="5">I need to pay the bill, eat something, and answer the text, but I am frozen.</textarea>
-              <p id="coach-helper">Use a real first sentence from your day, not a polished prompt.</p>
-            </div>
-            <div class="sample-row" aria-label="Sample stuck points">
-              <button type="button" class="sample-chip" data-sample="I need a coach to get started on this.">Get started</button>
-              <button type="button" class="sample-chip" data-sample="That message makes me feel like I did something wrong.">Message threat</button>
-              <button type="button" class="sample-chip" data-sample="My inbox and calendar are a mess and I do not know what is real.">Inbox/calendar</button>
-              <button type="button" class="sample-chip" data-sample="I need to shower, answer the text, find the form, and clean the kitchen.">Overload</button>
-              <button type="button" class="sample-chip" data-sample="brain dump: dentist at 3, bill overdue, dishes smell, email from Alex, no food, insurance form, buy soap">Brain dump</button>
-              <button type="button" class="sample-chip" data-sample="I need a dopamine menu before I can start this form.">Dopamine menu</button>
-              <button type="button" class="sample-chip" data-sample="idea: make a shutdown checklist for Sunday nights">Idea capture</button>
-            </div>
-            <button class="action primary console-submit" type="submit">
-              <span class="icon icon-path" aria-hidden="true"></span>
-              Coach this moment
-            </button>
-          </form>
-        </div>
-
-        <div class="console-output" aria-live="polite">
-          <article>
-            <span class="pane-label">State</span>
-            <strong id="console-state">Yellow</strong>
-            <p id="console-state-note">Working memory is saturated. The coach holds the list so the user does not have to.</p>
-          </article>
-          <article>
-            <span class="pane-label">Friction</span>
-            <strong id="console-friction">Working-memory overload</strong>
-            <p id="console-friction-note">Prioritizing inside the head is the failure mode.</p>
-          </article>
-          <article>
-            <span class="pane-label">First move</span>
-            <strong id="console-move">Externalize the loops.</strong>
-            <p id="console-move-note">Write each active loop as a rough line, then mark the one that creates the most relief at 10 percent done.</p>
-          </article>
-          <article>
-            <span class="pane-label">Proof check</span>
-            <strong id="console-check">One relief mark.</strong>
-            <p id="console-check-note">The output is a marked line, not a complete priority system.</p>
-          </article>
         </div>
       </section>
 

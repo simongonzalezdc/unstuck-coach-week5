@@ -1025,7 +1025,7 @@ const landingRequiredText = [
   "Read rules",
   "Cold start",
   "Product thesis",
-  "Try a stuck sentence",
+  "Open live demo",
   "Use the folder",
   "Read source proof",
   "First run",

@@ -220,7 +220,7 @@ Open `START_HERE.md` for the shortest path, `JUDGE_BRIEF.md` for the one-page ab
 
 Open `FIRST_RUN.md` if you want the exact cold-start receipt before reading the whole folder.
 
-Use the runnable console on the landing page to preview how the protocols turn a messy stuck point into state, friction, one move, and a proof check.
+Use the live demo button on the landing page to test a real GLM-backed stuck point. The protocol verifier remains in `scripts/verify-console-behavior.mjs` as proof of the routing logic.
 
 Open `docs/judge-walkthrough.md` for a longer evaluation path.
 
@@ -279,7 +279,7 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 
 ## Proof Artifacts
 
-- `landing/index.html` gives the visual product front door: whole-person hero, coaching routes, Claude Project launch kit, Codex/AI IDE/local-model setup paths, runnable coach console, live coaching demo, folder-method map, and readable source-proof links.
+- `landing/index.html` gives the visual product front door: whole-person hero, coaching routes, Claude Project launch kit, Codex/AI IDE/local-model setup paths, live coaching demo bridge, folder-method map, and readable source-proof links.
 - `robots.txt`, `sitemap.xml`, and `llms.txt` give the public repo a crawler, answer-engine, and generative-engine discovery layer once GitHub Pages is enabled.
 - `landing/assets/unstuck-coach-logo.png` gives the public brand mark used in the navigation and favicon.
 - `landing/assets/unstuck-admin-bridge.jpg` gives the admin-operations band a bitmap operating-map asset using the simplified PuenteWorks bridge/Mola visual language.
@@ -332,11 +332,11 @@ I have 25 minutes before I leave and think I can finish the whole pile.
 - `scripts/verify-first-reply-acceptance.mjs` checks that cold-test first replies name friction, give one move, ask for proof, and avoid generic advice patterns.
 - `scripts/verify-whole-person-tour.mjs` checks that the whole-person tour keeps six surfaces, pasteable prompts, proof checks, and immediate-fail signals.
 - `scripts/verify-mode-router.mjs` checks that the coach keeps five stance modes and rejects coding-only execution framing.
-- `scripts/verify-console-behavior.mjs` checks the runnable console's protocol classifications.
+- `scripts/verify-console-behavior.mjs` checks the proof-layer protocol classifications.
 - `scripts/verify-eval-coverage.mjs` checks red-face coverage and the research-to-behavior map.
 - `scripts/verify-admin-ops-playbooks.mjs` checks the calendar/inbox admin operations playbooks.
 - `scripts/judge-quick-proof.mjs` gives a publication-independent proof summary for the cold judge path, including original-Liam inbox/calendar behavior.
-- `scripts/verify-public-bundle.mjs` checks required files, landing proof/launch-kit text, local landing refs, public-safe text, submission copy, transcript completeness, and console behavior.
+- `scripts/verify-public-bundle.mjs` checks required files, landing proof/launch-kit text, local landing refs, public-safe text, submission copy, transcript completeness, and protocol behavior.
 - `scripts/verify-final-privacy-scan.mjs` gives the final post-link privacy pass a named command instead of leaving it as a manual grep ritual.
 - `scripts/verify-publication-ready.mjs` is the final posting gate after the public GitHub link is inserted; it rejects the old Week 3 repo and reruns the proof-layer checks, including source-note lineage, landing accessibility, whole-person tour coverage, and mode routing.
 - `scripts/verify-github-public-url.mjs` checks that the approved repository URL is visible through unauthenticated GitHub API access.
@@ -361,7 +361,7 @@ node scripts/verify-public-bundle.mjs
 node scripts/verify-final-privacy-scan.mjs
 ```
 
-The quick proof reports the cold-start path, first-reply gate, transcript evidence, whole-person tour, runnable console, stress evals, admin operations playbooks, source-notes lineage proof, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, concise judge brief, and fastest cold prompts without requiring the final public GitHub link. The bundle verifier checks required files, local landing-page links/assets, product thesis, source notes, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, judge brief, first-run receipt, first-reply scorecard, start-here prompt readiness, landing accessibility, landing copy controls, mode routing, Skool comment shape, synchronized submission surfaces, transcript completeness, whole-person tour coverage, first-reply acceptance, runnable console behavior, public-safe checklist text, emoji/symbol-range leakage, private provenance patterns, and the standalone final privacy scan. Before final publication it may warn that the GitHub link is still pending; after the public repo link is inserted, those warnings should be gone.
+The quick proof reports the cold-start path, first-reply gate, transcript evidence, whole-person tour, live-demo bridge, protocol behavior verifier, stress evals, admin operations playbooks, source-notes lineage proof, research-to-behavior proof, product thesis, ICM trace, judge FAQ, scorecard, concise judge brief, and fastest cold prompts without requiring the final public GitHub link. The bundle verifier checks required files, local landing-page links/assets, product thesis, source notes, Week 5 rules trace, ICM trace, pitch reel, record-ready reel page, judge FAQ, judge scorecard, judge brief, first-run receipt, first-reply scorecard, start-here prompt readiness, landing accessibility, landing copy controls, mode routing, Skool comment shape, synchronized submission surfaces, transcript completeness, whole-person tour coverage, first-reply acceptance, protocol behavior, public-safe checklist text, emoji/symbol-range leakage, private provenance patterns, and the standalone final privacy scan. Before final publication it may warn that the GitHub link is still pending; after the public repo link is inserted, those warnings should be gone.
 
 To prove the payload can stage into a separate clean repository folder, run:
 
