@@ -17,13 +17,13 @@ The live demo is a normal chat interface for trying the coach before setting up 
 Skool comment draft:
 
 ```text
-Unstuck Coach is a folder-based whole-person executive-function accessibility coach for people whose bottleneck is not intelligence or effort, but the moment life asks them to start, switch, remember, regulate, capture, recover, or close loops without shame. It is not an ADHD knowledge base or productivity extractor: it turns food, inboxes, calendars, bills, messages, re-entry, overload, and body-state needs into one humane concrete move with held context and tiny proof. The folder includes paste-ready Claude Project instructions, examples, boundaries, calendar and inbox playbooks, a whole-person tour, transcripts, stress tests, and readable evidence so the coach can be cold-tested from one messy stuck point.
+Unstuck Coach is a folder-based coach for people with executive-function friction who are staring at a real pile of tasks, messages, appointments, and life admin and cannot turn it into the next move. It does not teach productivity or ask the user to organize first; it accepts the messy pile, reads the user's current state, parks the extra context, and returns one humane action with a tiny proof check. The repo includes a live GLM demo, landing page, Claude Project instructions, examples, boundaries, inbox/calendar playbooks, transcripts, stress tests, and readable evidence so a judge can cold-test it from "I need a coach to get started on this."
 ```
 
 Landing-page version:
 
 ```text
-Unstuck Coach is a folder-based whole-person executive-function accessibility coach for people whose bottleneck is not intelligence or effort, but the moment life asks them to start, switch, remember, regulate, capture, recover, or close loops without shame. It is not an ADHD knowledge base or productivity extractor: it turns food, inboxes, calendars, bills, messages, re-entry, overload, and body-state needs into one humane concrete move with held context and tiny proof. The folder includes paste-ready Claude Project instructions, examples, boundaries, calendar and inbox playbooks, a whole-person tour, transcripts, stress tests, and readable evidence so the coach can be cold-tested from one messy stuck point.
+Unstuck Coach is a folder-based coach for people with executive-function friction who are staring at a real pile of tasks, messages, appointments, and life admin and cannot turn it into the next move. It does not teach productivity or ask the user to organize first; it accepts the messy pile, reads the user's current state, parks the extra context, and returns one humane action with a tiny proof check. The repo includes a live GLM demo, landing page, Claude Project instructions, examples, boundaries, inbox/calendar playbooks, transcripts, stress tests, and readable evidence so a judge can cold-test it from "I need a coach to get started on this."
 ```
 
 Optional shorter version:
