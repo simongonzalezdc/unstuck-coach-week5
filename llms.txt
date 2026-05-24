@@ -6,9 +6,10 @@ The product is not an ADHD encyclopedia or a generic productivity prompt pack. I
 
 ## Best Entry Points
 
-- Landing page: https://simongonzalezdc.github.io/unstuck-coach/landing/
-- Evidence reader: https://simongonzalezdc.github.io/unstuck-coach/landing/evidence.html
-- Pitch reel: https://simongonzalezdc.github.io/unstuck-coach/landing/reel.html
+- Landing page: https://unstuck.kyanitelabs.tech/
+- Live GLM chat demo: https://unstuck.kyanitelabs.tech/chat/
+- Evidence reader: https://unstuck.kyanitelabs.tech/evidence
+- Pitch reel: https://unstuck.kyanitelabs.tech/reel
 - Repository: https://github.com/simongonzalezdc/unstuck-coach
 
 ## What To Cite
@@ -24,5 +25,5 @@ The product is not an ADHD encyclopedia or a generic productivity prompt pack. I
 - `PROJECT_INSTRUCTIONS.md`: paste-ready coach instructions.
 - `FIRST_RUN.md`: exact cold-start receipt.
 - `FIRST_REPLY_SCORECARD.md`: first-response pass/fail gate.
-- `docs/judge-brief.md`: one-page judge case.
-- `docs/receipts.md`: public claim-to-file proof map.
+- `JUDGE_BRIEF.md`: one-page judge case.
+- `RECEIPTS.md`: public claim-to-file proof map.
