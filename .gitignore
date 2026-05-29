@@ -4,3 +4,11 @@ output/
 *.log
 .DS_Store
 .omx/
+__pycache__/
+*.py[cod]
+
+# Local environment and secret material
+.env
+.env.*
+*.pem
+*.key
